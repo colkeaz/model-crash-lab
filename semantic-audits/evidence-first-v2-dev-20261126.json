@@ -1,0 +1,414 @@
+{
+  "experiment": "evidence-first-v2 development comparison",
+  "run_id": "20261126T135939902519Z",
+  "graded_at": "2026-11-26",
+  "blinding": "Variants were graded from blind/sheet.json under opaque IDs before the sealed arm mapping was opened. Structural quote flags are scored separately.",
+  "completeness_rule": "All benchmark required claims must be covered; claims beyond the question are still required where the benchmark lists them.",
+  "annotations": [
+    {
+      "anonymous_id": "B01-A",
+      "case_id": "B01",
+      "trace_sha256": "23e8d6fb515e65b55a2f4d4f85ffd85bf7db42630de0b36a615adebed273754b",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": true,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "States the 25% (0.25) default for omitting both size parameters."
+    },
+    {
+      "anonymous_id": "B01-B",
+      "case_id": "B01",
+      "trace_sha256": "301fca2af399b070cff1f436cadd83724e6f45ea3e4e37c3820853517327f5c1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": true,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "States the 25% (0.25) default for omitting both size parameters."
+    },
+    {
+      "anonymous_id": "B05-A",
+      "case_id": "B05",
+      "trace_sha256": "372eb1bc08083db435c5b9703ab8ffad544da0cae90e3a031324b6553f3b6d4d",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": false,
+      "missing_claims": [
+        "Selecting on the full dataset lets validation-fold target values influence feature selection, producing overly optimistic scores."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Explains full-dataset leakage and pipeline cross-validation, but omits the optimistic-score/validation-target consequence."
+    },
+    {
+      "anonymous_id": "B05-B",
+      "case_id": "B05",
+      "trace_sha256": "493a8b4ec40d6be388ea953f1fa541958d79ddf95eb7d5a55395b8c5720c7c96",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": false,
+      "missing_claims": [
+        "Selecting on the full dataset lets validation-fold target values influence feature selection, producing overly optimistic scores."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Explains full-dataset leakage and pipeline cross-validation, but omits the optimistic-score/validation-target consequence."
+    },
+    {
+      "anonymous_id": "B11-A",
+      "case_id": "B11",
+      "trace_sha256": "977ded6f835658691f10d598a62d7ec6ab69bb7753680bb79040f776187de161",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "Set the named intermediate step to 'passthrough' or None."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": false,
+      "abstention_complete": false,
+      "missing_rubric_claims": [],
+      "notes": "False abstention: the Pipeline overview states a transformer is removed by setting it to 'passthrough' or None."
+    },
+    {
+      "anonymous_id": "B11-B",
+      "case_id": "B11",
+      "trace_sha256": "e5e8153e21f96348ee22adf629a2bd6a8cda639b0efb63b0520c2b82459f3749",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": true,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Grounded answer: set the step to 'passthrough' or None."
+    },
+    {
+      "anonymous_id": "B13-A",
+      "case_id": "B13",
+      "trace_sha256": "3ed18010a29a940a9e7335d9cda1d90272116230cbd5f0a1a4dd6e25c98eddff",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": false,
+      "missing_claims": [
+        "The caching parameter is memory.",
+        "It accepts a directory path or an object implementing the joblib.Memory interface."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Names the memory parameter but omits the accepted types the benchmark requires; not clean."
+    },
+    {
+      "anonymous_id": "B13-B",
+      "case_id": "B13",
+      "trace_sha256": "471d3d02951b93cbbeba4d2d5cbe3f6620b4053926347accae92b704a0d9ecdf",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "The caching parameter is memory.",
+        "It accepts a directory path or an object implementing the joblib.Memory interface."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": false,
+      "abstention_complete": false,
+      "missing_rubric_claims": [],
+      "notes": "False abstention: the memory parameter passage is rank 1."
+    },
+    {
+      "anonymous_id": "B17-A",
+      "case_id": "B17",
+      "trace_sha256": "9d807254dc0501238de0aab46e40c8988b4048da46a2c0241bc925ad266df5c6",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "No; all supplied arrays must have the same length or shape[0]."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": false,
+      "abstention_complete": false,
+      "missing_rubric_claims": [],
+      "notes": "False abstention: the *arrays rule states the same-length/shape[0] requirement at rank 1."
+    },
+    {
+      "anonymous_id": "B17-B",
+      "case_id": "B17",
+      "trace_sha256": "c34c4b7307acca0d10ac4443c3555b1f50831ab2cb948dab494048feee71a8ac",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": false,
+      "missing_claims": [
+        "No; all supplied arrays must have the same length or shape[0]."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Answers 'No' but does not state the matching-length requirement."
+    },
+    {
+      "anonymous_id": "B21-A",
+      "case_id": "B21",
+      "trace_sha256": "10bde6df16f59f03f1afd532334af908f10598bda1b820f9039d40f7fe6b693e",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": true,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "States that set_output configures the output container for transform and fit_transform, with the documented options."
+    },
+    {
+      "anonymous_id": "B21-B",
+      "case_id": "B21",
+      "trace_sha256": "9d18044064b21d7ebb32bcbd916ad634a84ac43626027220341591d4dbe2fbae",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "set_output configures the output container returned by transform and fit_transform."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": false,
+      "abstention_complete": false,
+      "missing_rubric_claims": [],
+      "notes": "False abstention: set_output overview is rank 1."
+    },
+    {
+      "anonymous_id": "B22-A",
+      "case_id": "B22",
+      "trace_sha256": "6b59296d200bf2a175be82c904e4c09338641315fbfe8b15e1199a666a1296bf",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "An int represents the absolute number of test samples.",
+        "A float represents the proportion of the dataset to include in the test split."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": false,
+      "abstention_complete": false,
+      "missing_rubric_claims": [],
+      "notes": "False abstention; the reason itself concedes the integer meaning is stated."
+    },
+    {
+      "anonymous_id": "B22-B",
+      "case_id": "B22",
+      "trace_sha256": "fa59218c7bb227c3482b70018e6af1a0a6e556caaa2de178bca7cff362a6df1e",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": true,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Contrasts int sample count with float proportion."
+    },
+    {
+      "anonymous_id": "B26-A",
+      "case_id": "B26",
+      "trace_sha256": "5d6d50a9d72fd808f1e2a4b45377b1b6a16ecb56242551fda80fd68085616bb3",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "Makes it easier to chain transformations with estimators.",
+        "Reduces the possibility of forgetting a transformation or prevents data leakage."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": true,
+      "abstention_complete": true,
+      "missing_rubric_claims": [],
+      "notes": "Appropriate abstention: the frozen passages do not list the requested practical advantages; the reason names that gap."
+    },
+    {
+      "anonymous_id": "B26-B",
+      "case_id": "B26",
+      "trace_sha256": "9bbfa421fc89c354061d0d3e7c8a200ac78fb15d0b72bb593ce98f3b8c0a5dfa",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": false,
+      "missing_claims": [
+        "Makes it easier to chain transformations with estimators.",
+        "Reduces the possibility of forgetting a transformation or prevents data leakage."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Claims are grounded but describe capabilities, not the requested practical advantages over manual transformations."
+    },
+    {
+      "anonymous_id": "B27-A",
+      "case_id": "B27",
+      "trace_sha256": "abb272baf19f0c36fe4a4a3087e23e0cedfdaca8b794483c232df0a376ea0eec",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": true,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Names np.random.mtrand._rand."
+    },
+    {
+      "anonymous_id": "B27-B",
+      "case_id": "B27",
+      "trace_sha256": "1c2a699f6c31d3c237d0ecacfa8b8c38e10da6c59d8e07728b4c552a37e47c48",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": true,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Names np.random.mtrand._rand."
+    },
+    {
+      "anonymous_id": "B28-A",
+      "case_id": "B28",
+      "trace_sha256": "0ed10ae0af37022b0bf9fec41f5632c1ad23fc8f6530b1cbc69a57aa4f48b188",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": true,
+      "claims_grounded": true,
+      "is_complete": false,
+      "missing_claims": [
+        "Feature selection was performed on the entire dataset before splitting."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Explains that selection saw test data, giving an unfair advantage and an optimistic score, but does not explicitly state selection used the entire dataset before splitting (historical rubric precedent)."
+    },
+    {
+      "anonymous_id": "B28-B",
+      "case_id": "B28",
+      "trace_sha256": "419237d60492b58a8941ef653b70299560245c3c8f2fce4c004f203ed3c84e85",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "Feature selection was performed on the entire dataset before splitting.",
+        "The feature selection step saw test data, producing an artificially optimistic accuracy score."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": false,
+      "abstention_complete": false,
+      "missing_rubric_claims": [],
+      "notes": "False abstention: the rank-1 passage explains the mechanism explicitly."
+    },
+    {
+      "anonymous_id": "B29-A",
+      "case_id": "B29",
+      "trace_sha256": "3bd051c9d1ac0e1160fd2ad789f114c8290effb106abc47a55149a22b090b875",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [],
+      "unsupported_claims": [],
+      "abstention_justified": true,
+      "abstention_complete": true,
+      "missing_rubric_claims": [],
+      "notes": "Names stratify_ratio, states the documentation lacks it, and invents no configuration. Matches the historical complete-abstention precedent."
+    },
+    {
+      "anonymous_id": "B29-B",
+      "case_id": "B29",
+      "trace_sha256": "ac9df4a63c33b0b3981cf9380bb5dc72293677f16298e9cb92677725f7ff9002",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": true,
+      "claims_grounded": false,
+      "is_complete": false,
+      "missing_claims": [
+        "Abstain from explaining or configuring stratify_ratio.",
+        "Explain that the train_test_split documentation does not document a stratify_ratio parameter."
+      ],
+      "unsupported_claims": [
+        "Describes the real stratify parameter instead of rejecting the fictitious stratify_ratio; no passage supports that substitution."
+      ],
+      "abstention_justified": null,
+      "abstention_complete": null,
+      "missing_rubric_claims": [],
+      "notes": "Answers the wrong premise without rejecting stratify_ratio."
+    },
+    {
+      "anonymous_id": "B30-A",
+      "case_id": "B30",
+      "trace_sha256": "38b7f62a4c7f46525a40b1896cf9cbb08b28dc399bcbcebb73bb9499fc152793",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "Runtime depends on the specific estimators and hardware; the documentation states no runtime."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": true,
+      "abstention_complete": false,
+      "missing_rubric_claims": [
+        "Discussion of hardware dependence, which the frozen passages do not address."
+      ],
+      "notes": "Declines a numeric runtime. Does not name the supported estimator dependencies; hardware is not addressed by the frozen passages."
+    },
+    {
+      "anonymous_id": "B30-B",
+      "case_id": "B30",
+      "trace_sha256": "404f911f4b1f4be53b6dc42790de1fded23a17f7961ac04971f2e5c8a4e62186",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "substantive_answer": false,
+      "claims_grounded": null,
+      "is_complete": false,
+      "missing_claims": [
+        "Runtime depends on the specific estimators and hardware; the documentation states no runtime."
+      ],
+      "unsupported_claims": [],
+      "abstention_justified": true,
+      "abstention_complete": false,
+      "missing_rubric_claims": [
+        "Discussion of hardware dependence, which the frozen passages do not address."
+      ],
+      "notes": "Declines a numeric runtime. Does not name the supported estimator dependencies; hardware is not addressed by the frozen passages."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "B28",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "6ec20a42be12726d6224687b9178a71493dcd12d9e05007a4a65afebba566cd6",
+  "sent_at": "2026-11-26T14:13:22.078781+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [],
+  "decision": "abstain",
+  "answer": "",
+  "abstention_reason": "Passages do not explicitly state why the classification model achieved high accuracy on random noise features. The first passage mentions that using all data for feature selection leads to high accuracy due to leakage, but does not specify the exact reason for the 76% accuracy.",
+  "input_tokens": 997,
+  "output_tokens": 78,
+  "elapsed_seconds": 29.216,
+  "received_at": "2026-11-26T14:13:51.294472+00:00",
+  "response_sha256": "af6d921a80c5521bd77e77191f181df0d7997c0adfc3400ffb24d4a6c32b5e37",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:13:51.2931437Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 29213266200,
+    "load_duration": 13484500,
+    "prompt_eval_count": 997,
+    "prompt_eval_duration": 19022280000,
+    "eval_count": 78,
+    "eval_duration": 10039095000
+  },
+  "reply": {
+    "evidence": [],
+    "decision": "abstain",
+    "answer": "",
+    "abstention_reason": "Passages do not explicitly state why the classification model achieved high accuracy on random noise features. The first passage mentions that using all data for feature selection leads to high accuracy due to leakage, but does not specify the exact reason for the 76% accuracy."
+  }
+}

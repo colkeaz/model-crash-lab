@@ -1,0 +1,17 @@
+{
+  "model": "qwen3:4b",
+  "created_at": "2026-11-26T14:06:10.8905288Z",
+  "message": {
+    "role": "assistant",
+    "content": "{\"evidence\": [], \"decision\": \"abstain\", \"answer\": \"\", \"abstention_reason\": \"Passages do not contain a direct quote specifying the parameter name for caching fitted transformers in Pipeline.\"}"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 24902808200,
+  "load_duration": 13763800,
+  "prompt_eval_count": 928,
+  "prompt_eval_cached_count": 4,
+  "prompt_eval_duration": 18747171000,
+  "eval_count": 45,
+  "eval_duration": 6027424000
+}

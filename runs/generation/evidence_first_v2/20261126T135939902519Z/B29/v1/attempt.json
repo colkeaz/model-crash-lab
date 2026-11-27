@@ -1,0 +1,47 @@
+{
+  "case_id": "B29",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "5a8f9792b7769f3947305eb2d70d20d9406a0cabf9ae181980dd09ed09a364e4",
+  "sent_at": "2026-11-26T14:15:05.504322+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [],
+  "decision": "abstain",
+  "answer": "",
+  "abstention_reason": "Passages do not contain information about the stratify_ratio parameter configuration in scikit-learn 1.7.2 train_test_split documentation.",
+  "input_tokens": 1461,
+  "output_tokens": 55,
+  "elapsed_seconds": 37.556,
+  "received_at": "2026-11-26T14:15:43.059985+00:00",
+  "response_sha256": "c74c724c83d0b0f93d45d982f38cfb320937ef57e0517c49b674445c44bb77a5",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:15:43.0587905Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 37529747700,
+    "load_duration": 11335800,
+    "prompt_eval_count": 1461,
+    "prompt_eval_duration": 29936879000,
+    "eval_count": 55,
+    "eval_duration": 7421026000
+  },
+  "reply": {
+    "evidence": [],
+    "decision": "abstain",
+    "answer": "",
+    "abstention_reason": "Passages do not contain information about the stratify_ratio parameter configuration in scikit-learn 1.7.2 train_test_split documentation."
+  }
+}

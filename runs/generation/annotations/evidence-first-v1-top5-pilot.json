@@ -1,0 +1,189 @@
+{
+  "annotation_version": "1",
+  "annotations": [
+    {
+      "case_id": "B01",
+      "trace_path": "runs/generation/20261107T092309633716Z/B01.json",
+      "trace_sha256": "492e8b26832429e9e1f920b47a0445b7d37a1b53ded67c1df5507b1676e9e7b9",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "pass",
+        "notes": "Direct, supported answer with valid default-fraction quotes.",
+        "abstention_supported": null
+      }
+    },
+    {
+      "case_id": "B02",
+      "trace_path": "runs/generation/20261107T092315692561Z/B02.json",
+      "trace_sha256": "756d426b25e67bdf6d782e1a66f2fad9cdbe0f9be0087eae345df194564a1e2a",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "pass",
+        "notes": "Directly supported by Pipeline > Overview quote.",
+        "abstention_supported": null
+      }
+    },
+    {
+      "case_id": "B03",
+      "trace_path": "runs/generation/20261107T092323152124Z/B03.json",
+      "trace_sha256": "5035a7c4246bafaa368e4a2486aa3ef0e96c4857b46e150e60d0f38ef0918a4d",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "pass",
+        "notes": "Grounded in general step__parameter syntax rule.",
+        "abstention_supported": null
+      }
+    },
+    {
+      "case_id": "B04",
+      "trace_path": "runs/generation/20261107T092331435232Z/B04.json",
+      "trace_sha256": "0d158deadf1db0d2be1625552c18b9a6388cd6ec645dbf9d6a3950397fbb6628",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Split first before fitting preprocessing.",
+            "Explicitly fit the pipeline only on training data."
+          ]
+        },
+        "verdict": "incomplete",
+        "notes": "Still omits the required split-before-fitting order and explicit training-only pipeline fitting. Extra retrieved guidance did not make the generated answer complete.",
+        "abstention_supported": null
+      }
+    },
+    {
+      "case_id": "B05",
+      "trace_path": "runs/generation/20261107T092340068070Z/B05.json",
+      "trace_sha256": "beccce2353542bf3f2a672693bd18310f14840cd118492553cfaff9ccfc99c56",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": false,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Explain the overly optimistic evaluation consequence and explicitly fit feature selection inside each cross-validation training fold."
+          ]
+        },
+        "abstention_supported": null,
+        "verdict": "invalid_output",
+        "notes": "The model attaches the real quote about cross-validation and hyper-parameter tuning to the wrong chunk. The quote exists in How to avoid data leakage, not the cited Data leakage during pre-processing chunk. Preserve the failed attempt; do not repair or replace its response."
+      }
+    },
+    {
+      "case_id": "B06",
+      "trace_path": "runs/generation/20261107T091251824537Z/B06.json",
+      "trace_sha256": "ec8af578b3d16df8152c347519917c5b775ccd970094fe14a473c3dd3f6ecd5c",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": false,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "abstention_supported": null,
+        "verdict": "unsupported_extrapolation",
+        "notes": "The core scaling mismatch and same-transformation explanation now have relevant retrieved support. The feature-selection quote is irrelevant to this question, and the additional claim that a fitted Pipeline prevents data leakage is too broad without training-only fitting. Under the existing no-material-unsupported-claims rubric this is not a clean grounded pass, despite core-answer recovery."
+      }
+    },
+    {
+      "case_id": "B07",
+      "trace_path": "runs/generation/20261107T092856530298Z/B07.json",
+      "trace_sha256": "d85d40366c959029687402d8dde1be90f6132eba6aab6358b08f668b06c60840",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": false,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "unsupported_extrapolation",
+        "notes": "The answer covers the required integer-seed recommendation and recognizes train_test_split. Its general randomness quotes do not establish that this function exposes random_state, so grounding fails separately from completeness.",
+        "abstention_supported": null
+      }
+    },
+    {
+      "case_id": "B08",
+      "trace_path": "runs/generation/20261107T092902997597Z/B08.json",
+      "trace_sha256": "a9bbb7ddcb84b141ac0742a86b90b9635592cd882d1ac086bec55b00b07cd242",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "pass",
+        "notes": "Correctly interprets the misspelled options, rejects shuffle=False with stratify=y, and states that stratify must be None. Both quoted passages are supplied and attributed correctly.",
+        "abstention_supported": null
+      }
+    },
+    {
+      "case_id": "B09",
+      "trace_path": "runs/generation/20261107T092910934582Z/B09.json",
+      "trace_sha256": "961ca223fb89c685f3e36f1431fbacbc572d88a1975c248a680ce79247fc47b3",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": false,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Abstain from predicting unpublished dataset accuracy and explain that actual experiment evidence is missing."
+          ]
+        },
+        "abstention_supported": null,
+        "verdict": "unsupported_answer",
+        "notes": "Regression from the top-three abstention. The 0.5 accuracy is from a synthetic documentation experiment and cannot establish the result on the user's unpublished dataset. Quotes are genuine but do not support this answer."
+      }
+    },
+    {
+      "case_id": "B10",
+      "trace_path": "runs/generation/20261107T092919544647Z/B10.json",
+      "trace_sha256": "9087de9a4ab1eae62be64fd72577408e7c0fb5f388610b1e23729f3952b32835",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": null,
+        "verdict": "appropriate_abstention",
+        "notes": "Appropriately abstains because the retrieved evidence cannot establish a parameter setting. It does not establish from these passages that leakage_guard is nonexistent.",
+        "abstention_supported": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "annotation_version": "1",
+  "annotations": [
+    {
+      "case_id": "B11",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B11.json",
+      "trace_sha256": "992f6ec6b6b95555d4814f5792afc1b4c9998fba1d06256b750c58d58d55bf8c",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "pass",
+        "notes": "Grounded answer: 'passthrough' or None.",
+        "abstention_supported": false
+      }
+    },
+    {
+      "case_id": "B12",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B12.json",
+      "trace_sha256": "c14d1f1c4a0fc1377d1338f1dbcd2b52b5f150778313eb0577063e925b8f1f35",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "pass",
+        "notes": "Directly supported: scipy.sparse.csr_matrix.",
+        "abstention_supported": false
+      }
+    },
+    {
+      "case_id": "B13",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B13.json",
+      "trace_sha256": "25f39eec6c5394eef107698810268d4e9cfdb37e2ce6830472ccfd5197a06304",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "memory parameter and accepted types"
+          ]
+        },
+        "verdict": "unnecessary_abstention",
+        "notes": "Evidence-use failure: memory parameter was present at Rank 1.",
+        "abstention_supported": false
+      }
+    },
+    {
+      "case_id": "B14",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B14.json",
+      "trace_sha256": "7824b9554f9b8e52757c7e9b2a00b5bf4824d2963cf92cbbd301e9251105fe24",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "named_steps attribute"
+          ]
+        },
+        "verdict": "appropriate_abstention",
+        "notes": "Appropriately abstains; named_steps absent from top-3.",
+        "abstention_supported": true
+      }
+    },
+    {
+      "case_id": "B15",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B15.json",
+      "trace_sha256": "e295350053f09a37c0af3a365e25fd2e718cfff3911fe29a70cffed3efc2851e",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "mutation and reset explanations"
+          ]
+        },
+        "verdict": "unnecessary_abstention",
+        "notes": "Evidence-use failure: S3 11.3.1.1 was present at Rank 2.",
+        "abstention_supported": false
+      }
+    },
+    {
+      "case_id": "B16",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B16.json",
+      "trace_sha256": "dd2c3274a7d9fbc2a4a513e90199b488f0897b939e88925af61f8cf5a19cca5b",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "protocol_mismatch",
+        "notes": "Answers shared-RNG mechanism, but quote 1 failed normalized match.",
+        "abstention_supported": false
+      }
+    },
+    {
+      "case_id": "B17",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B17.json",
+      "trace_sha256": "4502793b1e98484638e396fa7c8e11f3a4f2635600fe34f213926811cbf8bc71",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "same length / shape[0] rule"
+          ]
+        },
+        "verdict": "unnecessary_abstention",
+        "notes": "Evidence-use failure: S1 *arrays rule was Rank 1 in both branches.",
+        "abstention_supported": false
+      }
+    },
+    {
+      "case_id": "B18",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B18.json",
+      "trace_sha256": "c45463d4b79a76d478d33887284ef3910152ca2ed5780bcfb5e84cf25dc50a69",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "training-only normalization statistics"
+          ]
+        },
+        "verdict": "unnecessary_abstention",
+        "notes": "Evidence-use failure: S3 11.2 was Rank 1; model failed to apply rule to std-dev.",
+        "abstention_supported": false
+      }
+    },
+    {
+      "case_id": "B19",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B19.json",
+      "trace_sha256": "1d625cbe0011e850f83f415124daf6130864f0f246a3e8406c665e54c9906dd1",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": true,
+          "missing_claims": []
+        },
+        "verdict": "appropriate_abstention",
+        "notes": "Correctly refuses to invent parameters for undocumented auto_scale().",
+        "abstention_supported": true
+      }
+    },
+    {
+      "case_id": "B20",
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B20.json",
+      "trace_sha256": "edbcf0c44f44681642dc9d9fd4dc58fda2388e3de6db6669be8b337a435f77b6",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "provenance": "Independent audit (independent_audit.md) for paired extension run.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "estimator-RNG tuning caution"
+          ]
+        },
+        "verdict": "partially_complete_abstention",
+        "notes": "Refuses to name an optimal seed, but omits required hyperparameter tuning caution.",
+        "abstention_supported": true
+      }
+    }
+  ]
+}

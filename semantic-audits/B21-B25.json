@@ -1,0 +1,252 @@
+[
+  {
+    "case_id": "B21",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B21.json",
+    "trace_sha256": "FB98F406EE8B8981C5D5F3A70B591DF3D4F8D6111DE6EF4B87692CFB3C5417E7",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "set_output configures the output container returned by transform and fit_transform.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; required claim was omitted entirely."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Rank-1 chunk sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9 contains the exact required fact ('Set the output container when \"transform\" and \"fit_transform\" are called.'), yet the model nevertheless claimed the passages do not contain information about what Pipeline.set_output() configures."
+    }
+  },
+  {
+    "case_id": "B21",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B21.json",
+    "trace_sha256": "AE79DD1B4902E5E250C702F8D0AE351937D52044E811DFE9AFBC94F2FC9E338E",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "set_output configures the output container returned by transform and fit_transform.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; required claim was omitted entirely."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Additional retrieved passages at k=5 did not alter this outcome. Rank-1 chunk sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9 still contains the exact required fact, yet the model persisted in claiming the information was missing."
+    }
+  },
+  {
+    "case_id": "B22",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B22.json",
+    "trace_sha256": "7199F0F66EE3FD82DA9F14F8D714A86AA8FE8BD039CD90B22705D05B8C10B4B2",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "An int represents the absolute number of test samples.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; claim omitted."
+        },
+        {
+          "claim": "A float represents the proportion of the dataset to include in the test split.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; claim omitted."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Chunk sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465 explicitly contains both required facts: 'If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples.' The model's abstention reason is contradictory, acknowledging that the passages mention it represents the absolute number of test samples while asserting they do not explicitly state it."
+    }
+  },
+  {
+    "case_id": "B22",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B22.json",
+    "trace_sha256": "C9F8E7ED27FA2BFEC5126B9B43B3C4217FF0D918AFBFE5F2F670F5A5804D1D1A",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "answer",
+      "required_claims": [
+        {
+          "claim": "An int represents the absolute number of test samples.",
+          "status": "supported",
+          "note": "Directly answered ('represents the absolute number of test samples') and supported by verbatim quote from chunk sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465."
+        },
+        {
+          "claim": "A float represents the proportion of the dataset to include in the test split.",
+          "status": "missing",
+          "note": "Omitted the required distinction for float ('as opposed to a float') despite it being present in chunk sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465."
+        }
+      ],
+      "claims_grounded": true,
+      "abstention_supported": null,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "Incomplete answer with extraneous citation. The model flipped from abstain (k=3) to answer (k=5). It correctly answered what an integer represents in test_size, but completely omitted the required contrast with float ('as opposed to a float' representing the proportion between 0.0 and 1.0) present in chunk sha256:30271193... and required by the benchmark rubric. While both cited quotes occur verbatim in their supplied chunks and the single claim made is grounded (claims_grounded: true), the second quote ('If int, represents the absolute number of train samples.' from chunk sha256:92e248e7...) is extraneous and concerns train_size rather than the asked-about test_size."
+    }
+  },
+  {
+    "case_id": "B23",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B23.json",
+    "trace_sha256": "8E090E4F082454C7B0F7C30CD34733D1B024ED8D228A8C399DBA4F24E678D8A5",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Applies inverse_transform in reverse order through the transformers in the pipeline.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; required claim was omitted entirely."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Chunk sha256:6a872287d8930df8a672ef8bd64b0343c22d99d4f365d9d9600991f3c4d4e6b9 (Pipeline > inverse_transform > Overview) directly states the operation: 'Apply inverse_transform for each step in a reverse order.' The model falsely claimed the passages describe parameters and returns but do not explicitly state what operation it performs."
+    }
+  },
+  {
+    "case_id": "B23",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B23.json",
+    "trace_sha256": "74329BAD0895EF3372A2620A79CA5027E7DFA9543AFDBB53C153DA9491B1D527",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Applies inverse_transform in reverse order through the transformers in the pipeline.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; required claim was omitted entirely."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Additional passages at k=5 did not resolve the false abstention. Chunk sha256:6a872287d8930df8a672ef8bd64b0343c22d99d4f365d9d9600991f3c4d4e6b9 was still at Rank 1 and explicitly states 'Apply inverse_transform for each step in a reverse order.' The model again erroneously asserted that the core operation is not described."
+    }
+  },
+  {
+    "case_id": "B24",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B24.json",
+    "trace_sha256": "2CFB3A60E6733331D8068D4BCC3B8B6C5F493CFF36BF9882A13518ED8F6FEA4E",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "answer",
+      "required_claims": [
+        {
+          "claim": "Calling split multiple times consumes and mutates the RandomState instance.",
+          "status": "missing",
+          "note": "Model repeats surface text about exploring 'sources of entropy' rather than identifying the underlying mechanism: that RandomState is consumed/mutated."
+        },
+        {
+          "claim": "Subsequent calls use the mutated state and thus produce different data splits.",
+          "status": "missing",
+          "note": "Omits explanation of subsequent calls operating on mutated RNG state."
+        }
+      ],
+      "claims_grounded": true,
+      "abstention_supported": null,
+      "protocol_valid": false,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": false,
+      "notes": "Incomplete answer and quote length violation. While answerable from documentation synthesis, in k=3 the specific passage explaining RNG mutation was not retrieved. The model attempted an answer using chunk sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015, repeating that calls explore 'sources of entropy' without explaining the mutation/consumption mechanism. The answer misses both required claims under the rubric. Protocol validity: protocol_valid is marked false because prompt-instruction compliance strictly requires quotes 'under 30 words each', and Quote 2 contains exactly 30 words (quote_length_instruction_valid: false). Separately, the response format and verbatim passage occurrence checks succeed (response_schema_and_quote_occurrence_valid: true)."
+    }
+  },
+  {
+    "case_id": "B24",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B24.json",
+    "trace_sha256": "E3E0BD4869A6F91C1E665D01B55478C8AE4FCED8663BBCBA62FC8B21F3F4D75B",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "answer",
+      "required_claims": [
+        {
+          "claim": "Calling split multiple times consumes and mutates the RandomState instance.",
+          "status": "missing",
+          "note": "Despite chunk sha256:73aaf267250e56e26d414ab174b8049389d500406b432120d22948485903982e discussing that calling a.fit consumes RNG, the model did not cite it or explain that split consumes/mutates RandomState."
+        },
+        {
+          "claim": "Subsequent calls use the mutated state and thus produce different data splits.",
+          "status": "missing",
+          "note": "Vaguely claims it 'explores new random states' rather than explaining subsequent calls use the mutated RNG state."
+        }
+      ],
+      "claims_grounded": true,
+      "abstention_supported": null,
+      "protocol_valid": false,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": false,
+      "notes": "Incomplete answer and quote length violation. At k=5, Rank-4 chunk sha256:73aaf267250e56e26d414ab174b8049389d500406b432120d22948485903982e discusses estimator fit consuming shared RNG instances ('calling a.fit will consume b's RNG...'), which could support reasoning by analogy about RNG consumption, but does not directly state that calling CV splitter split consumes the RNG. Regardless, the model cited neither this passage nor any mechanism of RNG consumption/mutation, reusing the same 3 quotes as k=3 and failing both required claims under the rubric. Protocol validity: protocol_valid is marked false because prompt-instruction compliance strictly requires quotes 'under 30 words each', and Quote 2 contains exactly 30 words (quote_length_instruction_valid: false). Separately, the response format and verbatim passage occurrence checks succeed (response_schema_and_quote_occurrence_valid: true)."
+    }
+  },
+  {
+    "case_id": "B25",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B25.json",
+    "trace_sha256": "4FC9C841A4C8C2D0FB28D2D7766D505EF760162417CF038AEFB4268B8C998888",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "The parameter key must be prefixed as s__p.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; required claim was omitted entirely."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Both chunk sha256:d4399c38e30b1b52542af95d02ad5ca2cd5c00132ca77d6987e5fb87416d7fbb (Rank 1) and chunk sha256:9182d71f85334e9218dda6f364c9e69998f3edf2b2095c793855ba2b72e55b76 (Rank 2) explicitly state: 'If enable_metadata_routing=False (default): Parameters passed to the fit method of each step, where each parameter name is prefixed such that parameter p for step s has key s__p .' The model hallucinated that this information was missing."
+    }
+  },
+  {
+    "case_id": "B25",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B25.json",
+    "trace_sha256": "BA5BCB3003C05C7DF0C7568BF7FE3AA7685FDEBA12DC86398A5EC2AA892BB87E",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "The parameter key must be prefixed as s__p.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; required claim was omitted entirely."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Additional passages at k=5 did not fix the error; the model lists all the method names it saw in the retrieved chunks, but bizarrely claims the key prefix is missing, even though chunk sha256:d4399c38... and chunk sha256:9182d71f... explicitly give 'key s__p'."
+    }
+  }
+]

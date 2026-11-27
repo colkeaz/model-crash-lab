@@ -1,0 +1,17 @@
+{
+  "batch_id": "evidence-first-v1-top5-b06",
+  "benchmark_path": "benchmarks/pilot.json",
+  "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+  "top_k": 5,
+  "case_ids": [
+    "B06"
+  ],
+  "traces": [
+    {
+      "case_id": "B06",
+      "trace_path": "runs/generation/20261107T091251824537Z/B06.json",
+      "trace_sha256": "ec8af578b3d16df8152c347519917c5b775ccd970094fe14a473c3dd3f6ecd5c"
+    }
+  ],
+  "protocol_signature": "1c42bbcce79100c1409585e0a01c66a3f6925fab5a098cfe06220a87097ce4fc"
+}

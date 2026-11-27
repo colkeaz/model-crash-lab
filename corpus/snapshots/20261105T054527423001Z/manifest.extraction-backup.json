@@ -1,0 +1,27 @@
+{
+  "snapshot_id": "20261105T054527423001Z",
+  "extractor_version": "1",
+  "sources": [
+    {
+      "source_id": "S1",
+      "source_url": "https://scikit-learn.org/1.7/modules/generated/sklearn.model_selection.train_test_split.html",
+      "raw_sha256": "addde7579cee7a19edfdd8f7f3de2c3ba884c141beff6c0a051b81643942b0e6",
+      "file": "S1.txt",
+      "sha256": "1213e14917f46b3140df2727519acdddfdfd65291e550165b0471e277504256d"
+    },
+    {
+      "source_id": "S2",
+      "source_url": "https://scikit-learn.org/1.7/modules/generated/sklearn.pipeline.Pipeline.html",
+      "raw_sha256": "58a9aa8c082ad71a67af41baba70de87117a6cd72d750506b4a30d421f2fc2ac",
+      "file": "S2.txt",
+      "sha256": "98033392e72d1a3c1835fd0906d405fe7f83cd84f865546b4d10697ff298dd1b"
+    },
+    {
+      "source_id": "S3",
+      "source_url": "https://scikit-learn.org/1.7/common_pitfalls.html",
+      "raw_sha256": "d565b1ef30e88ce406c27d28a02bc5a61af28cd65f2c6959676dbfb3509f807b",
+      "file": "S3.txt",
+      "sha256": "3fdebb4724aea0dad7752d24c02283a7de7919ff93bb6108ffe5a2258a138f22"
+    }
+  ]
+}

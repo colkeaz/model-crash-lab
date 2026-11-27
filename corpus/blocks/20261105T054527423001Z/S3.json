@@ -1,0 +1,1005 @@
+{
+  "parser_version": "1",
+  "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+  "source_id": "S3",
+  "raw_sha256": "d565b1ef30e88ce406c27d28a02bc5a61af28cd65f2c6959676dbfb3509f807b",
+  "blocks": [
+    {
+      "source_id": "S3",
+      "anchor": "common-pitfalls-and-recommended-practices",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices"
+      ],
+      "block_type": "paragraph",
+      "text": "The purpose of this chapter is to illustrate some common pitfalls and anti-patterns that occur when using scikit-learn. It provides examples of what not to do, along with a corresponding correct example."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "scikit-learn provides a library of Dataset transformations , which may clean (see Preprocessing data ), reduce (see Unsupervised dimensionality reduction ), expand (see Kernel Approximation ) or generate (see Feature extraction ) feature representations. If these data transforms are used when training a model, they also must be used on subsequent datasets, whether it’s test data or data in a production system. Otherwise, the feature space will change, and the model will not be able to perform effectively."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "For the following example, let’s create a synthetic dataset with a single feature:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.datasets import make_regression\n>>> from sklearn.model_selection import train_test_split\n\n>>> random_state = 42\n>>> X, y = make_regression(random_state=random_state, n_features=1, noise=1)\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.4, random_state=random_state)"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "Wrong"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "The train dataset is scaled, but not the test dataset, so model performance on the test dataset is worse than expected:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.metrics import mean_squared_error\n>>> from sklearn.linear_model import LinearRegression\n>>> from sklearn.preprocessing import StandardScaler\n\n>>> scaler = StandardScaler()\n>>> X_train_transformed = scaler.fit_transform(X_train)\n>>> model = LinearRegression().fit(X_train_transformed, y_train)\n>>> mean_squared_error(y_test, model.predict(X_test))\n62.80..."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "Right"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "Instead of passing the non-transformed X_test to predict , we should transform the test data, the same way we transformed the training data:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "code",
+      "text": ">>> X_test_transformed = scaler.transform(X_test)\n>>> mean_squared_error(y_test, model.predict(X_test_transformed))\n0.90..."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "Alternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.pipeline import make_pipeline\n\n>>> model = make_pipeline(StandardScaler(), LinearRegression())\n>>> model.fit(X_train, y_train)\nPipeline(steps=[('standardscaler', StandardScaler()),\n                ('linearregression', LinearRegression())])\n>>> mean_squared_error(y_test, model.predict(X_test))\n0.90..."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "inconsistent-preprocessing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.1. Inconsistent preprocessing"
+      ],
+      "block_type": "paragraph",
+      "text": "Pipelines also help avoiding another common pitfall: leaking the test data into the training data."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "Data leakage occurs when information that would not be available at prediction time is used when building the model. This results in overly optimistic performance estimates, for example from cross-validation , and thus poorer performance when the model is used on actually novel data, for example during production."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "A common cause is not keeping the test and train data subsets separate. Test data should never be used to make choices about the model. The general rule is to never call fit on the test data . While this may sound obvious, this is easy to miss in some cases, for example when applying certain pre-processing steps."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "Although both train and test data subsets should receive the same preprocessing transformation (as described in the previous section), it is important that these transformations are only learnt from the training data. For example, if you have a normalization step where you divide by the average value, the average should be the average of the train subset, not the average of all the data. If the test subset is included in the average calculation, information from the test subset is influencing the model."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "how-to-avoid-data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.1. How to avoid data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "Below are some tips on avoiding data leakage:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "how-to-avoid-data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.1. How to avoid data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "Always split the data into train and test subsets first, particularly before any preprocessing steps."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "how-to-avoid-data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.1. How to avoid data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "Never include test data when using the fit and fit_transform methods. Using all the data, e.g., fit(X) , can result in overly optimistic scores."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "how-to-avoid-data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.1. How to avoid data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "Conversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data. This can be achieved by using fit_transform on the train subset and transform on the test subset."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "how-to-avoid-data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.1. How to avoid data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "how-to-avoid-data-leakage",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.1. How to avoid data leakage"
+      ],
+      "block_type": "paragraph",
+      "text": "An example of data leakage during preprocessing is detailed below."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "Note"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "We here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA ."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "A number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "To demonstrate we will create this binary classification problem with 10,000 randomly generated features:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "code",
+      "text": ">>> import numpy as np\n>>> n_samples, n_features, n_classes = 200, 10000, 2\n>>> rng = np.random.RandomState(42)\n>>> X = rng.standard_normal((n_samples, n_features))\n>>> y = rng.choice(n_classes, n_samples)"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "Wrong"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.model_selection import train_test_split\n>>> from sklearn.feature_selection import SelectKBest\n>>> from sklearn.ensemble import HistGradientBoostingClassifier\n>>> from sklearn.metrics import accuracy_score\n\n>>> # Incorrect preprocessing: the entire data is transformed\n>>> X_selected = SelectKBest(k=25).fit_transform(X, y)\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X_selected, y, random_state=42)\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\n>>> gbc.fit(X_train, y_train)\nHistGradientBoostingClassifier(random_state=1)\n\n>>> y_pred = gbc.predict(X_test)\n>>> accuracy_score(y_test, y_pred)\n0.76"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "Right"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "To prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset. The score is now what we would expect for the data, close to chance:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "code",
+      "text": ">>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, random_state=42)\n>>> select = SelectKBest(k=25)\n>>> X_train_selected = select.fit_transform(X_train, y_train)\n\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\n>>> gbc.fit(X_train_selected, y_train)\nHistGradientBoostingClassifier(random_state=1)\n\n>>> X_test_selected = select.transform(X_test)\n>>> y_pred = gbc.predict(X_test_selected)\n>>> accuracy_score(y_test, y_pred)\n0.5"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "Here again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.pipeline import make_pipeline\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, random_state=42)\n>>> pipeline = make_pipeline(SelectKBest(k=25),\n...                          HistGradientBoostingClassifier(random_state=1))\n>>> pipeline.fit(X_train, y_train)\nPipeline(steps=[('selectkbest', SelectKBest(k=25)),\n                ('histgradientboostingclassifier',\n                 HistGradientBoostingClassifier(random_state=1))])\n\n>>> y_pred = pipeline.predict(X_test)\n>>> accuracy_score(y_test, y_pred)\n0.5"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "paragraph",
+      "text": "The pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "data-leakage-during-pre-processing",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.2. Data leakage",
+        "11.2.2. Data leakage during pre-processing"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.model_selection import cross_val_score\n>>> scores = cross_val_score(pipeline, X, y)\n>>> print(f\"Mean accuracy: {scores.mean():.2f}+/-{scores.std():.2f}\")\nMean accuracy: 0.43+/-0.05"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "controlling-randomness",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness"
+      ],
+      "block_type": "paragraph",
+      "text": "Some scikit-learn objects are inherently random. These are usually estimators (e.g. RandomForestClassifier ) and cross-validation splitters (e.g. KFold ). The randomness of these objects is controlled via their random_state parameter, as described in the Glossary . This section expands on the glossary entry, and describes good practices and common pitfalls w.r.t. this subtle parameter."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "controlling-randomness",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness"
+      ],
+      "block_type": "paragraph",
+      "text": "Note"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "controlling-randomness",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness"
+      ],
+      "block_type": "paragraph",
+      "text": "Recommendation summary"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "controlling-randomness",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness"
+      ],
+      "block_type": "paragraph",
+      "text": "For an optimal robustness of cross-validation (CV) results, pass RandomState instances when creating estimators, or leave random_state to None . Passing integers to CV splitters is usually the safest option and is preferable; passing RandomState instances to splitters may sometimes be useful to achieve very specific use-cases. For both estimators and splitters, passing an integer vs passing an instance (or None ) leads to subtle but significant differences, especially for CV procedures. These differences are important to understand when reporting results."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "controlling-randomness",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness"
+      ],
+      "block_type": "paragraph",
+      "text": "For reproducible results across executions, remove any use of random_state=None ."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split"
+      ],
+      "block_type": "paragraph",
+      "text": "The random_state parameter determines whether multiple calls to fit (for estimators) or to split (for CV splitters) will produce the same results, according to these rules:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split"
+      ],
+      "block_type": "paragraph",
+      "text": "If an integer is passed, calling fit or split multiple times always yields the same results."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split"
+      ],
+      "block_type": "paragraph",
+      "text": "If None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy. None is the default value for all random_state parameters."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split"
+      ],
+      "block_type": "paragraph",
+      "text": "We here illustrate these rules for both estimators and CV splitters."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split"
+      ],
+      "block_type": "paragraph",
+      "text": "Note"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split"
+      ],
+      "block_type": "paragraph",
+      "text": "Since passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here. Everything that applies to instances also applies to using None ."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "estimators",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+        "11.3.1.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Passing instances means that calling fit multiple times will not yield the same results, even if the estimator is fitted on the same data and with the same hyper-parameters:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "estimators",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+        "11.3.1.1. Estimators"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.linear_model import SGDClassifier\n>>> from sklearn.datasets import make_classification\n>>> import numpy as np\n\n>>> rng = np.random.RandomState(0)\n>>> X, y = make_classification(n_features=5, random_state=rng)\n>>> sgd = SGDClassifier(random_state=rng)\n\n>>> sgd.fit(X, y).coef_\narray([[ 8.85418642,  4.79084103, -3.13077794,  8.11915045, -0.56479934]])\n\n>>> sgd.fit(X, y).coef_\narray([[ 6.70814003,  5.25291366, -7.55212743,  5.18197458,  1.37845099]])"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "estimators",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+        "11.3.1.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "We can see from the snippet above that repeatedly calling sgd.fit has produced different models, even if the data was the same. This is because the Random Number Generator (RNG) of the estimator is consumed (i.e. mutated) when fit is called, and this mutated RNG will be used in the subsequent calls to fit . In addition, the rng object is shared across all objects that use it, and as a consequence, these objects become somewhat inter-dependent. For example, two estimators that share the same RandomState instance will influence each other, as we will see later when we discuss cloning. This point is important to keep in mind when debugging."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "estimators",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+        "11.3.1.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "If we had passed an integer to the random_state parameter of the SGDClassifier , we would have obtained the same models, and thus the same scores each time. When we pass an integer, the same RNG is used across all calls to fit . What internally happens is that even though the RNG is consumed when fit is called, it is always reset to its original state at the beginning of fit ."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "cv-splitters",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+        "11.3.1.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "Randomized CV splitters have a similar behavior when a RandomState instance is passed; calling split multiple times yields different data splits:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "cv-splitters",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+        "11.3.1.2. CV splitters"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.model_selection import KFold\n>>> import numpy as np\n\n>>> X = y = np.arange(10)\n>>> rng = np.random.RandomState(0)\n>>> cv = KFold(n_splits=2, shuffle=True, random_state=rng)\n\n>>> for train, test in cv.split(X, y):\n...     print(train, test)\n[0 3 5 6 7] [1 2 4 8 9]\n[1 2 4 8 9] [0 3 5 6 7]\n\n>>> for train, test in cv.split(X, y):\n...     print(train, test)\n[0 4 6 7 8] [1 2 3 5 9]\n[1 2 3 5 9] [0 4 6 7 8]"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "cv-splitters",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+        "11.3.1.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "We can see that the splits are different from the second time split is called. This may lead to unexpected results if you compare the performance of multiple estimators by calling split many times, as we will see in the next section."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "common-pitfalls-and-subtleties",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties"
+      ],
+      "block_type": "paragraph",
+      "text": "While the rules that govern the random_state parameter are seemingly simple, they do however have some subtle implications. In some cases, this can even lead to wrong conclusions."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Different random_state types lead to different cross-validation procedures"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Depending on the type of the random_state parameter, estimators will behave differently, especially in cross-validation procedures. Consider the following snippet:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.ensemble import RandomForestClassifier\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import cross_val_score\n>>> import numpy as np\n\n>>> X, y = make_classification(random_state=0)\n\n>>> rf_123 = RandomForestClassifier(random_state=123)\n>>> cross_val_score(rf_123, X, y)\narray([0.85, 0.95, 0.95, 0.9 , 0.9 ])\n\n>>> rf_inst = RandomForestClassifier(random_state=np.random.RandomState(0))\n>>> cross_val_score(rf_inst, X, y)\narray([0.9 , 0.95, 0.95, 0.9 , 0.9 ])"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "We see that the cross-validated scores of rf_123 and rf_inst are different, as should be expected since we didn’t pass the same random_state parameter. However, the difference between these scores is more subtle than it looks, and the cross-validation procedures that were performed by cross_val_score significantly differ in each case :"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Since rf_123 was passed an integer, every call to fit uses the same RNG: this means that all random characteristics of the random forest estimator will be the same for each of the 5 folds of the CV procedure. In particular, the (randomly chosen) subset of features of the estimator will be the same across all folds."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Since rf_inst was passed a RandomState instance, each call to fit starts from a different RNG. As a result, the random subset of features will be different for each fold."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "While having a constant estimator RNG across folds isn’t inherently wrong, we usually want CV results that are robust w.r.t. the estimator’s randomness. As a result, passing an instance instead of an integer may be preferable, since it will allow the estimator RNG to vary for each fold."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Note"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Here, cross_val_score will use a non-randomized CV splitter (as is the default), so both estimators will be evaluated on the same splits. This section is not about variability in the splits. Also, whether we pass an integer or an instance to make_classification isn’t relevant for our illustration purpose: what matters is what we pass to the RandomForestClassifier estimator."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Another subtle side effect of passing RandomState instances is how clone will work:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn import clone\n>>> from sklearn.ensemble import RandomForestClassifier\n>>> import numpy as np\n\n>>> rng = np.random.RandomState(0)\n>>> a = RandomForestClassifier(random_state=rng)\n>>> b = clone(a)"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Since a RandomState instance was passed to a , a and b are not clones in the strict sense, but rather clones in the statistical sense: a and b will still be different models, even when calling fit(X, y) on the same data. Moreover, a and b will influence each other since they share the same internal RNG: calling a.fit will consume b ’s RNG, and calling b.fit will consume a ’s RNG, since they are the same. This bit is true for any estimators that share a random_state parameter; it is not specific to clones."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "If an integer were passed, a and b would be exact clones and they would not influence each other."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Warning"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id2",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.1. Estimators"
+      ],
+      "block_type": "paragraph",
+      "text": "Even though clone is rarely used in user code, it is called pervasively throughout scikit-learn codebase: in particular, most meta-estimators that accept non-fitted estimators call clone internally ( GridSearchCV , StackingClassifier , CalibratedClassifierCV , etc.)."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "When passed a RandomState instance, CV splitters yield different splits each time split is called. When comparing different estimators, this can lead to overestimating the variance of the difference in performance between the estimators:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.naive_bayes import GaussianNB\n>>> from sklearn.discriminant_analysis import LinearDiscriminantAnalysis\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import KFold\n>>> from sklearn.model_selection import cross_val_score\n>>> import numpy as np\n\n>>> rng = np.random.RandomState(0)\n>>> X, y = make_classification(random_state=rng)\n>>> cv = KFold(shuffle=True, random_state=rng)\n>>> lda = LinearDiscriminantAnalysis()\n>>> nb = GaussianNB()\n\n>>> for est in (lda, nb):\n...     print(cross_val_score(est, X, y, cv=cv))\n[0.8  0.75 0.75 0.7  0.85]\n[0.85 0.95 0.95 0.85 0.95]"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "Directly comparing the performance of the LinearDiscriminantAnalysis estimator vs the GaussianNB estimator on each fold would be a mistake: the splits on which the estimators are evaluated are different . Indeed, cross_val_score will internally call cv.split on the same KFold instance, but the splits will be different each time. This is also true for any tool that performs model selection via cross-validation, e.g. GridSearchCV and RandomizedSearchCV : scores are not comparable fold-to-fold across different calls to search.fit , since cv.split would have been called multiple times. Within a single call to search.fit , however, fold-to-fold comparison is possible since the search estimator only calls cv.split once."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "For comparable fold-to-fold results in all scenarios, one should pass an integer to the CV splitter: cv = KFold(shuffle=True, random_state=0) ."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "Note"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "While fold-to-fold comparison is not advisable with RandomState instances, one can however expect that average scores allow to conclude whether one estimator is better than another, as long as enough folds and data are used."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "Note"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "id3",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.2. Common pitfalls and subtleties",
+        "11.3.2.2. CV splitters"
+      ],
+      "block_type": "paragraph",
+      "text": "What matters in this example is what was passed to KFold . Whether we pass a RandomState instance or an integer to make_classification is not relevant for our illustration purpose. Also, neither LinearDiscriminantAnalysis nor GaussianNB are randomized estimators."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "getting-reproducible-results-across-multiple-executions",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.1. Getting reproducible results across multiple executions"
+      ],
+      "block_type": "paragraph",
+      "text": "In order to obtain reproducible (i.e. constant) results across multiple program executions , we need to remove all uses of random_state=None , which is the default. The recommended way is to declare a rng variable at the top of the program, and pass it down to any object that accepts a random_state parameter:"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "getting-reproducible-results-across-multiple-executions",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.1. Getting reproducible results across multiple executions"
+      ],
+      "block_type": "code",
+      "text": ">>> from sklearn.ensemble import RandomForestClassifier\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import train_test_split\n>>> import numpy as np\n\n>>> rng = np.random.RandomState(0)\n>>> X, y = make_classification(random_state=rng)\n>>> rf = RandomForestClassifier(random_state=rng)\n>>> X_train, X_test, y_train, y_test = train_test_split(X, y,\n...                                                     random_state=rng)\n>>> rf.fit(X_train, y_train).score(X_test, y_test)\n0.84"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "getting-reproducible-results-across-multiple-executions",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.1. Getting reproducible results across multiple executions"
+      ],
+      "block_type": "paragraph",
+      "text": "We are now guaranteed that the result of this script will always be 0.84, no matter how many times we run it. Changing the global rng variable to a different value should affect the results, as expected."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "getting-reproducible-results-across-multiple-executions",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.1. Getting reproducible results across multiple executions"
+      ],
+      "block_type": "paragraph",
+      "text": "It is also possible to declare the rng variable as an integer. This may however lead to less robust cross-validation results, as we will see in the next section."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "getting-reproducible-results-across-multiple-executions",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.1. Getting reproducible results across multiple executions"
+      ],
+      "block_type": "paragraph",
+      "text": "Note"
+    },
+    {
+      "source_id": "S3",
+      "anchor": "getting-reproducible-results-across-multiple-executions",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.1. Getting reproducible results across multiple executions"
+      ],
+      "block_type": "paragraph",
+      "text": "We do not recommend setting the global numpy seed by calling np.random.seed(0) . See here for a discussion."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "robustness-of-cross-validation-results",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.2. Robustness of cross-validation results"
+      ],
+      "block_type": "paragraph",
+      "text": "When we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization. For example, we would like the random weights initialization of an SGDClassifier to be consistently good across all folds: otherwise, when we train that estimator on new data, we might get unlucky and the random initialization may lead to bad performance. Similarly, we want a random forest to be robust w.r.t. the set of randomly selected features that each tree will be using."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "robustness-of-cross-validation-results",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.2. Robustness of cross-validation results"
+      ],
+      "block_type": "paragraph",
+      "text": "For these reasons, it is preferable to evaluate the cross-validation performance by letting the estimator use a different RNG on each fold. This is done by passing a RandomState instance (or None ) to the estimator initialization."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "robustness-of-cross-validation-results",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.2. Robustness of cross-validation results"
+      ],
+      "block_type": "paragraph",
+      "text": "When we pass an integer, the estimator will use the same RNG on each fold: if the estimator performs well (or bad), as evaluated by CV, it might just be because we got lucky (or unlucky) with that specific seed. Passing instances leads to more robust CV results, and makes the comparison between various algorithms fairer. It also helps limiting the temptation to treat the estimator’s RNG as a hyper-parameter that can be tuned."
+    },
+    {
+      "source_id": "S3",
+      "anchor": "robustness-of-cross-validation-results",
+      "heading_path": [
+        "11. Common pitfalls and recommended practices",
+        "11.3. Controlling randomness",
+        "11.3.3. General recommendations",
+        "11.3.3.2. Robustness of cross-validation results"
+      ],
+      "block_type": "paragraph",
+      "text": "Whether we pass RandomState instances or integers to CV splitters has no impact on robustness, as long as split is only called once. When split is called multiple times, fold-to-fold comparison isn’t possible anymore. As a result, passing integer to CV splitters is usually safer and covers most use-cases."
+    }
+  ]
+}

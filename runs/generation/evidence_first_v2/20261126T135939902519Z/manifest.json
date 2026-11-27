@@ -1,0 +1,1738 @@
+{
+  "run_id": "20261126T135939902519Z",
+  "started_at": "2026-11-26T13:59:39.983984+00:00",
+  "experiment": "evidence-first-v2 development comparison",
+  "dataset_path": "runs/policy_data/paired_questions_v1.json",
+  "dataset_sha256": "93c7d781ea9679dc0136e05203ad7292156b3d99dd6334b73feb6a6ad129d0bb",
+  "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+  "benchmarks": {
+    "benchmarks/pilot.json": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+    "benchmarks/extension-v1.json": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+    "benchmarks/extension-v2.json": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+  },
+  "case_order": [
+    "B01",
+    "B05",
+    "B11",
+    "B13",
+    "B17",
+    "B21",
+    "B22",
+    "B26",
+    "B27",
+    "B28",
+    "B29",
+    "B30"
+  ],
+  "arms": [
+    "v1",
+    "v2"
+  ],
+  "model": "qwen3:4b",
+  "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "ollama_version": "0.40.10",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "prompts": {
+    "v1": {
+      "prompt_version": "evidence-first-v1",
+      "sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "source": "scripts/run_paired_evaluation.py"
+    },
+    "v2": {
+      "prompt_version": "evidence-first-v2",
+      "sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "source": "docs/evidence-first-v2-dev-experiment.md"
+    }
+  },
+  "schema_sha256_by_case": {
+    "B01": "16bc04271a54cbd66a439894e82198aee7787392647ef03fe78d6e0cd92357fc",
+    "B05": "1da3dc89e231e6e4dc86f70f53e8309c558be4a870516b86ae7c0168d9a57bfa",
+    "B11": "5e1781971353311eef522952548657e6fe497a529588d689b7339b82cc13494d",
+    "B13": "528d8271ea84c4e59fd05ac7970a5179514215f95cc1d77cb4da501f3b9e20d3",
+    "B17": "927297d109fe9d1f16240a3038ba636c86031156ac104a568e637a0779b2d6f9",
+    "B21": "618db684aeb9781b438f56c6b670f201c9fc7eec2c0243afe13d3a11ef58e682",
+    "B22": "450c4b47b6f8477f87d1e1ba135bb10a346d85bd14dd47ca5f9a74e4aea8049b",
+    "B26": "2c3f3897ca7c8015c30f5c1544c90122b8e859533e79cbaae4826f5f894c232a",
+    "B27": "a5b0db6a8cb7f252b42d431dd22d3a7ae90c9830cec71f7b8cc63eb71b34354d",
+    "B28": "369cd4957da4b8161f59b5ff8ca3931aaba5441635f04b99847ef13e1deb27c5",
+    "B29": "910958ef5846ff1b582e028326bf1752847b48912c4b9b3cb5caa993383e37b3",
+    "B30": "ae70f1fce1793e7f7138003567b725cd524bbcced1bfc849771cf3a414a5391c"
+  },
+  "attempts": [
+    {
+      "case_id": "B01",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "40145a7de3a42646a91bd36895174db7dd89b6bcfa9536dc8a7d43ac4b04e606",
+      "sent_at": "2026-11-26T13:59:39.985917+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+          "quote": "If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 24,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+          "quote": "If None, the value is automatically set to the complement of the test size.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 14,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "0.25",
+      "abstention_reason": "",
+      "input_tokens": 1539,
+      "output_tokens": 242,
+      "elapsed_seconds": 35.977,
+      "received_at": "2026-11-26T14:00:15.963077+00:00",
+      "response_sha256": "3bbeef13e6d6c2df9c1e1ff1aa5bfb5b280e0c0c9d8cc44b86940851167c1a9c",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:00:15.9610891Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 35974557500,
+        "load_duration": 11267500,
+        "prompt_eval_count": 1539,
+        "prompt_eval_duration": 159916000,
+        "eval_count": 242,
+        "eval_duration": 35726483000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+            "quote": "If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25."
+          },
+          {
+            "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+            "quote": "If None, the value is automatically set to the complement of the test size."
+          }
+        ],
+        "decision": "answer",
+        "answer": "0.25",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B01",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "bad48093b991d079a5f403ccaae7f83f733d4a4f27433b1917a5dd736db51271",
+      "sent_at": "2026-11-26T14:00:16.055413+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+          "quote": "If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 24,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+          "quote": "If None, the value is automatically set to the complement of the test size.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 14,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "0.25",
+      "abstention_reason": "",
+      "input_tokens": 1632,
+      "output_tokens": 242,
+      "elapsed_seconds": 35.702,
+      "received_at": "2026-11-26T14:00:51.757413+00:00",
+      "response_sha256": "624c07ee2d294bd0ee75ee0f439ed7357ce6fb92a989d1927491bfcf5c35c1cd",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:00:51.7559772Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 35700404700,
+        "load_duration": 12804400,
+        "prompt_eval_count": 1632,
+        "prompt_eval_duration": 163068000,
+        "eval_count": 242,
+        "eval_duration": 35337091000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+            "quote": "If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25."
+          },
+          {
+            "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+            "quote": "If None, the value is automatically set to the complement of the test size."
+          }
+        ],
+        "decision": "answer",
+        "answer": "0.25",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B05",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "9b1b1c032eabea2a866b4fd1f0cb3d915fbf641dff1605298b80615f4c5ccdee",
+      "sent_at": "2026-11-26T14:00:51.867885+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+          "quote": "When we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 40,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        },
+        {
+          "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+          "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 37,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        },
+        {
+          "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+          "quote": "Here again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 41,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        }
+      ],
+      "decision": "answer",
+      "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. To evaluate a Pipeline correctly, use cross_val_score with the Pipeline, ensuring only training data is used for fit and test data for prediction.",
+      "abstention_reason": "",
+      "input_tokens": 1685,
+      "output_tokens": 446,
+      "elapsed_seconds": 94.431,
+      "received_at": "2026-11-26T14:02:26.299010+00:00",
+      "response_sha256": "fc2c64f84163a2a4fff397feadcad75f8de3f313ea9ce6ec9f7d71baafc0428b",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:02:26.2973654Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 94417849400,
+        "load_duration": 10806000,
+        "prompt_eval_count": 1685,
+        "prompt_eval_duration": 25643509000,
+        "eval_count": 446,
+        "eval_duration": 68620913000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+            "quote": "When we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization."
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions."
+          },
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": "Here again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:"
+          }
+        ],
+        "decision": "answer",
+        "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. To evaluate a Pipeline correctly, use cross_val_score with the Pipeline, ensuring only training data is used for fit and test data for prediction.",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B05",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "a70d496bc5ad5e2a41a07547d1ab15a617866411370dc313977d6fc43e7165fa",
+      "sent_at": "2026-11-26T14:02:26.392976+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+          "quote": "To prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 45,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        },
+        {
+          "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+          "quote": "The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 25,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+          "quote": "The pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 32,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        }
+      ],
+      "decision": "answer",
+      "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. A Pipeline should be used to chain feature selection and model estimators, ensuring only training data is used for fit and test data for prediction during cross-validation.",
+      "abstention_reason": "",
+      "input_tokens": 1778,
+      "output_tokens": 425,
+      "elapsed_seconds": 103.84,
+      "received_at": "2026-11-26T14:04:10.232559+00:00",
+      "response_sha256": "4e9a676b759221389f25671d641f95dcead92696286ae5ae23d4644567be60a2",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:04:10.2315612Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 103837310100,
+        "load_duration": 8779900,
+        "prompt_eval_count": 1778,
+        "prompt_eval_duration": 37182334000,
+        "eval_count": 425,
+        "eval_duration": 66474954000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": "To prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset."
+          },
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": "The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score"
+          },
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": "The pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting"
+          }
+        ],
+        "decision": "answer",
+        "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. A Pipeline should be used to chain feature selection and model estimators, ensuring only training data is used for fit and test data for prediction during cross-validation.",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B11",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "68c6edca2d5e277eab720fecd85a93a315cee369b6b691fe47633b6f6447cc2e",
+      "sent_at": "2026-11-26T14:04:10.316356+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not contain specific information about disabling or removing intermediate transformer steps in an existing Pipeline without rebuilding the pipeline.",
+      "input_tokens": 983,
+      "output_tokens": 49,
+      "elapsed_seconds": 25.524,
+      "received_at": "2026-11-26T14:04:35.839938+00:00",
+      "response_sha256": "7fa7f6c0c284da2e1dc093f7b421ff004f8ff970d6d6ae6ca934c7c9427b81fe",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:04:35.8379331Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 25521288900,
+        "load_duration": 13101100,
+        "prompt_eval_count": 983,
+        "prompt_eval_duration": 19244134000,
+        "eval_count": 49,
+        "eval_duration": 6102572000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain specific information about disabling or removing intermediate transformer steps in an existing Pipeline without rebuilding the pipeline."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B11",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "a060e1cd13ccfbba5737471589427e784037e2d75931b91a87572918f631815b",
+      "sent_at": "2026-11-26T14:04:35.930743+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "quote": "A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 29,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:438fde2d592b0c3584e0d6e8c466faccd425e99c9037d0af1b9ea039ea08bdd7",
+          "quote": "transform_input: list of str, default=None",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 5,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+          "quote": "memory: str or object with the joblib.Memory interface, default=None",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 9,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "To disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline, set the step to 'passthrough' or None.",
+      "abstention_reason": "",
+      "input_tokens": 1076,
+      "output_tokens": 362,
+      "elapsed_seconds": 69.956,
+      "received_at": "2026-11-26T14:05:45.887212+00:00",
+      "response_sha256": "ad575daf3c06953ef4b9f3c0c28c60ce09c2f6f0346959c798379a0d58f7c4b4",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:05:45.8840499Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 69934080800,
+        "load_duration": 17912200,
+        "prompt_eval_count": 1076,
+        "prompt_eval_duration": 21368035000,
+        "eval_count": 362,
+        "eval_duration": 48451067000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None ."
+          },
+          {
+            "chunk_id": "sha256:438fde2d592b0c3584e0d6e8c466faccd425e99c9037d0af1b9ea039ea08bdd7",
+            "quote": "transform_input: list of str, default=None"
+          },
+          {
+            "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+            "quote": "memory: str or object with the joblib.Memory interface, default=None"
+          }
+        ],
+        "decision": "answer",
+        "answer": "To disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline, set the step to 'passthrough' or None.",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B13",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "c0cf8a6d7d2b668dbcad759c88d51eda25f7892db8c93a6cbc27c1eb4c32be6a",
+      "sent_at": "2026-11-26T14:05:45.974655+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not contain a direct quote specifying the parameter name for caching fitted transformers in Pipeline.",
+      "input_tokens": 928,
+      "output_tokens": 45,
+      "elapsed_seconds": 24.917,
+      "received_at": "2026-11-26T14:06:10.891841+00:00",
+      "response_sha256": "9121c9adeb5cf5fe0bde3f2503eb04e504988128c63f74c9546457c73b9fde98",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:06:10.8905288Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 24902808200,
+        "load_duration": 13763800,
+        "prompt_eval_count": 928,
+        "prompt_eval_duration": 18747171000,
+        "eval_count": 45,
+        "eval_duration": 6027424000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain a direct quote specifying the parameter name for caching fitted transformers in Pipeline."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B13",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "f9aa6ed9f95a83018965a3bce74b6d6553114b04a585c60c885ad758dacf5d5c",
+      "sent_at": "2026-11-26T14:06:10.984628+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+          "quote": "memory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 31,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        }
+      ],
+      "decision": "answer",
+      "answer": "memory",
+      "abstention_reason": "",
+      "input_tokens": 1021,
+      "output_tokens": 154,
+      "elapsed_seconds": 39.281,
+      "received_at": "2026-11-26T14:06:50.265426+00:00",
+      "response_sha256": "1fd0fc33a9f01fcd893e49f143f0057bac3e359bf0a4cc52eefa95f451b6c1f9",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:06:50.2640032Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 39278728200,
+        "load_duration": 15304500,
+        "prompt_eval_count": 1021,
+        "prompt_eval_duration": 19442752000,
+        "eval_count": 154,
+        "eval_duration": 19760987000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+            "quote": "memory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer."
+          }
+        ],
+        "decision": "answer",
+        "answer": "memory",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B17",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "a8bb1d4ad6e550c022b478a79115f98c23194d20c068b53d4223d2ae09711081",
+      "sent_at": "2026-11-26T14:06:50.350880+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not contain information about whether train_test_split can take arrays with differing row counts.",
+      "input_tokens": 834,
+      "output_tokens": 45,
+      "elapsed_seconds": 22.075,
+      "received_at": "2026-11-26T14:07:12.425653+00:00",
+      "response_sha256": "e93e761320433eaa76c05a1b51c937949ffe0c0268bb627f875a09e4c4bdc036",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:07:12.4243379Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 22051393700,
+        "load_duration": 11667500,
+        "prompt_eval_count": 834,
+        "prompt_eval_duration": 16323751000,
+        "eval_count": 45,
+        "eval_duration": 5613517000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain information about whether train_test_split can take arrays with differing row counts."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B17",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "3836549c081b5f3f55e6d9da50eb98753490da28197663dc80960cfcd570a3c6",
+      "sent_at": "2026-11-26T14:07:12.507400+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+          "quote": "sequence of indexables with same length / shape[0]",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 8,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+          "quote": "Split arrays or matrices into random train and test subsets.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 10,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "No",
+      "abstention_reason": "",
+      "input_tokens": 927,
+      "output_tokens": 203,
+      "elapsed_seconds": 37.895,
+      "received_at": "2026-11-26T14:07:50.402348+00:00",
+      "response_sha256": "e62962d96aa383971815501beb6fca6ef7167021419d1a089eed01e2f1b18366",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:07:50.3989129Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 37879042400,
+        "load_duration": 13723100,
+        "prompt_eval_count": 927,
+        "prompt_eval_duration": 12267534000,
+        "eval_count": 203,
+        "eval_duration": 25497791000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+            "quote": "sequence of indexables with same length / shape[0]"
+          },
+          {
+            "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+            "quote": "Split arrays or matrices into random train and test subsets."
+          }
+        ],
+        "decision": "answer",
+        "answer": "No",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B21",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "45235572f3b6f68900a8810fd0869a1d433e77481f57b230324f116b3e639282",
+      "sent_at": "2026-11-26T14:07:50.477101+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not specify what the Pipeline.set_output() method configures in scikit-learn 1.7.2.",
+      "input_tokens": 625,
+      "output_tokens": 52,
+      "elapsed_seconds": 19.183,
+      "received_at": "2026-11-26T14:08:09.659711+00:00",
+      "response_sha256": "bb992a64bdb25498e75c1e74e9f66a0654af58dff763ca690a3b006dba0e434c",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:08:09.6582761Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 19156204300,
+        "load_duration": 10702200,
+        "prompt_eval_count": 625,
+        "prompt_eval_duration": 12137899000,
+        "eval_count": 52,
+        "eval_duration": 6915533000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not specify what the Pipeline.set_output() method configures in scikit-learn 1.7.2."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B21",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "09cf9238b1c00e48a41cdfdf3c5919f86656fc6dddcdfe69c31cee3b918c4bf4",
+      "sent_at": "2026-11-26T14:08:09.751586+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9",
+          "quote": "Set the output container when \"transform\" and \"fit_transform\" are called.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 10,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:9d8cc831bc6c9538311126cf03f3124e87f1e04433943291837d67a87772cfdb",
+          "quote": "Configure output of transform and fit_transform . \"default\" : Default output format of a transformer \"pandas\" : DataFrame output \"polars\" : Polars output None : Transform configuration is unchanged Added in version 1.4: \"polars\" option was added.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 37,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        }
+      ],
+      "decision": "answer",
+      "answer": "The Pipeline.set_output() method configures the output container for transform and fit_transform calls, with options: \"default\" (default output format), \"pandas\" (DataFrame output), \"polars\" (Polars output), or None (no change).",
+      "abstention_reason": "",
+      "input_tokens": 718,
+      "output_tokens": 309,
+      "elapsed_seconds": 46.195,
+      "received_at": "2026-11-26T14:08:55.947046+00:00",
+      "response_sha256": "534e5ba115e30f3cb3e123b6192b265ff223a626e5318f3cdf521d9c440bf94c",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:08:55.9458342Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 46193324200,
+        "load_duration": 11492400,
+        "prompt_eval_count": 718,
+        "prompt_eval_duration": 8201296000,
+        "eval_count": 309,
+        "eval_duration": 37859006000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9",
+            "quote": "Set the output container when \"transform\" and \"fit_transform\" are called."
+          },
+          {
+            "chunk_id": "sha256:9d8cc831bc6c9538311126cf03f3124e87f1e04433943291837d67a87772cfdb",
+            "quote": "Configure output of transform and fit_transform . \"default\" : Default output format of a transformer \"pandas\" : DataFrame output \"polars\" : Polars output None : Transform configuration is unchanged Added in version 1.4: \"polars\" option was added."
+          }
+        ],
+        "decision": "answer",
+        "answer": "The Pipeline.set_output() method configures the output container for transform and fit_transform calls, with options: \"default\" (default output format), \"pandas\" (DataFrame output), \"polars\" (Polars output), or None (no change).",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B22",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "c6436c5de2cda92ba83e5b3ee96653a8ab03ac99c83afbe56f990a13db5bd896",
+      "sent_at": "2026-11-26T14:08:56.026019+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples.",
+      "input_tokens": 733,
+      "output_tokens": 57,
+      "elapsed_seconds": 18.292,
+      "received_at": "2026-11-26T14:09:14.318008+00:00",
+      "response_sha256": "d715429b640b2e95940e54b34ab41182e5ececaa5524ab74c442fa330b301844",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:09:14.316649Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 18289994500,
+        "load_duration": 11743200,
+        "prompt_eval_count": 733,
+        "prompt_eval_duration": 10356945000,
+        "eval_count": 57,
+        "eval_duration": 7818092000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B22",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "687e3a6902c2a5da2b16fa0f949453bdb0f029312b0d5f5e46812929c823f17f",
+      "sent_at": "2026-11-26T14:09:14.404948+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+          "quote": "If int, represents the absolute number of test samples.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 9,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+          "quote": "If int, represents the absolute number of train samples.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 9,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "In train_test_split, an integer passed to the test_size parameter represents the absolute number of test samples, as opposed to a float which represents the proportion of the dataset to include in the test split.",
+      "abstention_reason": "",
+      "input_tokens": 826,
+      "output_tokens": 250,
+      "elapsed_seconds": 43.83,
+      "received_at": "2026-11-26T14:09:58.234902+00:00",
+      "response_sha256": "e80688fd07192d527f46591a00104a92d19621bae2d5a379f2b999e7f0d4f051",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:09:58.231225Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 43802195200,
+        "load_duration": 13032700,
+        "prompt_eval_count": 826,
+        "prompt_eval_duration": 10312901000,
+        "eval_count": 250,
+        "eval_duration": 33375803000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+            "quote": "If int, represents the absolute number of test samples."
+          },
+          {
+            "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+            "quote": "If int, represents the absolute number of train samples."
+          }
+        ],
+        "decision": "answer",
+        "answer": "In train_test_split, an integer passed to the test_size parameter represents the absolute number of test samples, as opposed to a float which represents the proportion of the dataset to include in the test split.",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B26",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "f03de464accc2a3eef3f191b8ed0ea4ff4d72063c59ffbfecc82da44be6c5992",
+      "sent_at": "2026-11-26T14:09:58.301411+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The passages do not contain specific information about practical advantages of using Pipeline or make_pipeline over manual sequential transformations. The passages discuss common pitfalls, randomness in CV splitters, and the overview of Pipeline but do not explicitly list practical advantages compared to manual transformations.",
+      "input_tokens": 869,
+      "output_tokens": 76,
+      "elapsed_seconds": 23.039,
+      "received_at": "2026-11-26T14:10:21.340416+00:00",
+      "response_sha256": "4d1b9a285cf7965714ed4314566fda0b783df42d1339e04dbf24500a92be3fbf",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:10:21.3390403Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 23013051200,
+        "load_duration": 11751100,
+        "prompt_eval_count": 869,
+        "prompt_eval_duration": 13630245000,
+        "eval_count": 76,
+        "eval_duration": 9268683000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not contain specific information about practical advantages of using Pipeline or make_pipeline over manual sequential transformations. The passages discuss common pitfalls, randomness in CV splitters, and the overview of Pipeline but do not explicitly list practical advantages compared to manual transformations."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B26",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "8a6029f9549ade83d23dbd8c00073ac26f1abd12c95a5daa28dc15f1ca23fff5",
+      "sent_at": "2026-11-26T14:10:21.418101+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "quote": "Pipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 27,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "quote": "The purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 19,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "quote": "For an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV .",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 21,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "Pipeline provides practical advantages over manual sequential transformations by enabling cross-validated parameter tuning and sequential application of transformers with a final predictor, as demonstrated by its integration with GridSearchCV for hyperparameter optimization.",
+      "abstention_reason": "",
+      "input_tokens": 962,
+      "output_tokens": 393,
+      "elapsed_seconds": 64.405,
+      "received_at": "2026-11-26T14:11:25.822807+00:00",
+      "response_sha256": "0b64f3a3eb49637e6f1ccb83352039992fa082a7be8978451613fb3c7e61418f",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:11:25.821342Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 64402843000,
+        "load_duration": 7090200,
+        "prompt_eval_count": 962,
+        "prompt_eval_duration": 12971069000,
+        "eval_count": 393,
+        "eval_duration": 51318746000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "Pipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling."
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "The purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters."
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "For an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV ."
+          }
+        ],
+        "decision": "answer",
+        "answer": "Pipeline provides practical advantages over manual sequential transformations by enabling cross-validated parameter tuning and sequential application of transformers with a final predictor, as demonstrated by its integration with GridSearchCV for hyperparameter optimization.",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B27",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "f75e45f31fa84624fa009269092fcd2a88970a199f7211caa54b86fd48e1a787",
+      "sent_at": "2026-11-26T14:11:25.905569+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+          "quote": "Since passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 23,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+          "quote": "None is the default value for all random_state parameters.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 9,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "np.random.mtrand._rand",
+      "abstention_reason": "",
+      "input_tokens": 1244,
+      "output_tokens": 233,
+      "elapsed_seconds": 56.931,
+      "received_at": "2026-11-26T14:12:22.836109+00:00",
+      "response_sha256": "fd7c892f72e4568e483089d900b2c76e258616f097ab5ff79b956e8f51a51303",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:12:22.8353884Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 56929018200,
+        "load_duration": 6265400,
+        "prompt_eval_count": 1244,
+        "prompt_eval_duration": 24478490000,
+        "eval_count": 233,
+        "eval_duration": 32295637000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "Since passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here."
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "None is the default value for all random_state parameters."
+          }
+        ],
+        "decision": "answer",
+        "answer": "np.random.mtrand._rand",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B27",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "ef011a48256702c5eca9565f6a8dedaf1777dae0cb6b341022eaf4aa11d27bdf",
+      "sent_at": "2026-11-26T14:12:22.926932+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+          "quote": "random_state=np.random.mtrand._rand",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 1,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+          "quote": "passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand )",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 15,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "np.random.mtrand._rand",
+      "abstention_reason": "",
+      "input_tokens": 1337,
+      "output_tokens": 224,
+      "elapsed_seconds": 59.065,
+      "received_at": "2026-11-26T14:13:21.991488+00:00",
+      "response_sha256": "150b44bf09262eea1eca9f30d047187de654c188bbe351e8fa6b5d093eea462d",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:13:21.9900767Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 59049034100,
+        "load_duration": 11020100,
+        "prompt_eval_count": 1337,
+        "prompt_eval_duration": 25985719000,
+        "eval_count": 224,
+        "eval_duration": 32939884000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "random_state=np.random.mtrand._rand"
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand )"
+          }
+        ],
+        "decision": "answer",
+        "answer": "np.random.mtrand._rand",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B28",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "6ec20a42be12726d6224687b9178a71493dcd12d9e05007a4a65afebba566cd6",
+      "sent_at": "2026-11-26T14:13:22.078781+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not explicitly state why the classification model achieved high accuracy on random noise features. The first passage mentions that using all data for feature selection leads to high accuracy due to leakage, but does not specify the exact reason for the 76% accuracy.",
+      "input_tokens": 997,
+      "output_tokens": 78,
+      "elapsed_seconds": 29.216,
+      "received_at": "2026-11-26T14:13:51.294472+00:00",
+      "response_sha256": "af6d921a80c5521bd77e77191f181df0d7997c0adfc3400ffb24d4a6c32b5e37",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:13:51.2931437Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 29213266200,
+        "load_duration": 13484500,
+        "prompt_eval_count": 997,
+        "prompt_eval_duration": 19022280000,
+        "eval_count": 78,
+        "eval_duration": 10039095000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not explicitly state why the classification model achieved high accuracy on random noise features. The first passage mentions that using all data for feature selection leads to high accuracy due to leakage, but does not specify the exact reason for the 76% accuracy."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B28",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "078a64e547425ea40dd5eb7f2d6e859efb630507432ec0b5fc6e9de863cbcc3e",
+      "sent_at": "2026-11-26T14:13:51.358573+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 60,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        },
+        {
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "quote": "In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 37,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        }
+      ],
+      "decision": "answer",
+      "answer": "The classification model achieved high accuracy (around 76%) on 10,000 completely random noise features because the feature selection step used the test data, which caused the model to have an unfair advantage. This resulted in an accuracy score much higher than chance (expected around 0.5) due to data leakage during preprocessing.",
+      "abstention_reason": "",
+      "input_tokens": 1090,
+      "output_tokens": 382,
+      "elapsed_seconds": 74.074,
+      "received_at": "2026-11-26T14:15:05.432369+00:00",
+      "response_sha256": "a411b1e40c0d00e823e85f8700c8576e00d1b2b40df8a8f302173c9fa6f4ce94",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:15:05.4311422Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 74071728800,
+        "load_duration": 16315600,
+        "prompt_eval_count": 1090,
+        "prompt_eval_duration": 22728039000,
+        "eval_count": 382,
+        "eval_duration": 51216136000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage."
+          },
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:"
+          }
+        ],
+        "decision": "answer",
+        "answer": "The classification model achieved high accuracy (around 76%) on 10,000 completely random noise features because the feature selection step used the test data, which caused the model to have an unfair advantage. This resulted in an accuracy score much higher than chance (expected around 0.5) due to data leakage during preprocessing.",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B29",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "5a8f9792b7769f3947305eb2d70d20d9406a0cabf9ae181980dd09ed09a364e4",
+      "sent_at": "2026-11-26T14:15:05.504322+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not contain information about the stratify_ratio parameter configuration in scikit-learn 1.7.2 train_test_split documentation.",
+      "input_tokens": 1461,
+      "output_tokens": 55,
+      "elapsed_seconds": 37.556,
+      "received_at": "2026-11-26T14:15:43.059985+00:00",
+      "response_sha256": "c74c724c83d0b0f93d45d982f38cfb320937ef57e0517c49b674445c44bb77a5",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:15:43.0587905Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 37529747700,
+        "load_duration": 11335800,
+        "prompt_eval_count": 1461,
+        "prompt_eval_duration": 29936879000,
+        "eval_count": 55,
+        "eval_duration": 7421026000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain information about the stratify_ratio parameter configuration in scikit-learn 1.7.2 train_test_split documentation."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B29",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "63a35ddd4b61c4996de76f685e681f91a9e54896c47d985f1da896151eae7600",
+      "sent_at": "2026-11-26T14:15:43.130873+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+          "quote": "stratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide .",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 26,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        },
+        {
+          "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+          "quote": "train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 7,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "answer",
+      "answer": "The stratify parameter in scikit-learn's train_test_split is an array-like object that specifies class labels for stratified splitting; it defaults to None. When set, it ensures the split maintains the original class distribution.",
+      "abstention_reason": "",
+      "input_tokens": 1554,
+      "output_tokens": 297,
+      "elapsed_seconds": 81.098,
+      "received_at": "2026-11-26T14:17:04.229112+00:00",
+      "response_sha256": "e5de3cbd455d2ea2a9b38e46fc77db1ff1bb6bf2ba858a14c346cb4475684e56",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:17:04.2278384Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 81096229900,
+        "load_duration": 10098500,
+        "prompt_eval_count": 1554,
+        "prompt_eval_duration": 33383744000,
+        "eval_count": 297,
+        "eval_duration": 47601974000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+            "quote": "stratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide ."
+          },
+          {
+            "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+            "quote": "train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]"
+          }
+        ],
+        "decision": "answer",
+        "answer": "The stratify parameter in scikit-learn's train_test_split is an array-like object that specifies class labels for stratified splitting; it defaults to None. When set, it ensures the split maintains the original class distribution.",
+        "abstention_reason": ""
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B30",
+      "arm": "v1",
+      "prompt_version": "evidence-first-v1",
+      "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "request_sha256": "82d99a8cbfe988e1c2210ecc26460617a6a964aa794a6288f87fbd8a5028081b",
+      "sent_at": "2026-11-26T14:17:04.306169+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The passages do not contain information about the time complexity of scikit-learn's Pipeline for fitting on 100,000 samples, specifically for a 5-step Pipeline. The passages discuss data leakage, pipeline parameters, and best practices but do not provide timing information or computational estimates.",
+      "input_tokens": 1122,
+      "output_tokens": 86,
+      "elapsed_seconds": 34.082,
+      "received_at": "2026-11-26T14:17:38.388665+00:00",
+      "response_sha256": "a4e8e9e3c36252f1b2151320d1ef525efbb7e4a815d27f143c024cd5add76004",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:17:38.387507Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 34080543500,
+        "load_duration": 15175000,
+        "prompt_eval_count": 1122,
+        "prompt_eval_duration": 22948522000,
+        "eval_count": 86,
+        "eval_duration": 10933278000
+      },
+      "reply": {
+        "evidence": [],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not contain information about the time complexity of scikit-learn's Pipeline for fitting on 100,000 samples, specifically for a 5-step Pipeline. The passages discuss data leakage, pipeline parameters, and best practices but do not provide timing information or computational estimates."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    },
+    {
+      "case_id": "B30",
+      "arm": "v2",
+      "prompt_version": "evidence-first-v2",
+      "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "request_sha256": "ba8155609cd03035a31a8dcbe1af3ca394b2d22e01ea23fd689fa8b80f47cb90",
+      "sent_at": "2026-11-26T14:17:38.453147+00:00",
+      "model": "qwen3:4b",
+      "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "settings": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      },
+      "status": "ok",
+      "transport_error": null,
+      "invalid_model_output": null,
+      "audit_errors": [],
+      "quote_checks": [
+        {
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "quote": "We here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 37,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        },
+        {
+          "chunk_id": "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+          "quote": "steps: list of tuples\nList of (name of step, estimator) tuples that are to be chained in sequential order. To be compatible with the scikit-learn API, all steps must define fit . All non-last steps must also define transform . See Combining Estimators for more details.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 46,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": true
+        },
+        {
+          "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+          "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset.",
+          "in_supplied_passages": true,
+          "nonempty": true,
+          "word_count": 25,
+          "exact_match": true,
+          "normalized_match": true,
+          "violates_under_30_words": false
+        }
+      ],
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The passages do not provide any information about the time taken to fit a Pipeline with 5 steps on 100,000 samples. The question asks for a specific time value in seconds, but the passages only discuss data leakage, pipeline structure, and recommended practices for avoiding leakage. There is no mention of computational time, sample sizes, or performance metrics related to fitting pipelines.",
+      "input_tokens": 1215,
+      "output_tokens": 459,
+      "elapsed_seconds": 86.645,
+      "received_at": "2026-11-26T14:19:05.098646+00:00",
+      "response_sha256": "de60746370d017de098adf8e374415a7ac51660c0d2f3c76217fc7b8cb744030",
+      "done_reason": "stop",
+      "ollama_response_fields": {
+        "model": "qwen3:4b",
+        "created_at": "2026-11-26T14:19:05.0973702Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 86643360100,
+        "load_duration": 10280100,
+        "prompt_eval_count": 1215,
+        "prompt_eval_duration": 23532240000,
+        "eval_count": 459,
+        "eval_duration": 63012181000
+      },
+      "reply": {
+        "evidence": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "We here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA ."
+          },
+          {
+            "chunk_id": "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+            "quote": "steps: list of tuples\nList of (name of step, estimator) tuples that are to be chained in sequential order. To be compatible with the scikit-learn API, all steps must define fit . All non-last steps must also define transform . See Combining Estimators for more details."
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset."
+          }
+        ],
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not provide any information about the time taken to fit a Pipeline with 5 steps on 100,000 samples. The question asks for a specific time value in seconds, but the passages only discuss data leakage, pipeline structure, and recommended practices for avoiding leakage. There is no mention of computational time, sample sizes, or performance metrics related to fitting pipelines."
+      },
+      "model_digest_after": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7"
+    }
+  ],
+  "notes": [
+    "v1 attempts use the current paired runner system text, not the historical attempt system text.",
+    "Historical model digest is unknown; historical retrieval metadata missing from the source trace is recorded as unknown.",
+    "Raw request and response bytes are persisted before parsing.",
+    "Failures are preserved and never retried."
+  ],
+  "finished_at": "2026-11-26T14:19:05.192438+00:00",
+  "token_totals": {
+    "input_known": 27156,
+    "input_missing": 0,
+    "output_known": 5164,
+    "output_missing": 0
+  }
+}

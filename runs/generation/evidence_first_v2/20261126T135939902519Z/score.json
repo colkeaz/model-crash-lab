@@ -1,0 +1,1025 @@
+{
+  "run_id": "20261126T135939902519Z",
+  "scored_at": "2026-11-26T14:27:19.516917+00:00",
+  "annotations_path": "C:\\Users\\Lenovo\\Documents\\MLProjects\\model-crash-lab\\semantic-audits\\evidence-first-v2-dev-20261126.json",
+  "annotations_sha256": "775ea1132f151286d3360041a085e82b8ba311d50feceb16b07df80ca86fee73",
+  "sealed_map_sha256": "0d5f3b8c7c68a32c5a280a170cd8ccc0b76ccf8080478b0efe9e65bc9722d86b",
+  "model": "qwen3:4b",
+  "model_digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "ollama_version": "0.40.10",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "prompts": {
+    "v1": {
+      "prompt_version": "evidence-first-v1",
+      "sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "source": "scripts/run_paired_evaluation.py"
+    },
+    "v2": {
+      "prompt_version": "evidence-first-v2",
+      "sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+      "source": "docs/evidence-first-v2-dev-experiment.md"
+    }
+  },
+  "arms": {
+    "v1": {
+      "summary": {
+        "attempts": 12,
+        "transport_failures": 0,
+        "invalid_outputs": 0,
+        "answers": 3,
+        "abstentions": 9,
+        "substantive_answers": 3,
+        "coverage": "3/12",
+        "clean_answers": 2,
+        "complete_responses": 2,
+        "completeness": "2/12",
+        "false_abstentions": 6,
+        "unsupported_answers": 0,
+        "overlength_cases": 1,
+        "overlength_excerpts": 3,
+        "selective_error": "1/3",
+        "selective_error_count": 1,
+        "input_tokens_known": 13020,
+        "input_tokens_missing": 0,
+        "output_tokens_known": 1464,
+        "output_tokens_missing": 0
+      },
+      "cases": {
+        "B01": {
+          "case_id": "B01",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "0.25",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": true,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            24,
+            14
+          ],
+          "selective_error": false,
+          "clean_answer": true,
+          "false_abstention": false,
+          "input_tokens": 1539,
+          "output_tokens": 242,
+          "elapsed_seconds": 35.977,
+          "notes": "States the 25% (0.25) default for omitting both size parameters."
+        },
+        "B05": {
+          "case_id": "B05",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. To evaluate a Pipeline correctly, use cross_val_score with the Pipeline, ensuring only training data is used for fit and test data for prediction.",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": false,
+          "missing_claims": [
+            "Selecting on the full dataset lets validation-fold target values influence feature selection, producing overly optimistic scores."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 3,
+          "quote_word_counts": [
+            40,
+            37,
+            41
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1685,
+          "output_tokens": 446,
+          "elapsed_seconds": 94.431,
+          "notes": "Explains full-dataset leakage and pipeline cross-validation, but omits the optimistic-score/validation-target consequence."
+        },
+        "B11": {
+          "case_id": "B11",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "Passages do not contain specific information about disabling or removing intermediate transformer steps in an existing Pipeline without rebuilding the pipeline.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "Set the named intermediate step to 'passthrough' or None."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": false,
+          "abstention_complete": false,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": true,
+          "input_tokens": 983,
+          "output_tokens": 49,
+          "elapsed_seconds": 25.524,
+          "notes": "False abstention: the Pipeline overview states a transformer is removed by setting it to 'passthrough' or None."
+        },
+        "B13": {
+          "case_id": "B13",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "Passages do not contain a direct quote specifying the parameter name for caching fitted transformers in Pipeline.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "The caching parameter is memory.",
+            "It accepts a directory path or an object implementing the joblib.Memory interface."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": false,
+          "abstention_complete": false,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": true,
+          "input_tokens": 928,
+          "output_tokens": 45,
+          "elapsed_seconds": 24.917,
+          "notes": "False abstention: the memory parameter passage is rank 1."
+        },
+        "B17": {
+          "case_id": "B17",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "Passages do not contain information about whether train_test_split can take arrays with differing row counts.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "No; all supplied arrays must have the same length or shape[0]."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": false,
+          "abstention_complete": false,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": true,
+          "input_tokens": 834,
+          "output_tokens": 45,
+          "elapsed_seconds": 22.075,
+          "notes": "False abstention: the *arrays rule states the same-length/shape[0] requirement at rank 1."
+        },
+        "B21": {
+          "case_id": "B21",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "Passages do not specify what the Pipeline.set_output() method configures in scikit-learn 1.7.2.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "set_output configures the output container returned by transform and fit_transform."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": false,
+          "abstention_complete": false,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": true,
+          "input_tokens": 625,
+          "output_tokens": 52,
+          "elapsed_seconds": 19.183,
+          "notes": "False abstention: set_output overview is rank 1."
+        },
+        "B22": {
+          "case_id": "B22",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "An int represents the absolute number of test samples.",
+            "A float represents the proportion of the dataset to include in the test split."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": false,
+          "abstention_complete": false,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": true,
+          "input_tokens": 733,
+          "output_tokens": 57,
+          "elapsed_seconds": 18.292,
+          "notes": "False abstention; the reason itself concedes the integer meaning is stated."
+        },
+        "B26": {
+          "case_id": "B26",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "The passages do not contain specific information about practical advantages of using Pipeline or make_pipeline over manual sequential transformations. The passages discuss common pitfalls, randomness in CV splitters, and the overview of Pipeline but do not explicitly list practical advantages compared to manual transformations.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "Makes it easier to chain transformations with estimators.",
+            "Reduces the possibility of forgetting a transformation or prevents data leakage."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": true,
+          "abstention_complete": true,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 869,
+          "output_tokens": 76,
+          "elapsed_seconds": 23.039,
+          "notes": "Appropriate abstention: the frozen passages do not list the requested practical advantages; the reason names that gap."
+        },
+        "B27": {
+          "case_id": "B27",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "np.random.mtrand._rand",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": true,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            23,
+            9
+          ],
+          "selective_error": false,
+          "clean_answer": true,
+          "false_abstention": false,
+          "input_tokens": 1244,
+          "output_tokens": 233,
+          "elapsed_seconds": 56.931,
+          "notes": "Names np.random.mtrand._rand."
+        },
+        "B28": {
+          "case_id": "B28",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "Passages do not explicitly state why the classification model achieved high accuracy on random noise features. The first passage mentions that using all data for feature selection leads to high accuracy due to leakage, but does not specify the exact reason for the 76% accuracy.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "Feature selection was performed on the entire dataset before splitting.",
+            "The feature selection step saw test data, producing an artificially optimistic accuracy score."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": false,
+          "abstention_complete": false,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": true,
+          "input_tokens": 997,
+          "output_tokens": 78,
+          "elapsed_seconds": 29.216,
+          "notes": "False abstention: the rank-1 passage explains the mechanism explicitly."
+        },
+        "B29": {
+          "case_id": "B29",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "Passages do not contain information about the stratify_ratio parameter configuration in scikit-learn 1.7.2 train_test_split documentation.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": true,
+          "abstention_complete": true,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1461,
+          "output_tokens": 55,
+          "elapsed_seconds": 37.556,
+          "notes": "Names stratify_ratio, states the documentation lacks it, and invents no configuration. Matches the historical complete-abstention precedent."
+        },
+        "B30": {
+          "case_id": "B30",
+          "arm": "v1",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "The passages do not contain information about the time complexity of scikit-learn's Pipeline for fitting on 100,000 samples, specifically for a 5-step Pipeline. The passages discuss data leakage, pipeline parameters, and best practices but do not provide timing information or computational estimates.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "Runtime depends on the specific estimators and hardware; the documentation states no runtime."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": true,
+          "abstention_complete": false,
+          "missing_rubric_claims": [
+            "Discussion of hardware dependence, which the frozen passages do not address."
+          ],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1122,
+          "output_tokens": 86,
+          "elapsed_seconds": 34.082,
+          "notes": "Declines a numeric runtime. Does not name the supported estimator dependencies; hardware is not addressed by the frozen passages."
+        }
+      }
+    },
+    "v2": {
+      "summary": {
+        "attempts": 12,
+        "transport_failures": 0,
+        "invalid_outputs": 0,
+        "answers": 11,
+        "abstentions": 1,
+        "substantive_answers": 11,
+        "coverage": "11/12",
+        "clean_answers": 4,
+        "complete_responses": 5,
+        "completeness": "5/12",
+        "false_abstentions": 0,
+        "unsupported_answers": 1,
+        "overlength_cases": 5,
+        "overlength_excerpts": 8,
+        "selective_error": "7/11",
+        "selective_error_count": 7,
+        "input_tokens_known": 14136,
+        "input_tokens_missing": 0,
+        "output_tokens_known": 3700,
+        "output_tokens_missing": 0
+      },
+      "cases": {
+        "B01": {
+          "case_id": "B01",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "0.25",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": true,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            24,
+            14
+          ],
+          "selective_error": false,
+          "clean_answer": true,
+          "false_abstention": false,
+          "input_tokens": 1632,
+          "output_tokens": 242,
+          "elapsed_seconds": 35.702,
+          "notes": "States the 25% (0.25) default for omitting both size parameters."
+        },
+        "B05": {
+          "case_id": "B05",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. A Pipeline should be used to chain feature selection and model estimators, ensuring only training data is used for fit and test data for prediction during cross-validation.",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": false,
+          "missing_claims": [
+            "Selecting on the full dataset lets validation-fold target values influence feature selection, producing overly optimistic scores."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 2,
+          "quote_word_counts": [
+            45,
+            25,
+            32
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1778,
+          "output_tokens": 425,
+          "elapsed_seconds": 103.84,
+          "notes": "Explains full-dataset leakage and pipeline cross-validation, but omits the optimistic-score/validation-target consequence."
+        },
+        "B11": {
+          "case_id": "B11",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "To disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline, set the step to 'passthrough' or None.",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": true,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            29,
+            5,
+            9
+          ],
+          "selective_error": false,
+          "clean_answer": true,
+          "false_abstention": false,
+          "input_tokens": 1076,
+          "output_tokens": 362,
+          "elapsed_seconds": 69.956,
+          "notes": "Grounded answer: set the step to 'passthrough' or None."
+        },
+        "B13": {
+          "case_id": "B13",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "memory",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": false,
+          "missing_claims": [
+            "The caching parameter is memory.",
+            "It accepts a directory path or an object implementing the joblib.Memory interface."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 1,
+          "quote_word_counts": [
+            31
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1021,
+          "output_tokens": 154,
+          "elapsed_seconds": 39.281,
+          "notes": "Names the memory parameter but omits the accepted types the benchmark requires; not clean."
+        },
+        "B17": {
+          "case_id": "B17",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "No",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": false,
+          "missing_claims": [
+            "No; all supplied arrays must have the same length or shape[0]."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            8,
+            10
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 927,
+          "output_tokens": 203,
+          "elapsed_seconds": 37.895,
+          "notes": "Answers 'No' but does not state the matching-length requirement."
+        },
+        "B21": {
+          "case_id": "B21",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "The Pipeline.set_output() method configures the output container for transform and fit_transform calls, with options: \"default\" (default output format), \"pandas\" (DataFrame output), \"polars\" (Polars output), or None (no change).",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": true,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 1,
+          "quote_word_counts": [
+            10,
+            37
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 718,
+          "output_tokens": 309,
+          "elapsed_seconds": 46.195,
+          "notes": "States that set_output configures the output container for transform and fit_transform, with the documented options."
+        },
+        "B22": {
+          "case_id": "B22",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "In train_test_split, an integer passed to the test_size parameter represents the absolute number of test samples, as opposed to a float which represents the proportion of the dataset to include in the test split.",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": true,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            9,
+            9
+          ],
+          "selective_error": false,
+          "clean_answer": true,
+          "false_abstention": false,
+          "input_tokens": 826,
+          "output_tokens": 250,
+          "elapsed_seconds": 43.83,
+          "notes": "Contrasts int sample count with float proportion."
+        },
+        "B26": {
+          "case_id": "B26",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "Pipeline provides practical advantages over manual sequential transformations by enabling cross-validated parameter tuning and sequential application of transformers with a final predictor, as demonstrated by its integration with GridSearchCV for hyperparameter optimization.",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": false,
+          "missing_claims": [
+            "Makes it easier to chain transformations with estimators.",
+            "Reduces the possibility of forgetting a transformation or prevents data leakage."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            27,
+            19,
+            21
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 962,
+          "output_tokens": 393,
+          "elapsed_seconds": 64.405,
+          "notes": "Claims are grounded but describe capabilities, not the requested practical advantages over manual transformations."
+        },
+        "B27": {
+          "case_id": "B27",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "np.random.mtrand._rand",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": true,
+          "missing_claims": [],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            1,
+            15
+          ],
+          "selective_error": false,
+          "clean_answer": true,
+          "false_abstention": false,
+          "input_tokens": 1337,
+          "output_tokens": 224,
+          "elapsed_seconds": 59.065,
+          "notes": "Names np.random.mtrand._rand."
+        },
+        "B28": {
+          "case_id": "B28",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "The classification model achieved high accuracy (around 76%) on 10,000 completely random noise features because the feature selection step used the test data, which caused the model to have an unfair advantage. This resulted in an accuracy score much higher than chance (expected around 0.5) due to data leakage during preprocessing.",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": true,
+          "is_complete": false,
+          "missing_claims": [
+            "Feature selection was performed on the entire dataset before splitting."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 2,
+          "quote_word_counts": [
+            60,
+            37
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1090,
+          "output_tokens": 382,
+          "elapsed_seconds": 74.074,
+          "notes": "Explains that selection saw test data, giving an unfair advantage and an optimistic score, but does not explicitly state selection used the entire dataset before splitting (historical rubric precedent)."
+        },
+        "B29": {
+          "case_id": "B29",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "answer",
+          "answer": "The stratify parameter in scikit-learn's train_test_split is an array-like object that specifies class labels for stratified splitting; it defaults to None. When set, it ensures the split maintains the original class distribution.",
+          "abstention_reason": "",
+          "substantive_answer": true,
+          "claims_grounded": false,
+          "is_complete": false,
+          "missing_claims": [
+            "Abstain from explaining or configuring stratify_ratio.",
+            "Explain that the train_test_split documentation does not document a stratify_ratio parameter."
+          ],
+          "unsupported_claims": [
+            "Describes the real stratify parameter instead of rejecting the fictitious stratify_ratio; no passage supports that substitution."
+          ],
+          "abstention_justified": null,
+          "abstention_complete": null,
+          "missing_rubric_claims": [],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 0,
+          "quote_word_counts": [
+            26,
+            7
+          ],
+          "selective_error": true,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1554,
+          "output_tokens": 297,
+          "elapsed_seconds": 81.098,
+          "notes": "Answers the wrong premise without rejecting stratify_ratio."
+        },
+        "B30": {
+          "case_id": "B30",
+          "arm": "v2",
+          "status": "ok",
+          "decision": "abstain",
+          "answer": "",
+          "abstention_reason": "The passages do not provide any information about the time taken to fit a Pipeline with 5 steps on 100,000 samples. The question asks for a specific time value in seconds, but the passages only discuss data leakage, pipeline structure, and recommended practices for avoiding leakage. There is no mention of computational time, sample sizes, or performance metrics related to fitting pipelines.",
+          "substantive_answer": false,
+          "claims_grounded": null,
+          "is_complete": false,
+          "missing_claims": [
+            "Runtime depends on the specific estimators and hardware; the documentation states no runtime."
+          ],
+          "unsupported_claims": [],
+          "abstention_justified": true,
+          "abstention_complete": false,
+          "missing_rubric_claims": [
+            "Discussion of hardware dependence, which the frozen passages do not address."
+          ],
+          "structural_invalid": false,
+          "audit_errors": [],
+          "overlength_excerpts": 2,
+          "quote_word_counts": [
+            37,
+            46,
+            25
+          ],
+          "selective_error": null,
+          "clean_answer": false,
+          "false_abstention": false,
+          "input_tokens": 1215,
+          "output_tokens": 459,
+          "elapsed_seconds": 86.645,
+          "notes": "Declines a numeric runtime. Does not name the supported estimator dependencies; hardware is not addressed by the frozen passages."
+        }
+      }
+    }
+  },
+  "transitions": {
+    "B01": {
+      "v1": {
+        "decision": "answer",
+        "clean_answer": true,
+        "false_abstention": false,
+        "abstention_justified": null
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": true,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B05": {
+      "v1": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B11": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": true,
+        "abstention_justified": false
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": true,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B13": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": true,
+        "abstention_justified": false
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B17": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": true,
+        "abstention_justified": false
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B21": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": true,
+        "abstention_justified": false
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B22": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": true,
+        "abstention_justified": false
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": true,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B26": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": true
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B27": {
+      "v1": {
+        "decision": "answer",
+        "clean_answer": true,
+        "false_abstention": false,
+        "abstention_justified": null
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": true,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B28": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": true,
+        "abstention_justified": false
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B29": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": true
+      },
+      "v2": {
+        "decision": "answer",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": null
+      }
+    },
+    "B30": {
+      "v1": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": true
+      },
+      "v2": {
+        "decision": "abstain",
+        "clean_answer": false,
+        "false_abstention": false,
+        "abstention_justified": true
+      }
+    }
+  },
+  "gate": {
+    "control_reproduced_targeted_false_abstentions": [
+      "B21",
+      "B13",
+      "B22",
+      "B17"
+    ],
+    "recovery_criterion_verdict": "fail",
+    "recovered_targets_to_clean_answer": [
+      "B22"
+    ],
+    "clean_answers_increase": true,
+    "false_abstentions_decrease": true,
+    "B01_clean_v2": true,
+    "B11_clean_v2": true,
+    "B26_grounded_abstention_v2": false,
+    "B29_grounded_abstention_v2": false,
+    "B30_grounded_abstention_v2": true,
+    "B29_rejects_stratify_ratio_v2": false,
+    "control_complete_abstentions_preserved": [
+      "B26",
+      "B29"
+    ],
+    "overlength_rule": "fail",
+    "overlength_rule_detail": {
+      "v1_overlength_cases": 1,
+      "v2_overlength_cases": 5
+    },
+    "invalid_outputs_do_not_increase": true,
+    "selective_errors_do_not_increase": false,
+    "advance": false
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "B13",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "c0cf8a6d7d2b668dbcad759c88d51eda25f7892db8c93a6cbc27c1eb4c32be6a",
+  "sent_at": "2026-11-26T14:05:45.974655+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [],
+  "decision": "abstain",
+  "answer": "",
+  "abstention_reason": "Passages do not contain a direct quote specifying the parameter name for caching fitted transformers in Pipeline.",
+  "input_tokens": 928,
+  "output_tokens": 45,
+  "elapsed_seconds": 24.917,
+  "received_at": "2026-11-26T14:06:10.891841+00:00",
+  "response_sha256": "9121c9adeb5cf5fe0bde3f2503eb04e504988128c63f74c9546457c73b9fde98",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:06:10.8905288Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 24902808200,
+    "load_duration": 13763800,
+    "prompt_eval_count": 928,
+    "prompt_eval_duration": 18747171000,
+    "eval_count": 45,
+    "eval_duration": 6027424000
+  },
+  "reply": {
+    "evidence": [],
+    "decision": "abstain",
+    "answer": "",
+    "abstention_reason": "Passages do not contain a direct quote specifying the parameter name for caching fitted transformers in Pipeline."
+  }
+}

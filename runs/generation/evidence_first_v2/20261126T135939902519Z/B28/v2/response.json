@@ -1,0 +1,17 @@
+{
+  "model": "qwen3:4b",
+  "created_at": "2026-11-26T14:15:05.4311422Z",
+  "message": {
+    "role": "assistant",
+    "content": "{\n  \"evidence\": [\n    {\n      \"chunk_id\": \"sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d\",\n      \"quote\": \"Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step \\u2018sees\\u2019 the test data, the model has an unfair advantage.\"\n    },\n    {\n      \"chunk_id\": \"sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d\",\n      \"quote\": \"In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:\"\n    }\n  ],\n  \"decision\": \"answer\",\n  \"answer\": \"The classification model achieved high accuracy (around 76%) on 10,000 completely random noise features because the feature selection step used the test data, which caused the model to have an unfair advantage. This resulted in an accuracy score much higher than chance (expected around 0.5) due to data leakage during preprocessing.\",\n  \"abstention_reason\": \"\"\n}"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 74071728800,
+  "load_duration": 16315600,
+  "prompt_eval_count": 1090,
+  "prompt_eval_cached_count": 4,
+  "prompt_eval_duration": 22728039000,
+  "eval_count": 382,
+  "eval_duration": 51216136000
+}

@@ -1,0 +1,292 @@
+{
+  "evaluation_version": "1",
+  "total_questions": 30,
+  "eligible_questions": 30,
+  "excluded_questions": 0,
+  "eligible_cohorts": {
+    "exploratory_unknown_provenance": 30
+  },
+  "exclusions": [],
+  "baselines": [
+    {
+      "baseline": "k3_response",
+      "eligible_questions": 30,
+      "cost_assumption": "Single k=3 generation per eligible question.",
+      "substantive_answers": {
+        "count": 12,
+        "denominator": 30,
+        "rate": 0.4
+      },
+      "abstentions": {
+        "count": 18,
+        "denominator": 30,
+        "rate": 0.6
+      },
+      "unparseable_invalid_attempts": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "invalid_outputs": {
+        "count": 2,
+        "denominator": 30,
+        "rate": 0.0667
+      },
+      "content_errors": {
+        "count": 5,
+        "denominator": 12,
+        "rate": 0.4167
+      },
+      "protocol_violations_in_answers": {
+        "count": 5,
+        "denominator": 12,
+        "rate": 0.4167
+      },
+      "protocol_violations_all": {
+        "count": 6,
+        "denominator": 30,
+        "rate": 0.2
+      },
+      "quote_length_violations": {
+        "count": 6,
+        "denominator": 30,
+        "rate": 0.2
+      },
+      "combined_selective_error": {
+        "count": 6,
+        "denominator": 12,
+        "rate": 0.5
+      },
+      "completeness": {
+        "complete_total": 10,
+        "denominator": 30,
+        "rate": 0.3333,
+        "complete_answers": 8,
+        "complete_abstentions": 2,
+        "completeness_unknown": 3
+      },
+      "tokens": {
+        "input": {
+          "known_subtotal": 32440,
+          "missing_count": 0,
+          "total": 32440
+        },
+        "output": {
+          "known_subtotal": 6215,
+          "missing_count": 0,
+          "total": 6215
+        }
+      }
+    },
+    {
+      "baseline": "k3→k5 recovery",
+      "eligible_questions": 30,
+      "cost_assumption": "Two generations per eligible question (k=3 followed by k=5 expansion); selected response is k=5.",
+      "substantive_answers": {
+        "count": 17,
+        "denominator": 30,
+        "rate": 0.5667
+      },
+      "abstentions": {
+        "count": 13,
+        "denominator": 30,
+        "rate": 0.4333
+      },
+      "unparseable_invalid_attempts": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "invalid_outputs": {
+        "count": 2,
+        "denominator": 30,
+        "rate": 0.0667
+      },
+      "content_errors": {
+        "count": 10,
+        "denominator": 17,
+        "rate": 0.5882
+      },
+      "protocol_violations_in_answers": {
+        "count": 6,
+        "denominator": 17,
+        "rate": 0.3529
+      },
+      "protocol_violations_all": {
+        "count": 8,
+        "denominator": 30,
+        "rate": 0.2667
+      },
+      "quote_length_violations": {
+        "count": 8,
+        "denominator": 30,
+        "rate": 0.2667
+      },
+      "combined_selective_error": {
+        "count": 12,
+        "denominator": 17,
+        "rate": 0.7059
+      },
+      "completeness": {
+        "complete_total": 10,
+        "denominator": 30,
+        "rate": 0.3333,
+        "complete_answers": 9,
+        "complete_abstentions": 1,
+        "completeness_unknown": 1
+      },
+      "tokens": {
+        "input": {
+          "known_subtotal": 84324,
+          "missing_count": 0,
+          "total": 84324
+        },
+        "output": {
+          "known_subtotal": 13289,
+          "missing_count": 0,
+          "total": 13289
+        }
+      }
+    },
+    {
+      "baseline": "direct_k5",
+      "eligible_questions": 30,
+      "cost_assumption": "Single direct k=5 generation per eligible question (no prior k=3 call).",
+      "substantive_answers": {
+        "count": 17,
+        "denominator": 30,
+        "rate": 0.5667
+      },
+      "abstentions": {
+        "count": 13,
+        "denominator": 30,
+        "rate": 0.4333
+      },
+      "unparseable_invalid_attempts": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "invalid_outputs": {
+        "count": 2,
+        "denominator": 30,
+        "rate": 0.0667
+      },
+      "content_errors": {
+        "count": 10,
+        "denominator": 17,
+        "rate": 0.5882
+      },
+      "protocol_violations_in_answers": {
+        "count": 6,
+        "denominator": 17,
+        "rate": 0.3529
+      },
+      "protocol_violations_all": {
+        "count": 8,
+        "denominator": 30,
+        "rate": 0.2667
+      },
+      "quote_length_violations": {
+        "count": 8,
+        "denominator": 30,
+        "rate": 0.2667
+      },
+      "combined_selective_error": {
+        "count": 12,
+        "denominator": 17,
+        "rate": 0.7059
+      },
+      "completeness": {
+        "complete_total": 10,
+        "denominator": 30,
+        "rate": 0.3333,
+        "complete_answers": 9,
+        "complete_abstentions": 1,
+        "completeness_unknown": 1
+      },
+      "tokens": {
+        "input": {
+          "known_subtotal": 51884,
+          "missing_count": 0,
+          "total": 51884
+        },
+        "output": {
+          "known_subtotal": 7074,
+          "missing_count": 0,
+          "total": 7074
+        }
+      }
+    },
+    {
+      "baseline": "immediate_abstain",
+      "eligible_questions": 30,
+      "cost_assumption": "Assumes zero generation tokens; explicitly excludes retrieval and infrastructure costs.",
+      "substantive_answers": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "abstentions": {
+        "count": 30,
+        "denominator": 30,
+        "rate": 1.0
+      },
+      "unparseable_invalid_attempts": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "invalid_outputs": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "content_errors": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "protocol_violations_in_answers": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "protocol_violations_all": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "quote_length_violations": {
+        "count": 0,
+        "denominator": 30,
+        "rate": 0.0
+      },
+      "combined_selective_error": {
+        "count": 0,
+        "denominator": 0,
+        "rate": null
+      },
+      "completeness": {
+        "complete_total": 0,
+        "denominator": 30,
+        "rate": 0.0,
+        "complete_answers": 0,
+        "complete_abstentions": 0,
+        "completeness_unknown": 0
+      },
+      "tokens": {
+        "input": {
+          "known_subtotal": 0,
+          "missing_count": 0,
+          "total": 0
+        },
+        "output": {
+          "known_subtotal": 0,
+          "missing_count": 0,
+          "total": 0
+        }
+      }
+    }
+  ]
+}

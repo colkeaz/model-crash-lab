@@ -1,0 +1,438 @@
+{
+  "summary": {
+    "run_id": "20261107T164628568864Z",
+    "benchmark": "benchmarks/extension-v2.json",
+    "total_cases": 10,
+    "k3_answers": 2,
+    "k3_abstentions": 8,
+    "k5_answers": 3,
+    "k5_abstentions": 7,
+    "decisions_flipped": 3,
+    "total_k3_input_tokens": 10024,
+    "total_k5_input_tokens": 15402,
+    "total_input_token_increase": 5378
+  },
+  "results": [
+    {
+      "case_id": "B21",
+      "question": "In scikit-learn 1.7.2, what does the Pipeline.set_output() method configure?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not specify what the Pipeline.set_output() method configures in scikit-learn 1.7.2.",
+        "quotes": [],
+        "input_tokens": 625,
+        "output_tokens": 52,
+        "elapsed_seconds": 14.13
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain specific information about what Pipeline.set_output() method configures in scikit-learn 1.7.2.",
+        "quotes": [],
+        "input_tokens": 936,
+        "output_tokens": 54,
+        "elapsed_seconds": 3.03
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 311,
+        "output_token_diff": 2
+      }
+    },
+    {
+      "case_id": "B22",
+      "question": "In train_test_split, what does an integer passed to the test_size parameter represent, as opposed to a float?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples.",
+        "quotes": [],
+        "input_tokens": 733,
+        "output_tokens": 57,
+        "elapsed_seconds": 3.24
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "An integer passed to the test_size parameter in train_test_split represents the absolute number of test samples.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+            "quote": "If int, represents the absolute number of test samples.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 9,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+            "quote": "If int, represents the absolute number of train samples.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 9,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1637,
+        "output_tokens": 230,
+        "elapsed_seconds": 5.79
+      },
+      "delta": {
+        "decision_flipped": true,
+        "input_token_increase": 904,
+        "output_token_diff": 173
+      }
+    },
+    {
+      "case_id": "B23",
+      "question": "What operation does Pipeline.inverse_transform() perform?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages describe the purpose and parameters of inverse_transform but do not explicitly state what operation it performs.",
+        "quotes": [],
+        "input_tokens": 587,
+        "output_tokens": 46,
+        "elapsed_seconds": 3.12
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages describe Pipeline.inverse_transform but do not explicitly state what operation it performs. They describe parameters, returns, and related concepts but not the core operation.",
+        "quotes": [],
+        "input_tokens": 878,
+        "output_tokens": 57,
+        "elapsed_seconds": 3.09
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 291,
+        "output_token_diff": 11
+      }
+    },
+    {
+      "case_id": "B24",
+      "question": "In scikit-learn, why does calling split() multiple times on a randomized CV splitter with a RandomState instance yield different splits?",
+      "answerable": true,
+      "k3": {
+        "decision": "answer",
+        "answer": "Calling split() multiple times on a randomized CV splitter with a RandomState instance yields different splits because each call to split explores additional sources of entropy, resulting in new data splits each time.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:4415bb982d787951f5a2788a393eaf123b6f0c32a630a80283d6dfb93e80f50f",
+            "quote": "We can see that the splits are different from the second time split is called.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 15,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 30,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:73a1258838aa490e66d9ed18c72997831e9a36c0fb412ba8c0988f22f1af4bfd",
+            "quote": "When passed a RandomState instance, CV splitters yield different splits each time split is called.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 15,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1530,
+        "output_tokens": 372,
+        "elapsed_seconds": 8.07
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "Calling split() multiple times on a randomized CV splitter with a RandomState instance yields different splits because the RandomState instance ensures that each call to split() explores new random states, leading to different data splits each time.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:4415bb982d787951f5a2788a393eaf123b6f0c32a630a80283d6dfb93e80f50f",
+            "quote": "We can see that the splits are different from the second time split is called.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 15,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 30,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:73a1258838aa490e66d9ed18c72997831e9a36c0fb412ba8c0988f22f1af4bfd",
+            "quote": "When passed a RandomState instance, CV splitters yield different splits each time split is called.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 15,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 2319,
+        "output_tokens": 378,
+        "elapsed_seconds": 7.97
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 789,
+        "output_token_diff": 6
+      }
+    },
+    {
+      "case_id": "B25",
+      "question": "When enable_metadata_routing=False, what key prefix must be used in Pipeline.fit(**params) to pass a parameter p to step s?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages describe parameter routing behavior but do not specify the key prefix required when enable_metadata_routing=False for passing a parameter p to step s.",
+        "quotes": [],
+        "input_tokens": 856,
+        "output_tokens": 54,
+        "elapsed_seconds": 3.47
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages describe the behavior of enable_metadata_routing=False for different methods (fit, fit_transform, predict_proba, predict_log_proba, fit_predict), but do not specify the key prefix for passing a parameter p to step s when enable_metadata_routing=False.",
+        "quotes": [],
+        "input_tokens": 1293,
+        "output_tokens": 76,
+        "elapsed_seconds": 3.43
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 437,
+        "output_token_diff": 22
+      }
+    },
+    {
+      "case_id": "B26",
+      "question": "According to the common pitfalls documentation, what practical advantages does using a Pipeline or make_pipeline provide over manual sequential transformations?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not contain specific information about practical advantages of using Pipeline or make_pipeline over manual sequential transformations. The passages discuss common pitfalls, CV splitters, and Pipeline overview but do not explicitly list practical advantages compared to manual transformations.",
+        "quotes": [],
+        "input_tokens": 869,
+        "output_tokens": 72,
+        "elapsed_seconds": 3.58
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not explicitly mention practical advantages of using Pipeline or make_pipeline over manual sequential transformations.",
+        "quotes": [],
+        "input_tokens": 1589,
+        "output_tokens": 45,
+        "elapsed_seconds": 3.14
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 720,
+        "output_token_diff": -27
+      }
+    },
+    {
+      "case_id": "B27",
+      "question": "According to the scikit-learn documentation on controlling randomness, passing random_state=None is equivalent to passing which global numpy object?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not explicitly state which global numpy object is equivalent to random_state=None.",
+        "quotes": [],
+        "input_tokens": 1244,
+        "output_tokens": 43,
+        "elapsed_seconds": 14.21
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages discuss the equivalence of random_state=None to the global numpy RandomState instance but do not explicitly state which global numpy object it is equivalent to. The text mentions 'random_state=np.random.mtrand._rand' but this is not a direct quote about the global object name.",
+        "quotes": [],
+        "input_tokens": 1863,
+        "output_tokens": 82,
+        "elapsed_seconds": 3.68
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 619,
+        "output_token_diff": 39
+      }
+    },
+    {
+      "case_id": "B28",
+      "question": "In the common pitfalls pitfall example, why did a classification model achieve high accuracy (around 76%) on 10,000 completely random noise features?",
+      "answerable": true,
+      "k3": {
+        "decision": "answer",
+        "answer": "The classification model achieved high accuracy on random noise features because the feature selection step used the test data, giving the model an unfair advantage by 'seeing' the test data during feature selection.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 24,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step 'sees' the test data, the model has an unfair advantage.",
+            "in_supplied_passages": true,
+            "exact_match": false,
+            "normalized_match": false,
+            "word_count": 36,
+            "violates_under_30_words": true
+          }
+        ],
+        "input_tokens": 997,
+        "output_tokens": 302,
+        "elapsed_seconds": 6.88
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages discuss data leakage and common pitfalls in scikit-learn but do not explicitly state why a classification model achieved high accuracy (around 76%) on 10,000 random noise features. The first passage mentions that using all data for feature selection leads to higher accuracy than expected, but does not specify the exact reason for the 76% accuracy. The other passages discuss randomness and data leakage but do not provide the specific numerical accuracy explanation needed.",
+        "quotes": [],
+        "input_tokens": 1438,
+        "output_tokens": 121,
+        "elapsed_seconds": 4.11
+      },
+      "delta": {
+        "decision_flipped": true,
+        "input_token_increase": 441,
+        "output_token_diff": -181
+      }
+    },
+    {
+      "case_id": "B29",
+      "question": "According to the scikit-learn 1.7.2 train_test_split documentation, how do I configure its stratify_ratio parameter?",
+      "answerable": false,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain information about the stratify_ratio parameter in scikit-learn 1.7.2 train_test_split documentation.",
+        "quotes": [],
+        "input_tokens": 1461,
+        "output_tokens": 54,
+        "elapsed_seconds": 3.76
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "The stratify parameter in train_test_split is an array-like object that specifies class labels for stratified splitting. It defaults to None.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+            "quote": "stratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 19,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+            "quote": "train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 7,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1874,
+        "output_tokens": 271,
+        "elapsed_seconds": 13.38
+      },
+      "delta": {
+        "decision_flipped": true,
+        "input_token_increase": 413,
+        "output_token_diff": 217
+      }
+    },
+    {
+      "case_id": "B30",
+      "question": "According to the scikit-learn 1.7.2 Pipeline documentation, how many seconds will a 5-step Pipeline take to fit on 100,000 samples?",
+      "answerable": false,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not contain information about the time taken to fit a 5-step Pipeline on 100,000 samples for scikit-learn 1.7.2. The question asks for a specific time calculation, but the provided passages discuss data leakage, pipeline structure, and best practices without numerical timing information.",
+        "quotes": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 24,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+            "quote": "steps: list of tuples\nList of (name of step, estimator) tuples that are to be chained in sequential order.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 19,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 25,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1122,
+        "output_tokens": 414,
+        "elapsed_seconds": 8.68
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not contain information about the time taken to fit a 5-step Pipeline on 100,000 samples for scikit-learn 1.7.2. The passages discuss data leakage, pipelines, and common pitfalls but do not provide timing information or computational estimates for specific pipeline operations.",
+        "quotes": [],
+        "input_tokens": 1575,
+        "output_tokens": 90,
+        "elapsed_seconds": 5.06
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 453,
+        "output_token_diff": -324
+      }
+    }
+  ]
+}

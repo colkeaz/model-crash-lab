@@ -1,0 +1,105 @@
+{
+  "parser_version": "1",
+  "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+  "source_id": "S1",
+  "raw_sha256": "addde7579cee7a19edfdd8f7f3de2c3ba884c141beff6c0a051b81643942b0e6",
+  "blocks": [
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Split arrays or matrices into random train and test subsets.\n\nQuick utility that wraps input validation, next(ShuffleSplit().split(X, y)) , and application to input data into a single call for splitting (and optionally subsampling) data into a one-liner.\n\nRead more in the User Guide ."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Parameters",
+        "*arrays"
+      ],
+      "block_type": "parameter",
+      "text": "*arrays: sequence of indexables with same length / shape[0]\nAllowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Parameters",
+        "test_size"
+      ],
+      "block_type": "parameter",
+      "text": "test_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Parameters",
+        "train_size"
+      ],
+      "block_type": "parameter",
+      "text": "train_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Parameters",
+        "random_state"
+      ],
+      "block_type": "parameter",
+      "text": "random_state: int, RandomState instance or None, default=None\nControls the shuffling applied to the data before applying the split. Pass an int for reproducible output across multiple function calls. See Glossary ."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Parameters",
+        "shuffle"
+      ],
+      "block_type": "parameter",
+      "text": "shuffle: bool, default=True\nWhether or not to shuffle the data before splitting. If shuffle=False then stratify must be None."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Parameters",
+        "stratify"
+      ],
+      "block_type": "parameter",
+      "text": "stratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide ."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Returns",
+        "splitting"
+      ],
+      "block_type": "return",
+      "text": "splitting: list, length=2 * len(arrays)\nList containing train-test split of inputs. Added in version 0.16: If the input is sparse, the output will be a scipy.sparse.csr_matrix . Else, output type is the same as the input type."
+    },
+    {
+      "source_id": "S1",
+      "anchor": "sklearn.model_selection.train_test_split",
+      "heading_path": [
+        "train_test_split",
+        "Examples"
+      ],
+      "block_type": "example",
+      "text": ">>> import numpy as np\n>>> from sklearn.model_selection import train_test_split\n>>> X, y = np.arange(10).reshape((5, 2)), range(5)\n>>> X\narray([[0, 1],\n       [2, 3],\n       [4, 5],\n       [6, 7],\n       [8, 9]])\n>>> list(y)\n[0, 1, 2, 3, 4]\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.33, random_state=42)\n...\n>>> X_train\narray([[4, 5],\n       [0, 1],\n       [6, 7]])\n>>> y_train\n[2, 0, 3]\n>>> X_test\narray([[2, 3],\n       [8, 9]])\n>>> y_test\n[1, 4]\n\n>>> train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]\n\n>>> from sklearn import datasets\n>>> iris = datasets.load_iris(as_frame=True)\n>>> X, y = iris['data'], iris['target']\n>>> X.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n0                5.1               3.5                1.4               0.2\n1                4.9               3.0                1.4               0.2\n2                4.7               3.2                1.3               0.2\n3                4.6               3.1                1.5               0.2\n4                5.0               3.6                1.4               0.2\n>>> y.head()\n0    0\n1    0\n2    0\n3    0\n4    0\n...\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n... X, y, test_size=0.33, random_state=42)\n...\n>>> X_train.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n96                 5.7               2.9                4.2               1.3\n105                7.6               3.0                6.6               2.1\n66                 5.6               3.0                4.5               1.5\n0                  5.1               3.5                1.4               0.2\n122                7.7               2.8                6.7               2.0\n>>> y_train.head()\n96     1\n105    2\n66     1\n0      0\n122    2\n...\n>>> X_test.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n73                 6.1               2.8                4.7               1.2\n18                 5.7               3.8                1.7               0.3\n118                7.7               2.6                6.9               2.3\n78                 6.0               2.9                4.5               1.5\n76                 6.8               2.8                4.8               1.4\n>>> y_test.head()\n73     1\n18     0\n118    2\n78     1\n76     1\n..."
+    }
+  ]
+}

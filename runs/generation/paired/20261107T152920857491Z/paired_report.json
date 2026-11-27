@@ -1,0 +1,542 @@
+{
+  "summary": {
+    "run_id": "20261107T152920857491Z",
+    "benchmark": "benchmarks/extension-v1.json",
+    "total_cases": 10,
+    "k3_answers": 3,
+    "k3_abstentions": 7,
+    "k5_answers": 5,
+    "k5_abstentions": 5,
+    "decisions_flipped": 4,
+    "total_k3_input_tokens": 11165,
+    "total_k5_input_tokens": 16821,
+    "total_input_token_increase": 5656
+  },
+  "results": [
+    {
+      "case_id": "B11",
+      "question": "How can I disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline?",
+      "answerable": true,
+      "k3": {
+        "decision": "answer",
+        "answer": "By setting the step to 'passthrough' or None",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 29,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "Pipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 27,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 983,
+        "output_tokens": 275,
+        "elapsed_seconds": 8.36
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain specific information about disabling or removing intermediate transformer steps without rebuilding the pipeline.",
+        "quotes": [],
+        "input_tokens": 1236,
+        "output_tokens": 45,
+        "elapsed_seconds": 3.14
+      },
+      "delta": {
+        "decision_flipped": true,
+        "input_token_increase": 253,
+        "output_token_diff": -230
+      }
+    },
+    {
+      "case_id": "B12",
+      "question": "In scikit-learn 1.7.2, if I pass a scipy sparse matrix to train_test_split, what specific matrix format is returned for the splits of that matrix?",
+      "answerable": true,
+      "k3": {
+        "decision": "answer",
+        "answer": "scipy.sparse.csr_matrix",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:4ca759a99501a7a094d587b89eb077384108ac363efec024b2d1fa57925ee883",
+            "quote": "If the input is sparse, the output will be a scipy.sparse.csr_matrix",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 11,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+            "quote": "Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 11,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 999,
+        "output_tokens": 222,
+        "elapsed_seconds": 7.88
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "scipy.sparse.csr_matrix",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:4ca759a99501a7a094d587b89eb077384108ac363efec024b2d1fa57925ee883",
+            "quote": "If the input is sparse, the output will be a scipy.sparse.csr_matrix",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 11,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+            "quote": "Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 11,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1544,
+        "output_tokens": 222,
+        "elapsed_seconds": 5.58
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 545,
+        "output_token_diff": 0
+      }
+    },
+    {
+      "case_id": "B13",
+      "question": "Which parameter in Pipeline allows caching the fitted transformers to avoid repeated computation?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain a direct quote specifying the parameter name for caching fitted transformers in Pipeline.",
+        "quotes": [],
+        "input_tokens": 928,
+        "output_tokens": 45,
+        "elapsed_seconds": 5.02
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "memory",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+            "quote": "memory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 31,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "The transformers in the pipeline can be cached using memory argument.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 11,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1215,
+        "output_tokens": 247,
+        "elapsed_seconds": 5.84
+      },
+      "delta": {
+        "decision_flipped": true,
+        "input_token_increase": 287,
+        "output_token_diff": 202
+      }
+    },
+    {
+      "case_id": "B14",
+      "question": "In scikit-learn 1.7.2, which Pipeline attribute allows accessing a fitted intermediate step by its assigned string name?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not explicitly state which Pipeline attribute allows accessing a fitted intermediate step by its assigned string name in scikit-learn 1.7.2. The information about steps and parameter naming is present but does not directly answer the specific attribute name.",
+        "quotes": [
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "For an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 48,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+            "quote": "steps: list of tuples\nList of (name of step, estimator) tuples that are to be chained in sequential order.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 19,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 806,
+        "output_tokens": 322,
+        "elapsed_seconds": 8.82
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "named_steps",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+            "quote": "Use the attribute named_steps or steps to inspect estimators within the pipeline.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 12,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+            "quote": "List of (name of step, estimator) tuples that are to be chained in sequential order.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 15,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1216,
+        "output_tokens": 222,
+        "elapsed_seconds": 5.64
+      },
+      "delta": {
+        "decision_flipped": true,
+        "input_token_increase": 410,
+        "output_token_diff": -100
+      }
+    },
+    {
+      "case_id": "B15",
+      "question": "For an estimator whose random_state controls stochastic training, with identical data and otherwise deterministic execution, why can repeated fit calls differ when reusing a RandomState instance, unlike reusing the same integer seed?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain specific quotes explaining why repeated fit calls differ when reusing a RandomState instance, unlike reusing the same integer seed.",
+        "quotes": [],
+        "input_tokens": 1273,
+        "output_tokens": 55,
+        "elapsed_seconds": 5.09
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "When reusing a RandomState instance, the Random Number Generator (RNG) is consumed (mutated) during each fit call, causing different results even with identical data. With an integer seed, the RNG is reset to its original state at the beginning of each fit call, ensuring reproducibility.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 30,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:1a0406bacf590bcfd43c8c944a87b8fbb095df3efea05098295bb5cc62991d10",
+            "quote": "The Random Number Generator (RNG) of the estimator is consumed (i.e. mutated) when fit is called, and this mutated RNG will be used in the subsequent calls to fit.",
+            "in_supplied_passages": true,
+            "exact_match": false,
+            "normalized_match": false,
+            "word_count": 29,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:73aaf267250e56e26d414ab174b8049389d500406b432120d22948485903982e",
+            "quote": "If an integer were passed, a and b would be exact clones and they would not influence each other.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 19,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 2348,
+        "output_tokens": 418,
+        "elapsed_seconds": 9.07
+      },
+      "delta": {
+        "decision_flipped": true,
+        "input_token_increase": 1075,
+        "output_token_diff": 363
+      }
+    },
+    {
+      "case_id": "B16",
+      "question": "If I pass the same RandomState instance to two different SGDClassifier estimators, why can calling fit on one influence the subsequent results of the other?",
+      "answerable": true,
+      "k3": {
+        "decision": "answer",
+        "answer": "When the same RandomState instance is passed to multiple estimators, calling fit on one consumes the Random Number Generator (RNG), which is then used in subsequent calls to fit. Since the RNG is shared across all objects, the estimators become inter-dependent, causing one's fit to influence the other's results.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:1a0406bacf590bcfd43c8c944a87b8fbb095df3efea05098295bb5cc62991d10",
+            "quote": "This is because the Random Number Generator (RNG) of the estimator is consumed (i.e. mutated) when fit is called, and this mutated RNG will be used in the subsequent calls to fit.",
+            "in_supplied_passages": true,
+            "exact_match": false,
+            "normalized_match": false,
+            "word_count": 32,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:1a0406bacf590bcfd43c8c944a87b8fbb095df3efea05098295bb5cc62991d10",
+            "quote": "In addition, the rng object is shared across all objects that use it, and as a consequence, these objects become somewhat inter-dependent.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 22,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:1a0406bacf590bcfd43c8c944a87b8fbb095df3efea05098295bb5cc62991d10",
+            "quote": "For example, two estimators that share the same RandomState instance will influence each other, as we will see later when we discuss cloning.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 23,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 1622,
+        "output_tokens": 415,
+        "elapsed_seconds": 9.82
+      },
+      "k5": {
+        "decision": "answer",
+        "answer": "When a RandomState instance is passed to an estimator, calling fit multiple times consumes the Random Number Generator (RNG), which is then shared across objects. This causes subsequent calls to fit to use the mutated RNG, leading to inter-dependent behavior where one estimator's fit affects the other's results.",
+        "abstention_reason": "",
+        "quotes": [
+          {
+            "chunk_id": "sha256:1a0406bacf590bcfd43c8c944a87b8fbb095df3efea05098295bb5cc62991d10",
+            "quote": "This is because the Random Number Generator (RNG) of the estimator is consumed (i.e. mutated) when fit is called, and this mutated RNG will be used in the subsequent calls to fit . In addition, the rng object is shared across all objects that use it, and as a consequence, these objects become somewhat inter-dependent.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 55,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:1a0406bacf590bcfd43c8c944a87b8fbb095df3efea05098295bb5cc62991d10",
+            "quote": "We can see from the snippet above that repeatedly calling sgd.fit has produced different models, even if the data was the same.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 22,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:73aaf267250e56e26d414ab174b8049389d500406b432120d22948485903982e",
+            "quote": "a and b will influence each other since they share the same internal RNG: calling a.fit will consume b ’s RNG, and calling b.fit will consume a ’s RNG, since they are the same.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 34,
+            "violates_under_30_words": true
+          }
+        ],
+        "input_tokens": 2508,
+        "output_tokens": 469,
+        "elapsed_seconds": 11.66
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 886,
+        "output_token_diff": 54
+      }
+    },
+    {
+      "case_id": "B17",
+      "question": "Can train_test_split take two arrays with differing row counts, like X with 100 rows and y with 80 rows?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain information about whether train_test_split can take arrays with differing row counts.",
+        "quotes": [],
+        "input_tokens": 834,
+        "output_tokens": 45,
+        "elapsed_seconds": 3.27
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not contain information about whether train_test_split can take arrays with differing row counts.",
+        "quotes": [],
+        "input_tokens": 1043,
+        "output_tokens": 45,
+        "elapsed_seconds": 3.0
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 209,
+        "output_token_diff": 0
+      }
+    },
+    {
+      "case_id": "B18",
+      "question": "When standardizing my data with z-score normalization, is it acceptable to divide by the standard deviation computed across all available samples before splitting?",
+      "answerable": true,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages discuss data leakage and preprocessing but do not explicitly address whether dividing by standard deviation computed across all samples before splitting is acceptable for z-score normalization.",
+        "quotes": [],
+        "input_tokens": 1454,
+        "output_tokens": 56,
+        "elapsed_seconds": 3.39
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages discuss data leakage and the importance of not using test data in preprocessing, but do not explicitly address whether dividing by standard deviation computed across all samples before splitting is acceptable. The quotes indicate that test data should not be used in calculations like normalization, but the specific question about standard deviation computation across all samples before splitting is not directly addressed.",
+        "quotes": [
+          {
+            "chunk_id": "sha256:d1d232b00d9206b29a20bdb7870f73262f029a02f8164eda033327331bdeca59",
+            "quote": "If the test subset is included in the average calculation, information from the test subset is influencing the model.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 19,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Including the test data in feature selection will optimistically bias your model.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 12,
+            "violates_under_30_words": false
+          }
+        ],
+        "input_tokens": 2165,
+        "output_tokens": 295,
+        "elapsed_seconds": 7.54
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 711,
+        "output_token_diff": 239
+      }
+    },
+    {
+      "case_id": "B19",
+      "question": "According to the scikit-learn 1.7.2 Pipeline documentation, what parameters does the Pipeline.auto_scale() method accept?",
+      "answerable": false,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "Passages do not mention the Pipeline.auto_scale() method or its parameters.",
+        "quotes": [],
+        "input_tokens": 850,
+        "output_tokens": 41,
+        "elapsed_seconds": 3.24
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages do not contain information about the Pipeline.auto_scale() method parameters in scikit-learn 1.7.2 documentation.",
+        "quotes": [],
+        "input_tokens": 1263,
+        "output_tokens": 53,
+        "elapsed_seconds": 3.29
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 413,
+        "output_token_diff": 12
+      }
+    },
+    {
+      "case_id": "B20",
+      "question": "According to the scikit-learn documentation on controlling randomness, which random_state integer is documented to guarantee the highest cross-validation score?",
+      "answerable": false,
+      "k3": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages discuss controlling randomness in scikit-learn, including the use of random_state parameters, but do not specify which integer value guarantees the highest cross-validation score. The passages explain the behavior of different random_state types (integers vs. RandomState instances) and their impact on cross-validation, but do not provide any specific integer value that is documented to guarantee the highest cross-validation score.",
+        "quotes": [],
+        "input_tokens": 1416,
+        "output_tokens": 104,
+        "elapsed_seconds": 4.61
+      },
+      "k5": {
+        "decision": "abstain",
+        "answer": "",
+        "abstention_reason": "The passages discuss the impact of different random_state values on cross-validation but do not specify which integer guarantees the highest cross-validation score. The documentation mentions that passing integers leads to consistent results across folds but does not state a specific integer that maximizes the score.",
+        "quotes": [
+          {
+            "chunk_id": "sha256:b01c15ee31ad0bdf5035be5c38f8905ba1d2080f94b2487aa97052da6eef07d4",
+            "quote": "For an optimal robustness of cross-validation (CV) results, pass RandomState instances when creating estimators, or leave random_state to None .",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 20,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If an integer is passed, calling fit or split multiple times always yields the same results.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 16,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:cdd4ace6e16855beb03c57475c9f79a5a4fd3d06fb7061559bcddc853b87fbe2",
+            "quote": "Since rf_123 was passed an integer, every call to fit uses the same RNG: this means that all random characteristics of the random forest estimator will be the same for each of the 5 folds of the CV procedure.",
+            "in_supplied_passages": true,
+            "exact_match": true,
+            "normalized_match": true,
+            "word_count": 39,
+            "violates_under_30_words": true
+          }
+        ],
+        "input_tokens": 2283,
+        "output_tokens": 403,
+        "elapsed_seconds": 10.2
+      },
+      "delta": {
+        "decision_flipped": false,
+        "input_token_increase": 867,
+        "output_token_diff": 299
+      }
+    }
+  ]
+}

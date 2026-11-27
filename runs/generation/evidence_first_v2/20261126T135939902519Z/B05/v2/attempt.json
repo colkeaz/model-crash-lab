@@ -1,0 +1,91 @@
+{
+  "case_id": "B05",
+  "arm": "v2",
+  "prompt_version": "evidence-first-v2",
+  "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+  "request_sha256": "a70d496bc5ad5e2a41a07547d1ab15a617866411370dc313977d6fc43e7165fa",
+  "sent_at": "2026-11-26T14:02:26.392976+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+      "quote": "To prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 45,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    },
+    {
+      "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+      "quote": "The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 25,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    },
+    {
+      "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+      "quote": "The pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 32,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    }
+  ],
+  "decision": "answer",
+  "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. A Pipeline should be used to chain feature selection and model estimators, ensuring only training data is used for fit and test data for prediction during cross-validation.",
+  "abstention_reason": "",
+  "input_tokens": 1778,
+  "output_tokens": 425,
+  "elapsed_seconds": 103.84,
+  "received_at": "2026-11-26T14:04:10.232559+00:00",
+  "response_sha256": "4e9a676b759221389f25671d641f95dcead92696286ae5ae23d4644567be60a2",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:04:10.2315612Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 103837310100,
+    "load_duration": 8779900,
+    "prompt_eval_count": 1778,
+    "prompt_eval_duration": 37182334000,
+    "eval_count": 425,
+    "eval_duration": 66474954000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+        "quote": "To prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset."
+      },
+      {
+        "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+        "quote": "The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score"
+      },
+      {
+        "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+        "quote": "The pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting"
+      }
+    ],
+    "decision": "answer",
+    "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. A Pipeline should be used to chain feature selection and model estimators, ensuring only training data is used for fit and test data for prediction during cross-validation.",
+    "abstention_reason": ""
+  }
+}

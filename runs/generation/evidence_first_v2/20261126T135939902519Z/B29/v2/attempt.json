@@ -1,0 +1,77 @@
+{
+  "case_id": "B29",
+  "arm": "v2",
+  "prompt_version": "evidence-first-v2",
+  "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+  "request_sha256": "63a35ddd4b61c4996de76f685e681f91a9e54896c47d985f1da896151eae7600",
+  "sent_at": "2026-11-26T14:15:43.130873+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+      "quote": "stratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide .",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 26,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    },
+    {
+      "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+      "quote": "train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 7,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    }
+  ],
+  "decision": "answer",
+  "answer": "The stratify parameter in scikit-learn's train_test_split is an array-like object that specifies class labels for stratified splitting; it defaults to None. When set, it ensures the split maintains the original class distribution.",
+  "abstention_reason": "",
+  "input_tokens": 1554,
+  "output_tokens": 297,
+  "elapsed_seconds": 81.098,
+  "received_at": "2026-11-26T14:17:04.229112+00:00",
+  "response_sha256": "e5de3cbd455d2ea2a9b38e46fc77db1ff1bb6bf2ba858a14c346cb4475684e56",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:17:04.2278384Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 81096229900,
+    "load_duration": 10098500,
+    "prompt_eval_count": 1554,
+    "prompt_eval_duration": 33383744000,
+    "eval_count": 297,
+    "eval_duration": 47601974000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+        "quote": "stratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide ."
+      },
+      {
+        "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+        "quote": "train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]"
+      }
+    ],
+    "decision": "answer",
+    "answer": "The stratify parameter in scikit-learn's train_test_split is an array-like object that specifies class labels for stratified splitting; it defaults to None. When set, it ensures the split maintains the original class distribution.",
+    "abstention_reason": ""
+  }
+}

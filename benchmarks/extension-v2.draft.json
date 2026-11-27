@@ -1,0 +1,258 @@
+[
+  {
+    "id": "B21",
+    "question": "In scikit-learn 1.7.2, what does the Pipeline.set_output() method configure?",
+    "category": "direct",
+    "family_id": "pipeline-output-container",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "set_output configures the output container format returned by transform and fit_transform.",
+    "required_claims": [
+      "set_output configures the output container returned by transform and fit_transform."
+    ],
+    "forbidden_claims": [
+      "set_output configures the file format for saving pipeline weights to disk."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "set_output Overview",
+        "anchor": "sklearn.pipeline.Pipeline.set_output"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Direct lookup of the set_output method in the Pipeline API."
+  },
+  {
+    "id": "B22",
+    "question": "In train_test_split, what does an integer passed to the test_size parameter represent, as opposed to a float?",
+    "category": "direct",
+    "family_id": "split-parameters-int",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "An int represents the absolute number of test samples, whereas a float between 0.0 and 1.0 represents the proportion of the dataset to include in the test split.",
+    "required_claims": [
+      "An int represents the absolute number of test samples.",
+      "A float represents the proportion of the dataset to include in the test split."
+    ],
+    "forbidden_claims": [
+      "An integer represents the percentage rather than the sample count."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Parameters > test_size",
+        "anchor": "sklearn.model_selection.train_test_split"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Direct lookup of test_size type distinctions in train_test_split."
+  },
+  {
+    "id": "B23",
+    "question": "What operation does Pipeline.inverse_transform() perform?",
+    "category": "direct",
+    "family_id": "pipeline-methods",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "It applies inverse_transform in reverse order through the transformers in the pipeline, starting with the final estimator if supported.",
+    "required_claims": [
+      "Applies inverse_transform in reverse order through the transformers in the pipeline."
+    ],
+    "forbidden_claims": [
+      "Applies inverse_transform in forward sequential order starting with the first step."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "inverse_transform Overview",
+        "anchor": "sklearn.pipeline.Pipeline.inverse_transform"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Direct lookup of inverse_transform traversal order."
+  },
+  {
+    "id": "B24",
+    "question": "In scikit-learn, why does calling split() multiple times on a randomized CV splitter with a RandomState instance yield different splits?",
+    "category": "synthesis",
+    "family_id": "split-randomness-cv",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Randomized CV splitters consume and mutate the RandomState instance on each call, so each subsequent split call uses the newly advanced RNG state.",
+    "required_claims": [
+      "Calling split multiple times consumes and mutates the RandomState instance.",
+      "Subsequent calls use the mutated state and thus produce different data splits."
+    ],
+    "forbidden_claims": [
+      "Calling split on a CV splitter resets the RandomState instance to its initial seed."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.3.1.2 CV splitters",
+        "anchor": "cv-splitters"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Synthesis of splitter behavior under shared RNG mutation from S3."
+  },
+  {
+    "id": "B25",
+    "question": "When enable_metadata_routing=False, what key prefix must be used in Pipeline.fit(**params) to pass a parameter p to step s?",
+    "category": "synthesis",
+    "family_id": "pipeline-metadata-routing",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Each parameter name must be prefixed such that parameter p for step s has the key s__p.",
+    "required_claims": [
+      "The parameter key must be prefixed as s__p."
+    ],
+    "forbidden_claims": [
+      "The parameter key is prefixed as s.p or s_p."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "Pipeline.fit Parameters",
+        "anchor": "sklearn.pipeline.Pipeline.fit"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Synthesis of parameter routing syntax when metadata routing is disabled."
+  },
+  {
+    "id": "B26",
+    "question": "According to the common pitfalls documentation, what practical advantages does using a Pipeline or make_pipeline provide over manual sequential transformations?",
+    "category": "synthesis",
+    "family_id": "pipeline-convenience",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "It makes it easier to chain transformations with estimators, reduces the possibility of forgetting a transformation, and prevents data leakage by ensuring preprocessing is fitted only on training data.",
+    "required_claims": [
+      "Makes it easier to chain transformations with estimators.",
+      "Reduces the possibility of forgetting a transformation or prevents data leakage."
+    ],
+    "forbidden_claims": [
+      "make_pipeline speeds up model training via multi-threading."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.1 Inconsistent preprocessing",
+        "anchor": "inconsistent-preprocessing"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Synthesis of documented pipeline advantages from Section 11.1."
+  },
+  {
+    "id": "B27",
+    "question": "According to the scikit-learn documentation on controlling randomness, passing random_state=None is equivalent to passing which global numpy object?",
+    "category": "noisy",
+    "family_id": "split-randomness",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Passing random_state=None is equivalent to passing numpy's global RandomState instance: np.random.mtrand._rand.",
+    "required_claims": [
+      "It is equivalent to numpy's global RandomState instance np.random.mtrand._rand."
+    ],
+    "forbidden_claims": [
+      "Passing random_state=None uses a fixed constant seed of 0."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.3.1 Using None or RandomState instances",
+        "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Paraphrase / specific technical note in S3."
+  },
+  {
+    "id": "B28",
+    "question": "In the common pitfalls pitfall example, why did a classification model achieve high accuracy (around 76%) on 10,000 completely random noise features?",
+    "category": "noisy",
+    "family_id": "feature-selection-leakage",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Because feature selection was performed on the full dataset before splitting, allowing the feature selector to see test data and give the model an unfair advantage despite independent random targets.",
+    "required_claims": [
+      "Feature selection was performed on the entire dataset before splitting.",
+      "The feature selection step saw test data, producing an artificially optimistic accuracy score."
+    ],
+    "forbidden_claims": [
+      "The 76% accuracy was caused by class imbalance in the target labels."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.2.2 Data leakage during pre-processing",
+        "anchor": "data-leakage-during-pre-processing"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "draft",
+    "reviewer_notes": "Narrative query about the pitfall example in Section 11.2.2."
+  },
+  {
+    "id": "B29",
+    "question": "According to the scikit-learn 1.7.2 train_test_split documentation, how do I configure its stratify_ratio parameter?",
+    "category": "unanswerable",
+    "family_id": "unsupported-api-premise",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": false,
+    "reference_answer": "Abstain from configuring stratify_ratio: the train_test_split documentation does not document a stratify_ratio parameter.",
+    "required_claims": [
+      "Abstain from explaining or configuring stratify_ratio.",
+      "Explain that the train_test_split documentation does not document a stratify_ratio parameter."
+    ],
+    "forbidden_claims": [
+      "Inventing a default value or configuration for stratify_ratio."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Parameters",
+        "anchor": "sklearn.model_selection.train_test_split"
+      }
+    ],
+    "absence_reason": "The frozen train_test_split documentation exposes a stratify parameter, but no stratify_ratio parameter exists.",
+    "review_status": "draft",
+    "reviewer_notes": "Fictitious parameter premise test on S1."
+  },
+  {
+    "id": "B30",
+    "question": "According to the scikit-learn 1.7.2 Pipeline documentation, how many seconds will a 5-step Pipeline take to fit on 100,000 samples?",
+    "category": "unanswerable",
+    "family_id": "unanswerable-metrics",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": false,
+    "reference_answer": "Abstain from providing a numerical runtime: execution time depends on the specific estimators, data dimensions, and hardware, and is not specified in the documentation.",
+    "required_claims": [
+      "Abstain from predicting an execution time in seconds.",
+      "Explain that runtime depends on specific estimators and hardware and is not stated in the documentation."
+    ],
+    "forbidden_claims": [
+      "Stating a specific runtime or benchmark number in seconds."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "Pipeline class description",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": "Execution runtime in seconds for an arbitrary 5-step pipeline is private/hardware-dependent and not documented in S2.",
+    "review_status": "draft",
+    "reviewer_notes": "Unanswerable private execution runtime query."
+  }
+]

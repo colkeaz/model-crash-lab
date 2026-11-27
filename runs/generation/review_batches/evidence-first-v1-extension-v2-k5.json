@@ -1,0 +1,71 @@
+{
+  "batch_id": "evidence-first-v1-extension-v2-k5",
+  "benchmark_path": "benchmarks/extension-v2.json",
+  "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+  "top_k": 5,
+  "case_ids": [
+    "B21",
+    "B22",
+    "B23",
+    "B24",
+    "B25",
+    "B26",
+    "B27",
+    "B28",
+    "B29",
+    "B30"
+  ],
+  "traces": [
+    {
+      "case_id": "B21",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B21.json",
+      "trace_sha256": "ae79dd1b4902e5e250c702f8d0ae351937d52044e811dfe9afbc94f2fc9e338e"
+    },
+    {
+      "case_id": "B22",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B22.json",
+      "trace_sha256": "c9f8e7ed27fa2bfec5126b9b43b3c4217ff0d918afbfe5f2f670f5a5804d1d1a"
+    },
+    {
+      "case_id": "B23",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B23.json",
+      "trace_sha256": "74329bad0895ef3372a2620a79ca5027e7dfa9543afdbb53c153da9491b1d527"
+    },
+    {
+      "case_id": "B24",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B24.json",
+      "trace_sha256": "e3e0bd4869a6f91c1e665d01b55478c8ae4fced8663bbcba62fc8b21f3f4d75b"
+    },
+    {
+      "case_id": "B25",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B25.json",
+      "trace_sha256": "ba5bcb3003c05c7df0c7568bf7fe3aa7685fdeba12dc86398a5ec2aa892bb87e"
+    },
+    {
+      "case_id": "B26",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B26.json",
+      "trace_sha256": "acfb920d2a39ca573e4d025b13f5c03e6114201725f175aac7a2fad92fab7550"
+    },
+    {
+      "case_id": "B27",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B27.json",
+      "trace_sha256": "b24fe0797581abfad2fc120a996f05222234929e772912d8d2706d2c7f4a2a4e"
+    },
+    {
+      "case_id": "B28",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B28.json",
+      "trace_sha256": "671f32349e26d424d4cc60ccdaff8d8f2539c2cb8a03ac18755771a9a8b4ca80"
+    },
+    {
+      "case_id": "B29",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B29.json",
+      "trace_sha256": "5c7de58c605b95ade4d5eec9e07317a3be01537a38dcca79802952d9f8eda455"
+    },
+    {
+      "case_id": "B30",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B30.json",
+      "trace_sha256": "a1efa12b935547688ea27d318acc4558d6049eacaf9f8461071714952964239e"
+    }
+  ],
+  "protocol_signature": "3964d8da571b849ea966d3aba6b348a557a45100a4a975b94d6a537996630af4"
+}

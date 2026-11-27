@@ -1,0 +1,47 @@
+{
+  "case_id": "B17",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "a8bb1d4ad6e550c022b478a79115f98c23194d20c068b53d4223d2ae09711081",
+  "sent_at": "2026-11-26T14:06:50.350880+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [],
+  "decision": "abstain",
+  "answer": "",
+  "abstention_reason": "Passages do not contain information about whether train_test_split can take arrays with differing row counts.",
+  "input_tokens": 834,
+  "output_tokens": 45,
+  "elapsed_seconds": 22.075,
+  "received_at": "2026-11-26T14:07:12.425653+00:00",
+  "response_sha256": "e93e761320433eaa76c05a1b51c937949ffe0c0268bb627f875a09e4c4bdc036",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:07:12.4243379Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 22051393700,
+    "load_duration": 11667500,
+    "prompt_eval_count": 834,
+    "prompt_eval_duration": 16323751000,
+    "eval_count": 45,
+    "eval_duration": 5613517000
+  },
+  "reply": {
+    "evidence": [],
+    "decision": "abstain",
+    "answer": "",
+    "abstention_reason": "Passages do not contain information about whether train_test_split can take arrays with differing row counts."
+  }
+}

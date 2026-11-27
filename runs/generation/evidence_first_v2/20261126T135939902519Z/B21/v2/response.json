@@ -1,0 +1,17 @@
+{
+  "model": "qwen3:4b",
+  "created_at": "2026-11-26T14:08:55.9458342Z",
+  "message": {
+    "role": "assistant",
+    "content": "{\n  \"evidence\": [\n    {\n      \"chunk_id\": \"sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9\",\n      \"quote\": \"Set the output container when \\\"transform\\\" and \\\"fit_transform\\\" are called.\"\n    },\n    {\n      \"chunk_id\": \"sha256:9d8cc831bc6c9538311126cf03f3124e87f1e04433943291837d67a87772cfdb\",\n      \"quote\": \"Configure output of transform and fit_transform . \\\"default\\\" : Default output format of a transformer \\\"pandas\\\" : DataFrame output \\\"polars\\\" : Polars output None : Transform configuration is unchanged Added in version 1.4: \\\"polars\\\" option was added.\"\n    }\n  ],\n  \"decision\": \"answer\",\n  \"answer\": \"The Pipeline.set_output() method configures the output container for transform and fit_transform calls, with options: \\\"default\\\" (default output format), \\\"pandas\\\" (DataFrame output), \\\"polars\\\" (Polars output), or None (no change).\",\n  \"abstention_reason\": \"\"\n}"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 46193324200,
+  "load_duration": 11492400,
+  "prompt_eval_count": 718,
+  "prompt_eval_cached_count": 304,
+  "prompt_eval_duration": 8201296000,
+  "eval_count": 309,
+  "eval_duration": 37859006000
+}

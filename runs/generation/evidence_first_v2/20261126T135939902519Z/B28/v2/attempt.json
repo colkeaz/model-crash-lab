@@ -1,0 +1,77 @@
+{
+  "case_id": "B28",
+  "arm": "v2",
+  "prompt_version": "evidence-first-v2",
+  "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+  "request_sha256": "078a64e547425ea40dd5eb7f2d6e859efb630507432ec0b5fc6e9de863cbcc3e",
+  "sent_at": "2026-11-26T14:13:51.358573+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+      "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 60,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    },
+    {
+      "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+      "quote": "In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 37,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    }
+  ],
+  "decision": "answer",
+  "answer": "The classification model achieved high accuracy (around 76%) on 10,000 completely random noise features because the feature selection step used the test data, which caused the model to have an unfair advantage. This resulted in an accuracy score much higher than chance (expected around 0.5) due to data leakage during preprocessing.",
+  "abstention_reason": "",
+  "input_tokens": 1090,
+  "output_tokens": 382,
+  "elapsed_seconds": 74.074,
+  "received_at": "2026-11-26T14:15:05.432369+00:00",
+  "response_sha256": "a411b1e40c0d00e823e85f8700c8576e00d1b2b40df8a8f302173c9fa6f4ce94",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:15:05.4311422Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 74071728800,
+    "load_duration": 16315600,
+    "prompt_eval_count": 1090,
+    "prompt_eval_duration": 22728039000,
+    "eval_count": 382,
+    "eval_duration": 51216136000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+        "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage."
+      },
+      {
+        "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+        "quote": "In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:"
+      }
+    ],
+    "decision": "answer",
+    "answer": "The classification model achieved high accuracy (around 76%) on 10,000 completely random noise features because the feature selection step used the test data, which caused the model to have an unfair advantage. This resulted in an accuracy score much higher than chance (expected around 0.5) due to data leakage during preprocessing.",
+    "abstention_reason": ""
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "batch_id": "evidence-first-v1-top5-b06",
+  "expected_passages": 5,
+  "summary": {
+    "total_cases": 1,
+    "answers": 1,
+    "abstentions": 0,
+    "invalid_outputs": 0,
+    "quotes_checked": 3,
+    "quotes_exact_matches": 3,
+    "quotes_normalized_matches": 3,
+    "quotes_violating_under_30_words": 0,
+    "stale_annotations": 0,
+    "batch_trace_hash_mismatches": 0,
+    "verdicts": {
+      "unreviewed": 1
+    }
+  },
+  "cases": [
+    {
+      "case_id": "B06",
+      "trace_path": "runs/generation/20261107T091251824537Z/B06.json",
+      "trace_sha256": "ec8af578b3d16df8152c347519917c5b775ccd970094fe14a473c3dd3f6ecd5c",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "The mismatch occurs because the training data is scaled while the test data is not transformed. A fitted Pipeline ensures that the same transformations applied during training are applied to the test data, preventing data leakage and ensuring consistent feature scaling.",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "The train dataset is scaled, but not the test dataset, so model performance on the test dataset is worse than expected",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 21,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "Alternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "unreviewed",
+      "annotation_provenance": null,
+      "claim_grounding": null,
+      "completeness": null,
+      "abstention_supported": null,
+      "manual_verdict": null,
+      "verdict": "unreviewed",
+      "notes": ""
+    }
+  ],
+  "batch_sha256": "64e5308585f38e3707d313bf16677cbe157ca507dc42d3fcfd5185ba3ad92ceb",
+  "annotations_sha256": "ebb56e0978e383fa3243180177dd7b08c36540556b614fe37fd47f9d284e87c5",
+  "reviewer_version": "2"
+}

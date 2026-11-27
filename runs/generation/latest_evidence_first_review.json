@@ -1,0 +1,385 @@
+{
+  "summary": {
+    "total_cases": 10,
+    "answers": 7,
+    "abstentions": 3,
+    "quotes_checked": 24,
+    "quotes_verbatim": 24,
+    "quotes_exceeding_30_words": 3,
+    "verdicts": {
+      "pass": 4,
+      "incomplete": 1,
+      "incomplete_partly_incorrect": 1,
+      "appropriate_abstention": 3,
+      "unsupported_extrapolation": 1
+    }
+  },
+  "cases": [
+    {
+      "case_id": "B01",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "0.25",
+      "abstention_reason": "",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+            "quote": "If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.",
+            "found": true,
+            "word_count": 24,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+            "quote": "If None, the value is automatically set to the complement of the test size.",
+            "found": true,
+            "word_count": 14,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "verdict": "pass",
+      "notes": "Direct, supported answer with valid default-fraction quotes."
+    },
+    {
+      "case_id": "B02",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "Intermediate steps must implement fit and transform; final estimator must implement fit.",
+      "abstention_reason": "",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "Intermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit .",
+            "found": true,
+            "word_count": 26,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "Pipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.",
+            "found": true,
+            "word_count": 27,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "verdict": "pass",
+      "notes": "Directly supported by Pipeline > Overview quote."
+    },
+    {
+      "case_id": "B03",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "Use the set_params method with the parameter name in the format 'svc__C=10' to set the C parameter of the svc step to 10.",
+      "abstention_reason": "",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:97b9a975c555b507760bc199e9c6f25980f4d9b90815ff6488ae7bbd9435cf94",
+            "quote": "Parameters of the steps may be set using its name and the parameter name separated by a ‘__’.",
+            "found": true,
+            "word_count": 18,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:662d417279acbdb5f3ff927bd2599bdb2510d03751cd61ec7286c6a88102bb4f",
+            "quote": "Note that you can directly set the parameters of the estimators contained in steps .",
+            "found": true,
+            "word_count": 15,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below.",
+            "found": true,
+            "word_count": 27,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "verdict": "pass",
+      "notes": "Grounded in general step__parameter syntax rule."
+    },
+    {
+      "case_id": "B04",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "Use a Pipeline to chain the scaler and classifier, ensuring the test data is transformed using the same scaler as the training data before evaluation.",
+      "abstention_reason": "",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "Instead of passing the non-transformed X_test to predict , we should transform the test data, the same way we transformed the training data:",
+            "found": true,
+            "word_count": 23,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "Alternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation:",
+            "found": true,
+            "word_count": 24,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Split first before fitting preprocessing."
+        ]
+      },
+      "verdict": "incomplete",
+      "notes": "Quotes support the pipeline workflow, but misses the required claim to split first."
+    },
+    {
+      "case_id": "B05",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "The issue is that using SelectKBest on the full dataset before cross-validation causes data leakage. To properly evaluate a Pipeline, you should split data into train/test first, apply feature selection only on the training data, and use a Pipeline to chain the feature selection and model estimators, ensuring only training data is used for fitting and test data for scoring.",
+      "abstention_reason": "",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+            "quote": "When we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization.",
+            "found": true,
+            "word_count": 40,
+            "exceeds_limit": true
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.",
+            "found": true,
+            "word_count": 37,
+            "exceeds_limit": true
+          },
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": "Here again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:",
+            "found": true,
+            "word_count": 41,
+            "exceeds_limit": true
+          }
+        ]
+      },
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Cross-validate the entire pipeline and fit selection within each fold."
+        ]
+      },
+      "verdict": "incomplete_partly_incorrect",
+      "notes": "Describes train/test workflow instead of fold-level CV; incorrectly restricts transform to train data."
+    },
+    {
+      "case_id": "B06",
+      "answerable": true,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages describe Pipeline features but do not explicitly explain the mismatch between scaled training features and raw test features or how a fitted Pipeline resolves it.",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:4dd91a0b9a0a6cddba80226ff5057e0bd6f106130a98a113296b149be009afcb",
+            "quote": "Transform input features using the pipeline.",
+            "found": true,
+            "word_count": 6,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:000ab67c81e879fa4c16d6060f13c7f9f28bd65ca239a017456a4ebf65085b4c",
+            "quote": "feature_names_in_: ndarray of shape ( n_features_in_ ,)\nNames of features seen during first step fit method.",
+            "found": true,
+            "word_count": 16,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:67cb0364616ec01b7826d11cf8585e48542ac57b968da96a7631d912cadcdb1c",
+            "quote": "input_features: array-like of str or None, default=None\nInput features.",
+            "found": true,
+            "word_count": 9,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "All required claims"
+        ]
+      },
+      "verdict": "appropriate_abstention",
+      "notes": "Model correctly abstained due to missing scaling-mismatch documentation."
+    },
+    {
+      "case_id": "B07",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "To get the same randomized split each time for identical inputs with train_test_split, pass an integer to the random_state parameter.",
+      "abstention_reason": "",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If an integer is passed, calling fit or split multiple times always yields the same results.",
+            "found": true,
+            "word_count": 16,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy.",
+            "found": true,
+            "word_count": 30,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "train_test_split random_state parameter support"
+        ]
+      },
+      "verdict": "unsupported_extrapolation",
+      "notes": "Gives correct integer rule, but quotes general CV splitters; does not prove train_test_split has this parameter."
+    },
+    {
+      "case_id": "B08",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "No, you cannot use shuffle=False and stratify=True together in train_test_split. If shuffle=False then stratify must be None.",
+      "abstention_reason": "",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:9b1b1d3a70db1879e7d373e5b9af372b28c1bd471259798b7421a046f7d7be21",
+            "quote": "Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.",
+            "found": true,
+            "word_count": 16,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+            "quote": "If not None, data is split in a stratified fashion, using this as the class labels.",
+            "found": true,
+            "word_count": 16,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "verdict": "pass",
+      "notes": "Directly grounded in the shuffle/stratify mutual-exclusion rule."
+    },
+    {
+      "case_id": "B09",
+      "answerable": false,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The question asks for the exact test accuracy with a scaler and classifier pipeline, but the passages only provide mean squared error (MSE) values (0.90) for a linear regression model using a pipeline. The passages do not specify the accuracy metric (e.g., classification accuracy) or provide exact accuracy values for a classifier pipeline.",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": ">>> mean_squared_error(y_test, model.predict(X_test_transformed))\n0.90...",
+            "found": true,
+            "word_count": 4,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": ">>> mean_squared_error(y_test, model.predict(X_test))\n0.90...",
+            "found": true,
+            "word_count": 4,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": []
+      },
+      "verdict": "appropriate_abstention",
+      "notes": "Correctly refused unanswerable request for unpublished dataset accuracy."
+    },
+    {
+      "case_id": "B10",
+      "answerable": false,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The passages discuss data leakage prevention in general but do not specify the value for train_test_split's leakage_guard parameter in scikit-learn 1.7.2.",
+      "quotation_fidelity": {
+        "all_quotes_found": true,
+        "quotes": [
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "Always split the data into train and test subsets first, particularly before any preprocessing steps.",
+            "found": true,
+            "word_count": 15,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "Conversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data.",
+            "found": true,
+            "word_count": 24,
+            "exceeds_limit": false
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset.",
+            "found": true,
+            "word_count": 25,
+            "exceeds_limit": false
+          }
+        ]
+      },
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": []
+      },
+      "verdict": "appropriate_abstention",
+      "notes": "Correctly refused fictitious 'leakage_guard' parameter."
+    }
+  ]
+}

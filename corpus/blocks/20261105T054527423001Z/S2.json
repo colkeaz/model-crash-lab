@@ -1,0 +1,879 @@
+{
+  "parser_version": "1",
+  "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+  "source_id": "S2",
+  "raw_sha256": "58a9aa8c082ad71a67af41baba70de87117a6cd72d750506b4a30d421f2fc2ac",
+  "blocks": [
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "A sequence of data transformers with an optional final predictor.\n\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\n\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\n\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\n\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\n\nRead more in the User Guide ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Parameters",
+        "steps"
+      ],
+      "block_type": "parameter",
+      "text": "steps: list of tuples\nList of (name of step, estimator) tuples that are to be chained in sequential order. To be compatible with the scikit-learn API, all steps must define fit . All non-last steps must also define transform . See Combining Estimators for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Parameters",
+        "transform_input"
+      ],
+      "block_type": "parameter",
+      "text": "transform_input: list of str, default=None\nThe names of the metadata parameters that should be transformed by the pipeline before passing it to the step consuming it. This enables transforming some input arguments to fit (other than X ) to be transformed by the steps of the pipeline up to the step which requires them. Requirement is defined via metadata routing . For instance, this can be used to pass a validation set through the pipeline. You can only set this if metadata routing is enabled, which you can enable using sklearn.set_config(enable_metadata_routing=True) . Added in version 1.6."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Parameters",
+        "memory"
+      ],
+      "block_type": "parameter",
+      "text": "memory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer. By default, no caching is performed. If a string is given, it is the path to the caching directory. Enabling caching triggers a clone of the transformers before fitting. Therefore, the transformer instance given to the pipeline cannot be inspected directly. Use the attribute named_steps or steps to inspect estimators within the pipeline. Caching the transformers is advantageous when fitting is time consuming. See Caching nearest neighbors for an example on how to enable caching."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Parameters",
+        "verbose"
+      ],
+      "block_type": "parameter",
+      "text": "verbose: bool, default=False\nIf True, the time elapsed while fitting each step will be printed as it is completed."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Attributes",
+        "named_steps"
+      ],
+      "block_type": "attribute",
+      "text": "named_steps: Bunch\nAccess the steps by name."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Attributes",
+        "classes_"
+      ],
+      "block_type": "attribute",
+      "text": "classes_: ndarray of shape (n_classes,)\nThe classes labels."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Attributes",
+        "n_features_in_"
+      ],
+      "block_type": "attribute",
+      "text": "n_features_in_: int\nNumber of features seen during first step fit method."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Attributes",
+        "feature_names_in_"
+      ],
+      "block_type": "attribute",
+      "text": "feature_names_in_: ndarray of shape ( n_features_in_ ,)\nNames of features seen during first step fit method."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline",
+      "heading_path": [
+        "Pipeline",
+        "Examples"
+      ],
+      "block_type": "example",
+      "text": ">>> from sklearn.svm import SVC\n>>> from sklearn.preprocessing import StandardScaler\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import train_test_split\n>>> from sklearn.pipeline import Pipeline\n>>> X, y = make_classification(random_state=0)\n>>> X_train, X_test, y_train, y_test = train_test_split(X, y,\n...                                                     random_state=0)\n>>> pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC())])\n>>> # The pipeline can be used as any other estimator\n>>> # and avoids leaking the test set into the train set\n>>> pipe.fit(X_train, y_train).score(X_test, y_test)\n0.88\n>>> # An estimator's parameter can be set using '__' syntax\n>>> pipe.set_params(svc__C=10).fit(X_train, y_train).score(X_test, y_test)\n0.76"
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.decision_function",
+      "heading_path": [
+        "Pipeline",
+        "decision_function",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply decision_function with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls decision_function method. Only valid if the final estimator implements decision_function ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.decision_function",
+      "heading_path": [
+        "Pipeline",
+        "decision_function",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nData to predict on. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.decision_function",
+      "heading_path": [
+        "Pipeline",
+        "decision_function",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of string -> object\nParameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 1.4: Only available if enable_metadata_routing=True . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.decision_function",
+      "heading_path": [
+        "Pipeline",
+        "decision_function",
+        "Returns",
+        "y_score"
+      ],
+      "block_type": "return",
+      "text": "y_score: ndarray of shape (n_samples, n_classes)\nResult of calling decision_function on the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit",
+      "heading_path": [
+        "Pipeline",
+        "fit",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Fit the model.\n\nFit all the transformers one after the other and sequentially transform the data. Finally, fit the transformed data using the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit",
+      "heading_path": [
+        "Pipeline",
+        "fit",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nTraining data. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit",
+      "heading_path": [
+        "Pipeline",
+        "fit",
+        "Parameters",
+        "y"
+      ],
+      "block_type": "parameter",
+      "text": "y: iterable, default=None\nTraining targets. Must fulfill label requirements for all steps of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit",
+      "heading_path": [
+        "Pipeline",
+        "fit",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nIf enable_metadata_routing=False (default): Parameters passed to the fit method of each step, where each parameter name is prefixed such that parameter p for step s has key s__p . If enable_metadata_routing=True : Parameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Changed in version 1.4: Parameters are now passed to the transform method of the intermediate steps as well, if requested, and if enable_metadata_routing=True is set via set_config . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit",
+      "heading_path": [
+        "Pipeline",
+        "fit",
+        "Returns",
+        "self"
+      ],
+      "block_type": "return",
+      "text": "self: object\nPipeline with fitted steps."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_predict",
+      "heading_path": [
+        "Pipeline",
+        "fit_predict",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply fit_predict with the final estimator.\n\nCall fit_transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls fit_predict method. Only valid if the final estimator implements fit_predict ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_predict",
+      "heading_path": [
+        "Pipeline",
+        "fit_predict",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nTraining data. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_predict",
+      "heading_path": [
+        "Pipeline",
+        "fit_predict",
+        "Parameters",
+        "y"
+      ],
+      "block_type": "parameter",
+      "text": "y: iterable, default=None\nTraining targets. Must fulfill label requirements for all steps of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_predict",
+      "heading_path": [
+        "Pipeline",
+        "fit_predict",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nIf enable_metadata_routing=False (default): Parameters to the predict called at the end of all transformations in the pipeline. If enable_metadata_routing=True : Parameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 0.20. Changed in version 1.4: Parameters are now passed to the transform method of the intermediate steps as well, if requested, and if enable_metadata_routing=True . See Metadata Routing User Guide for more details. Note that while this may be used to return uncertainties from some models with return_std or return_cov , uncertainties that are generated by the transformations in the pipeline are not propagated to the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_predict",
+      "heading_path": [
+        "Pipeline",
+        "fit_predict",
+        "Returns",
+        "y_pred"
+      ],
+      "block_type": "return",
+      "text": "y_pred: ndarray\nResult of calling fit_predict on the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_transform",
+      "heading_path": [
+        "Pipeline",
+        "fit_transform",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Fit the model and transform with the final estimator.\n\nFit all the transformers one after the other and sequentially transform the data. Only valid if the final estimator either implements fit_transform or fit and transform ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_transform",
+      "heading_path": [
+        "Pipeline",
+        "fit_transform",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nTraining data. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_transform",
+      "heading_path": [
+        "Pipeline",
+        "fit_transform",
+        "Parameters",
+        "y"
+      ],
+      "block_type": "parameter",
+      "text": "y: iterable, default=None\nTraining targets. Must fulfill label requirements for all steps of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_transform",
+      "heading_path": [
+        "Pipeline",
+        "fit_transform",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nIf enable_metadata_routing=False (default): Parameters passed to the fit method of each step, where each parameter name is prefixed such that parameter p for step s has key s__p . If enable_metadata_routing=True : Parameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Changed in version 1.4: Parameters are now passed to the transform method of the intermediate steps as well, if requested, and if enable_metadata_routing=True . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.fit_transform",
+      "heading_path": [
+        "Pipeline",
+        "fit_transform",
+        "Returns",
+        "Xt"
+      ],
+      "block_type": "return",
+      "text": "Xt: ndarray of shape (n_samples, n_transformed_features)\nTransformed samples."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_feature_names_out",
+      "heading_path": [
+        "Pipeline",
+        "get_feature_names_out",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Get output feature names for transformation.\n\nTransform input features using the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_feature_names_out",
+      "heading_path": [
+        "Pipeline",
+        "get_feature_names_out",
+        "Parameters",
+        "input_features"
+      ],
+      "block_type": "parameter",
+      "text": "input_features: array-like of str or None, default=None\nInput features."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_feature_names_out",
+      "heading_path": [
+        "Pipeline",
+        "get_feature_names_out",
+        "Returns",
+        "feature_names_out"
+      ],
+      "block_type": "return",
+      "text": "feature_names_out: ndarray of str objects\nTransformed feature names."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_metadata_routing",
+      "heading_path": [
+        "Pipeline",
+        "get_metadata_routing",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Get metadata routing of this object.\n\nPlease check User Guide on how the routing mechanism works."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_metadata_routing",
+      "heading_path": [
+        "Pipeline",
+        "get_metadata_routing",
+        "Returns",
+        "routing"
+      ],
+      "block_type": "return",
+      "text": "routing: MetadataRouter\nA MetadataRouter encapsulating routing information."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_params",
+      "heading_path": [
+        "Pipeline",
+        "get_params",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Get parameters for this estimator.\n\nReturns the parameters given in the constructor as well as the estimators contained within the steps of the Pipeline ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_params",
+      "heading_path": [
+        "Pipeline",
+        "get_params",
+        "Parameters",
+        "deep"
+      ],
+      "block_type": "parameter",
+      "text": "deep: bool, default=True\nIf True, will return the parameters for this estimator and contained subobjects that are estimators."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.get_params",
+      "heading_path": [
+        "Pipeline",
+        "get_params",
+        "Returns",
+        "params"
+      ],
+      "block_type": "return",
+      "text": "params: mapping of string to any\nParameter names mapped to their values."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.inverse_transform",
+      "heading_path": [
+        "Pipeline",
+        "inverse_transform",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Apply inverse_transform for each step in a reverse order.\n\nAll estimators in the pipeline must support inverse_transform ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.inverse_transform",
+      "heading_path": [
+        "Pipeline",
+        "inverse_transform",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: array-like of shape (n_samples, n_transformed_features)\nData samples, where n_samples is the number of samples and n_features is the number of features. Must fulfill input requirements of last step of pipeline’s inverse_transform method."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.inverse_transform",
+      "heading_path": [
+        "Pipeline",
+        "inverse_transform",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nParameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 1.4: Only available if enable_metadata_routing=True . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.inverse_transform",
+      "heading_path": [
+        "Pipeline",
+        "inverse_transform",
+        "Returns",
+        "X_original"
+      ],
+      "block_type": "return",
+      "text": "X_original: ndarray of shape (n_samples, n_features)\nInverse transformed data, that is, data in the original feature space."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict",
+      "heading_path": [
+        "Pipeline",
+        "predict",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply predict with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls predict method. Only valid if the final estimator implements predict ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict",
+      "heading_path": [
+        "Pipeline",
+        "predict",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nData to predict on. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict",
+      "heading_path": [
+        "Pipeline",
+        "predict",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nIf enable_metadata_routing=False (default): Parameters to the predict called at the end of all transformations in the pipeline. If enable_metadata_routing=True : Parameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 0.20. Changed in version 1.4: Parameters are now passed to the transform method of the intermediate steps as well, if requested, and if enable_metadata_routing=True is set via set_config . See Metadata Routing User Guide for more details. Note that while this may be used to return uncertainties from some models with return_std or return_cov , uncertainties that are generated by the transformations in the pipeline are not propagated to the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict",
+      "heading_path": [
+        "Pipeline",
+        "predict",
+        "Returns",
+        "y_pred"
+      ],
+      "block_type": "return",
+      "text": "y_pred: ndarray\nResult of calling predict on the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_log_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_log_proba",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply predict_log_proba with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls predict_log_proba method. Only valid if the final estimator implements predict_log_proba ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_log_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_log_proba",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nData to predict on. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_log_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_log_proba",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nIf enable_metadata_routing=False (default): Parameters to the predict_log_proba called at the end of all transformations in the pipeline. If enable_metadata_routing=True : Parameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 0.20. Changed in version 1.4: Parameters are now passed to the transform method of the intermediate steps as well, if requested, and if enable_metadata_routing=True . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_log_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_log_proba",
+        "Returns",
+        "y_log_proba"
+      ],
+      "block_type": "return",
+      "text": "y_log_proba: ndarray of shape (n_samples, n_classes)\nResult of calling predict_log_proba on the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_proba",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply predict_proba with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls predict_proba method. Only valid if the final estimator implements predict_proba ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_proba",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nData to predict on. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_proba",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nIf enable_metadata_routing=False (default): Parameters to the predict_proba called at the end of all transformations in the pipeline. If enable_metadata_routing=True : Parameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 0.20. Changed in version 1.4: Parameters are now passed to the transform method of the intermediate steps as well, if requested, and if enable_metadata_routing=True . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.predict_proba",
+      "heading_path": [
+        "Pipeline",
+        "predict_proba",
+        "Returns",
+        "y_proba"
+      ],
+      "block_type": "return",
+      "text": "y_proba: ndarray of shape (n_samples, n_classes)\nResult of calling predict_proba on the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score",
+      "heading_path": [
+        "Pipeline",
+        "score",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply score with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls score method. Only valid if the final estimator implements score ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score",
+      "heading_path": [
+        "Pipeline",
+        "score",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nData to predict on. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score",
+      "heading_path": [
+        "Pipeline",
+        "score",
+        "Parameters",
+        "y"
+      ],
+      "block_type": "parameter",
+      "text": "y: iterable, default=None\nTargets used for scoring. Must fulfill label requirements for all steps of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score",
+      "heading_path": [
+        "Pipeline",
+        "score",
+        "Parameters",
+        "sample_weight"
+      ],
+      "block_type": "parameter",
+      "text": "sample_weight: array-like, default=None\nIf not None, this argument is passed as sample_weight keyword argument to the score method of the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score",
+      "heading_path": [
+        "Pipeline",
+        "score",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nParameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 1.4: Only available if enable_metadata_routing=True . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score",
+      "heading_path": [
+        "Pipeline",
+        "score",
+        "Returns",
+        "score"
+      ],
+      "block_type": "return",
+      "text": "score: float\nResult of calling score on the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score_samples",
+      "heading_path": [
+        "Pipeline",
+        "score_samples",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply score_samples with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls score_samples method. Only valid if the final estimator implements score_samples ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score_samples",
+      "heading_path": [
+        "Pipeline",
+        "score_samples",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nData to predict on. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.score_samples",
+      "heading_path": [
+        "Pipeline",
+        "score_samples",
+        "Returns",
+        "y_score"
+      ],
+      "block_type": "return",
+      "text": "y_score: ndarray of shape (n_samples,)\nResult of calling score_samples on the final estimator."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_output",
+      "heading_path": [
+        "Pipeline",
+        "set_output",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Set the output container when \"transform\" and \"fit_transform\" are called.\n\nCalling set_output will set the output of all estimators in steps ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_output",
+      "heading_path": [
+        "Pipeline",
+        "set_output",
+        "Parameters",
+        "transform"
+      ],
+      "block_type": "parameter",
+      "text": "transform: {“default”, “pandas”, “polars”}, default=None\nConfigure output of transform and fit_transform . \"default\" : Default output format of a transformer \"pandas\" : DataFrame output \"polars\" : Polars output None : Transform configuration is unchanged Added in version 1.4: \"polars\" option was added."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_output",
+      "heading_path": [
+        "Pipeline",
+        "set_output",
+        "Returns",
+        "self"
+      ],
+      "block_type": "return",
+      "text": "self: estimator instance\nEstimator instance."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_params",
+      "heading_path": [
+        "Pipeline",
+        "set_params",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Set the parameters of this estimator.\n\nValid parameter keys can be listed with get_params() . Note that you can directly set the parameters of the estimators contained in steps ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_params",
+      "heading_path": [
+        "Pipeline",
+        "set_params",
+        "Parameters",
+        "**kwargs"
+      ],
+      "block_type": "parameter",
+      "text": "**kwargs: dict\nParameters of this estimator or parameters of estimators contained in steps . Parameters of the steps may be set using its name and the parameter name separated by a ‘__’."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_params",
+      "heading_path": [
+        "Pipeline",
+        "set_params",
+        "Returns",
+        "self"
+      ],
+      "block_type": "return",
+      "text": "self: object\nPipeline class instance."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_score_request",
+      "heading_path": [
+        "Pipeline",
+        "set_score_request",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Configure whether metadata should be requested to be passed to the score method.\n\nNote that this method is only relevant when this estimator is used as a sub-estimator within a meta-estimator and metadata routing is enabled with enable_metadata_routing=True (see sklearn.set_config ). Please check the User Guide on how the routing mechanism works.\n\nThe options for each parameter are:\n\nThe default ( sklearn.utils.metadata_routing.UNCHANGED ) retains the existing request. This allows you to change the request for some parameters and not others."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_score_request",
+      "heading_path": [
+        "Pipeline",
+        "set_score_request",
+        "Parameters",
+        "sample_weight"
+      ],
+      "block_type": "parameter",
+      "text": "sample_weight: str, True, False, or None,                     default=sklearn.utils.metadata_routing.UNCHANGED\nMetadata routing for sample_weight parameter in score ."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.set_score_request",
+      "heading_path": [
+        "Pipeline",
+        "set_score_request",
+        "Returns",
+        "self"
+      ],
+      "block_type": "return",
+      "text": "self: object\nThe updated object."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.transform",
+      "heading_path": [
+        "Pipeline",
+        "transform",
+        "Overview"
+      ],
+      "block_type": "overview",
+      "text": "Transform the data, and apply transform with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls transform method. Only valid if the final estimator implements transform .\n\nThis also works where final estimator is None in which case all prior transformations are applied."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.transform",
+      "heading_path": [
+        "Pipeline",
+        "transform",
+        "Parameters",
+        "X"
+      ],
+      "block_type": "parameter",
+      "text": "X: iterable\nData to transform. Must fulfill input requirements of first step of the pipeline."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.transform",
+      "heading_path": [
+        "Pipeline",
+        "transform",
+        "Parameters",
+        "**params"
+      ],
+      "block_type": "parameter",
+      "text": "**params: dict of str -> object\nParameters requested and accepted by steps. Each step must have requested certain metadata for these parameters to be forwarded to them. Added in version 1.4: Only available if enable_metadata_routing=True . See Metadata Routing User Guide for more details."
+    },
+    {
+      "source_id": "S2",
+      "anchor": "sklearn.pipeline.Pipeline.transform",
+      "heading_path": [
+        "Pipeline",
+        "transform",
+        "Returns",
+        "Xt"
+      ],
+      "block_type": "return",
+      "text": "Xt: ndarray of shape (n_samples, n_transformed_features)\nTransformed data."
+    }
+  ]
+}

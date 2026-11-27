@@ -1,0 +1,71 @@
+{
+  "batch_id": "evidence-first-v1-top5-pilot",
+  "benchmark_path": "benchmarks/pilot.json",
+  "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+  "top_k": 5,
+  "case_ids": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10"
+  ],
+  "traces": [
+    {
+      "case_id": "B01",
+      "trace_path": "runs/generation/20261107T092309633716Z/B01.json",
+      "trace_sha256": "492e8b26832429e9e1f920b47a0445b7d37a1b53ded67c1df5507b1676e9e7b9"
+    },
+    {
+      "case_id": "B02",
+      "trace_path": "runs/generation/20261107T092315692561Z/B02.json",
+      "trace_sha256": "756d426b25e67bdf6d782e1a66f2fad9cdbe0f9be0087eae345df194564a1e2a"
+    },
+    {
+      "case_id": "B03",
+      "trace_path": "runs/generation/20261107T092323152124Z/B03.json",
+      "trace_sha256": "5035a7c4246bafaa368e4a2486aa3ef0e96c4857b46e150e60d0f38ef0918a4d"
+    },
+    {
+      "case_id": "B04",
+      "trace_path": "runs/generation/20261107T092331435232Z/B04.json",
+      "trace_sha256": "0d158deadf1db0d2be1625552c18b9a6388cd6ec645dbf9d6a3950397fbb6628"
+    },
+    {
+      "case_id": "B05",
+      "trace_path": "runs/generation/20261107T092340068070Z/B05.json",
+      "trace_sha256": "beccce2353542bf3f2a672693bd18310f14840cd118492553cfaff9ccfc99c56"
+    },
+    {
+      "case_id": "B06",
+      "trace_path": "runs/generation/20261107T091251824537Z/B06.json",
+      "trace_sha256": "ec8af578b3d16df8152c347519917c5b775ccd970094fe14a473c3dd3f6ecd5c"
+    },
+    {
+      "case_id": "B07",
+      "trace_path": "runs/generation/20261107T092856530298Z/B07.json",
+      "trace_sha256": "d85d40366c959029687402d8dde1be90f6132eba6aab6358b08f668b06c60840"
+    },
+    {
+      "case_id": "B08",
+      "trace_path": "runs/generation/20261107T092902997597Z/B08.json",
+      "trace_sha256": "a9bbb7ddcb84b141ac0742a86b90b9635592cd882d1ac086bec55b00b07cd242"
+    },
+    {
+      "case_id": "B09",
+      "trace_path": "runs/generation/20261107T092910934582Z/B09.json",
+      "trace_sha256": "961ca223fb89c685f3e36f1431fbacbc572d88a1975c248a680ce79247fc47b3"
+    },
+    {
+      "case_id": "B10",
+      "trace_path": "runs/generation/20261107T092919544647Z/B10.json",
+      "trace_sha256": "9087de9a4ab1eae62be64fd72577408e7c0fb5f388610b1e23729f3952b32835"
+    }
+  ],
+  "protocol_signature": "1c42bbcce79100c1409585e0a01c66a3f6925fab5a098cfe06220a87097ce4fc"
+}

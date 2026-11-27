@@ -1,0 +1,575 @@
+{
+  "batch_id": "evidence-first-v1-top5-pilot",
+  "expected_passages": 5,
+  "summary": {
+    "total_cases": 10,
+    "answers": 9,
+    "abstentions": 1,
+    "invalid_outputs": 1,
+    "quotes_checked": 26,
+    "quotes_exact_matches": 25,
+    "quotes_normalized_matches": 25,
+    "quotes_violating_under_30_words": 3,
+    "stale_annotations": 0,
+    "batch_trace_hash_mismatches": 0,
+    "verdicts": {
+      "pass": 4,
+      "incomplete": 1,
+      "invalid_output": 1,
+      "unsupported_extrapolation": 2,
+      "unsupported_answer": 1,
+      "appropriate_abstention": 1
+    }
+  },
+  "cases": [
+    {
+      "case_id": "B01",
+      "trace_path": "runs/generation/20261107T092309633716Z/B01.json",
+      "trace_sha256": "492e8b26832429e9e1f920b47a0445b7d37a1b53ded67c1df5507b1676e9e7b9",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "0.25",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+            "quote": "If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+            "quote": "If None, the value is automatically set to the complement of the test size.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 14,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "abstention_supported": null,
+      "manual_verdict": "pass",
+      "verdict": "pass",
+      "notes": "Direct, supported answer with valid default-fraction quotes."
+    },
+    {
+      "case_id": "B02",
+      "trace_path": "runs/generation/20261107T092315692561Z/B02.json",
+      "trace_sha256": "756d426b25e67bdf6d782e1a66f2fad9cdbe0f9be0087eae345df194564a1e2a",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "Intermediate steps must implement fit and transform; final estimator must implement fit",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "Intermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit .",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 26,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "The final estimator only needs to implement fit .",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 9,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "abstention_supported": null,
+      "manual_verdict": "pass",
+      "verdict": "pass",
+      "notes": "Directly supported by Pipeline > Overview quote."
+    },
+    {
+      "case_id": "B03",
+      "trace_path": "runs/generation/20261107T092323152124Z/B03.json",
+      "trace_sha256": "5035a7c4246bafaa368e4a2486aa3ef0e96c4857b46e150e60d0f38ef0918a4d",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "Use the set_params method with the parameter name in the format 'svc__C=10' to set the C parameter of the svc step to 10.",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:97b9a975c555b507760bc199e9c6f25980f4d9b90815ff6488ae7bbd9435cf94",
+            "quote": "Parameters of the steps may be set using its name and the parameter name separated by a ‘__’.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 18,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:662d417279acbdb5f3ff927bd2599bdb2510d03751cd61ec7286c6a88102bb4f",
+            "quote": "Set the parameters of this estimator.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 6,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+            "quote": "For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 27,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "abstention_supported": null,
+      "manual_verdict": "pass",
+      "verdict": "pass",
+      "notes": "Grounded in general step__parameter syntax rule."
+    },
+    {
+      "case_id": "B04",
+      "trace_path": "runs/generation/20261107T092331435232Z/B04.json",
+      "trace_sha256": "0d158deadf1db0d2be1625552c18b9a6388cd6ec645dbf9d6a3950397fbb6628",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "Use a Pipeline to chain transformations with estimators, ensuring that the same preprocessing is applied to both train and test data. The Pipeline handles the transformation of test data using the same scaler as the training data.",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "Instead of passing the non-transformed X_test to predict , we should transform the test data, the same way we transformed the training data:",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 23,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "Alternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation:",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "Conversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Split first before fitting preprocessing.",
+          "Explicitly fit the pipeline only on training data."
+        ]
+      },
+      "abstention_supported": null,
+      "manual_verdict": "incomplete",
+      "verdict": "incomplete",
+      "notes": "Still omits the required split-before-fitting order and explicit training-only pipeline fitting. Extra retrieved guidance did not make the generated answer complete."
+    },
+    {
+      "case_id": "B05",
+      "trace_path": "runs/generation/20261107T092340068070Z/B05.json",
+      "trace_sha256": "beccce2353542bf3f2a672693bd18310f14840cd118492553cfaff9ccfc99c56",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "The issue is that the entire dataset was transformed before cross-validation, causing data leakage. To evaluate a Pipeline correctly, use the Pipeline with cross-validation to ensure only training data is used for fit and test data for prediction.",
+      "abstention_reason": "",
+      "automatic_errors": [
+        "Evidence is empty, unretrieved, or absent from its passage."
+      ],
+      "quotation_fidelity": {
+        "status": "MISMATCH",
+        "quotes": [
+          {
+            "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+            "quote": "When we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 40,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": "The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 12,
+            "exact_match": false,
+            "normalized_match": false,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": "The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 25,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Explain the overly optimistic evaluation consequence and explicitly fit feature selection inside each cross-validation training fold."
+        ]
+      },
+      "abstention_supported": null,
+      "manual_verdict": "invalid_output",
+      "verdict": "invalid_output",
+      "notes": "The model attaches the real quote about cross-validation and hyper-parameter tuning to the wrong chunk. The quote exists in How to avoid data leakage, not the cited Data leakage during pre-processing chunk. Preserve the failed attempt; do not repair or replace its response."
+    },
+    {
+      "case_id": "B06",
+      "trace_path": "runs/generation/20261107T091251824537Z/B06.json",
+      "trace_sha256": "ec8af578b3d16df8152c347519917c5b775ccd970094fe14a473c3dd3f6ecd5c",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "The mismatch occurs because the training data is scaled while the test data is not transformed. A fitted Pipeline ensures that the same transformations applied during training are applied to the test data, preventing data leakage and ensuring consistent feature scaling.",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "The train dataset is scaled, but not the test dataset, so model performance on the test dataset is worse than expected",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 21,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": "Alternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "abstention_supported": null,
+      "manual_verdict": "unsupported_extrapolation",
+      "verdict": "unsupported_extrapolation",
+      "notes": "The core scaling mismatch and same-transformation explanation now have relevant retrieved support. The feature-selection quote is irrelevant to this question, and the additional claim that a fitted Pipeline prevents data leakage is too broad without training-only fitting. Under the existing no-material-unsupported-claims rubric this is not a clean grounded pass, despite core-answer recovery."
+    },
+    {
+      "case_id": "B07",
+      "trace_path": "runs/generation/20261107T092856530298Z/B07.json",
+      "trace_sha256": "d85d40366c959029687402d8dde1be90f6132eba6aab6358b08f668b06c60840",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "To get the same randomized split each time for identical inputs with train_test_split, pass an integer to the random_state parameter.",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If an integer is passed, calling fit or split multiple times always yields the same results.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 16,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 30,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": true
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "abstention_supported": null,
+      "manual_verdict": "unsupported_extrapolation",
+      "verdict": "unsupported_extrapolation",
+      "notes": "The answer covers the required integer-seed recommendation and recognizes train_test_split. Its general randomness quotes do not establish that this function exposes random_state, so grounding fails separately from completeness."
+    },
+    {
+      "case_id": "B08",
+      "trace_path": "runs/generation/20261107T092902997597Z/B08.json",
+      "trace_sha256": "a9bbb7ddcb84b141ac0742a86b90b9635592cd882d1ac086bec55b00b07cd242",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "No, you cannot use shuffle=False and stratify=y together in train_test_split. If shuffle=False then stratify must be None.",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:9b1b1d3a70db1879e7d373e5b9af372b28c1bd471259798b7421a046f7d7be21",
+            "quote": "If shuffle=False then stratify must be None.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 7,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+            "quote": "If not None, data is split in a stratified fashion, using this as the class labels.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 16,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "abstention_supported": null,
+      "manual_verdict": "pass",
+      "verdict": "pass",
+      "notes": "Correctly interprets the misspelled options, rejects shuffle=False with stratify=y, and states that stratify must be None. Both quoted passages are supplied and attributed correctly."
+    },
+    {
+      "case_id": "B09",
+      "trace_path": "runs/generation/20261107T092910934582Z/B09.json",
+      "trace_sha256": "961ca223fb89c685f3e36f1431fbacbc572d88a1975c248a680ce79247fc47b3",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": false,
+      "decision": "answer",
+      "answer": "0.5",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": ">>> mean_squared_error(y_test, model.predict(X_test_transformed))\n0.90...",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 4,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+            "quote": ">>> mean_squared_error(y_test, model.predict(X_test))\n0.90...",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 4,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+            "quote": ">>> accuracy_score(y_test, y_pred)\n0.5",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 4,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": false,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Abstain from predicting unpublished dataset accuracy and explain that actual experiment evidence is missing."
+        ]
+      },
+      "abstention_supported": null,
+      "manual_verdict": "unsupported_answer",
+      "verdict": "unsupported_answer",
+      "notes": "Regression from the top-three abstention. The 0.5 accuracy is from a synthetic documentation experiment and cannot establish the result on the user's unpublished dataset. Quotes are genuine but do not support this answer."
+    },
+    {
+      "case_id": "B10",
+      "trace_path": "runs/generation/20261107T092919544647Z/B10.json",
+      "trace_sha256": "9087de9a4ab1eae62be64fd72577408e7c0fb5f388610b1e23729f3952b32835",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": false,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The passages do not mention the 'leakage_guard' parameter in scikit-learn 1.7.2 or its value for preventing preprocessing leakage.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "Always split the data into train and test subsets first, particularly before any preprocessing steps.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 15,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "Conversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:d1d232b00d9206b29a20bdb7870f73262f029a02f8164eda033327331bdeca59",
+            "quote": "Although both train and test data subsets should receive the same preprocessing transformation (as described in the previous section), it is important that these transformations are only learnt from the training data.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 32,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": true
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Assistant passage-level review of the exact top-five response, using the existing required-claim rubric and prior user/assistant review decisions. These semantic labels are manually authored, not inferred by the audit program.",
+      "claim_grounding": null,
+      "completeness": null,
+      "abstention_supported": true,
+      "manual_verdict": "appropriate_abstention",
+      "verdict": "appropriate_abstention",
+      "notes": "Appropriately abstains because the retrieved evidence cannot establish a parameter setting. It does not establish from these passages that leakage_guard is nonexistent."
+    }
+  ],
+  "batch_sha256": "be83be73dcb3a4b6e246f44b69bcaa8a6ee00c10360b2d6ac4cff8f954173c94",
+  "annotations_sha256": "fbf76c8cd15b70f493ac8ea330d0e5890c14aa15833cfc9a2513cb57e19aaefb",
+  "reviewer_version": "2"
+}

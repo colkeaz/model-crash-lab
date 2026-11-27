@@ -1,0 +1,2 @@
+# Frozen inputs and traces are hashed as bytes. Preserve their line endings.
+* -text

@@ -1,0 +1,305 @@
+{
+  "benchmark_current_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+  "historical_benchmark_hash_recorded": false,
+  "all_pair_prefixes_match": true,
+  "all_questions_match_current_benchmark": true,
+  "all_passages_match_current_chunks": true,
+  "recorded_generation_controls_match": true,
+  "rows": [
+    {
+      "case_id": "B11",
+      "k": 3,
+      "trace_sha256": "992f6ec6b6b95555d4814f5792afc1b4c9998fba1d06256b750c58d58d55bf8c",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 983,
+      "output_tokens": 275
+    },
+    {
+      "case_id": "B11",
+      "k": 5,
+      "trace_sha256": "58471df2042ee05cd8d842824fb23b82045ad310ec078cefbe74583f535cfdb0",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 1236,
+      "output_tokens": 45
+    },
+    {
+      "case_id": "B12",
+      "k": 3,
+      "trace_sha256": "c14d1f1c4a0fc1377d1338f1dbcd2b52b5f150778313eb0577063e925b8f1f35",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 999,
+      "output_tokens": 222
+    },
+    {
+      "case_id": "B12",
+      "k": 5,
+      "trace_sha256": "3ed0c44f3badd49e4e6dc6282e205fe7d76216043ff6fda2008f57cf0e5563ca",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 1544,
+      "output_tokens": 222
+    },
+    {
+      "case_id": "B13",
+      "k": 3,
+      "trace_sha256": "25f39eec6c5394eef107698810268d4e9cfdb37e2ce6830472ccfd5197a06304",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 928,
+      "output_tokens": 45
+    },
+    {
+      "case_id": "B13",
+      "k": 5,
+      "trace_sha256": "68924617d9bac552cb74f5e651a252952bd1bc8e3ea4551d6eb788e209c02138",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": false
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 1215,
+      "output_tokens": 247
+    },
+    {
+      "case_id": "B14",
+      "k": 3,
+      "trace_sha256": "7824b9554f9b8e52757c7e9b2a00b5bf4824d2963cf92cbbd301e9251105fe24",
+      "decision": "abstain",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": false
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 806,
+      "output_tokens": 322
+    },
+    {
+      "case_id": "B14",
+      "k": 5,
+      "trace_sha256": "b6e80872401c097c150ce5b4006fe23d6eaff09d53b074c3b1d2dc4204118861",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 1216,
+      "output_tokens": 222
+    },
+    {
+      "case_id": "B15",
+      "k": 3,
+      "trace_sha256": "e295350053f09a37c0af3a365e25fd2e718cfff3911fe29a70cffed3efc2851e",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 1273,
+      "output_tokens": 55
+    },
+    {
+      "case_id": "B15",
+      "k": 5,
+      "trace_sha256": "6e780e7cccc57385769b45eb0184d525f78e9bff9c53000d28013f84ab6960d7",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": false
+        },
+        {
+          "normalized_match": false,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 2348,
+      "output_tokens": 418
+    },
+    {
+      "case_id": "B16",
+      "k": 3,
+      "trace_sha256": "dd2c3274a7d9fbc2a4a513e90199b488f0897b939e88925af61f8cf5a19cca5b",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": false,
+          "under_30_words": false
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 1622,
+      "output_tokens": 415
+    },
+    {
+      "case_id": "B16",
+      "k": 5,
+      "trace_sha256": "3abed2cdd7b1e97878826444311640c66cd05d1e5cdf07b497f73e1b5719003f",
+      "decision": "answer",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": false
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": false
+        }
+      ],
+      "input_tokens": 2508,
+      "output_tokens": 469
+    },
+    {
+      "case_id": "B17",
+      "k": 3,
+      "trace_sha256": "4502793b1e98484638e396fa7c8e11f3a4f2635600fe34f213926811cbf8bc71",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 834,
+      "output_tokens": 45
+    },
+    {
+      "case_id": "B17",
+      "k": 5,
+      "trace_sha256": "29f6bc4e631a7a3adb0ea6a96cc837826dc602180ba244904c3fac8f690b46e4",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 1043,
+      "output_tokens": 45
+    },
+    {
+      "case_id": "B18",
+      "k": 3,
+      "trace_sha256": "c45463d4b79a76d478d33887284ef3910152ca2ed5780bcfb5e84cf25dc50a69",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 1454,
+      "output_tokens": 56
+    },
+    {
+      "case_id": "B18",
+      "k": 5,
+      "trace_sha256": "da48d0b4ad811222d12ab4b2f247b3db224f3622becb8619603113179636299f",
+      "decision": "abstain",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        }
+      ],
+      "input_tokens": 2165,
+      "output_tokens": 295
+    },
+    {
+      "case_id": "B19",
+      "k": 3,
+      "trace_sha256": "1d625cbe0011e850f83f415124daf6130864f0f246a3e8406c665e54c9906dd1",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 850,
+      "output_tokens": 41
+    },
+    {
+      "case_id": "B19",
+      "k": 5,
+      "trace_sha256": "4291d4ebab5048fb005a05178b1d1ec29b30cd7f7bb64795eb033e878318d547",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 1263,
+      "output_tokens": 53
+    },
+    {
+      "case_id": "B20",
+      "k": 3,
+      "trace_sha256": "edbcf0c44f44681642dc9d9fd4dc58fda2388e3de6db6669be8b337a435f77b6",
+      "decision": "abstain",
+      "quote_checks": [],
+      "input_tokens": 1416,
+      "output_tokens": 104
+    },
+    {
+      "case_id": "B20",
+      "k": 5,
+      "trace_sha256": "d52b0fe122763169f3cb7fdf30e22a682e9d459e2e8f9548aac7e5ff1955d78d",
+      "decision": "abstain",
+      "quote_checks": [
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": true
+        },
+        {
+          "normalized_match": true,
+          "under_30_words": false
+        }
+      ],
+      "input_tokens": 2283,
+      "output_tokens": 403
+    }
+  ]
+}

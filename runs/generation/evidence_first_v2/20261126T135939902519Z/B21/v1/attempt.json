@@ -1,0 +1,47 @@
+{
+  "case_id": "B21",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "45235572f3b6f68900a8810fd0869a1d433e77481f57b230324f116b3e639282",
+  "sent_at": "2026-11-26T14:07:50.477101+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [],
+  "decision": "abstain",
+  "answer": "",
+  "abstention_reason": "Passages do not specify what the Pipeline.set_output() method configures in scikit-learn 1.7.2.",
+  "input_tokens": 625,
+  "output_tokens": 52,
+  "elapsed_seconds": 19.183,
+  "received_at": "2026-11-26T14:08:09.659711+00:00",
+  "response_sha256": "bb992a64bdb25498e75c1e74e9f66a0654af58dff763ca690a3b006dba0e434c",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:08:09.6582761Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 19156204300,
+    "load_duration": 10702200,
+    "prompt_eval_count": 625,
+    "prompt_eval_duration": 12137899000,
+    "eval_count": 52,
+    "eval_duration": 6915533000
+  },
+  "reply": {
+    "evidence": [],
+    "decision": "abstain",
+    "answer": "",
+    "abstention_reason": "Passages do not specify what the Pipeline.set_output() method configures in scikit-learn 1.7.2."
+  }
+}

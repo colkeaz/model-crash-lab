@@ -1,0 +1,63 @@
+{
+  "case_id": "B13",
+  "arm": "v2",
+  "prompt_version": "evidence-first-v2",
+  "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+  "request_sha256": "f9aa6ed9f95a83018965a3bce74b6d6553114b04a585c60c885ad758dacf5d5c",
+  "sent_at": "2026-11-26T14:06:10.984628+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+      "quote": "memory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 31,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    }
+  ],
+  "decision": "answer",
+  "answer": "memory",
+  "abstention_reason": "",
+  "input_tokens": 1021,
+  "output_tokens": 154,
+  "elapsed_seconds": 39.281,
+  "received_at": "2026-11-26T14:06:50.265426+00:00",
+  "response_sha256": "1fd0fc33a9f01fcd893e49f143f0057bac3e359bf0a4cc52eefa95f451b6c1f9",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:06:50.2640032Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 39278728200,
+    "load_duration": 15304500,
+    "prompt_eval_count": 1021,
+    "prompt_eval_duration": 19442752000,
+    "eval_count": 154,
+    "eval_duration": 19760987000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+        "quote": "memory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer."
+      }
+    ],
+    "decision": "answer",
+    "answer": "memory",
+    "abstention_reason": ""
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "case_id": "B05",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "9b1b1c032eabea2a866b4fd1f0cb3d915fbf641dff1605298b80615f4c5ccdee",
+  "sent_at": "2026-11-26T14:00:51.867885+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+      "quote": "When we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 40,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    },
+    {
+      "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+      "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 37,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    },
+    {
+      "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+      "quote": "Here again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 41,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": true
+    }
+  ],
+  "decision": "answer",
+  "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. To evaluate a Pipeline correctly, use cross_val_score with the Pipeline, ensuring only training data is used for fit and test data for prediction.",
+  "abstention_reason": "",
+  "input_tokens": 1685,
+  "output_tokens": 446,
+  "elapsed_seconds": 94.431,
+  "received_at": "2026-11-26T14:02:26.299010+00:00",
+  "response_sha256": "fc2c64f84163a2a4fff397feadcad75f8de3f313ea9ce6ec9f7d71baafc0428b",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:02:26.2973654Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 94417849400,
+    "load_duration": 10806000,
+    "prompt_eval_count": 1685,
+    "prompt_eval_duration": 25643509000,
+    "eval_count": 446,
+    "eval_duration": 68620913000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+        "quote": "When we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization."
+      },
+      {
+        "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+        "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions."
+      },
+      {
+        "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+        "quote": "Here again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:"
+      }
+    ],
+    "decision": "answer",
+    "answer": "The issue is data leakage because the entire dataset was transformed before splitting into train/test. To evaluate a Pipeline correctly, use cross_val_score with the Pipeline, ensuring only training data is used for fit and test data for prediction.",
+    "abstention_reason": ""
+  }
+}

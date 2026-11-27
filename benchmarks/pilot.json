@@ -1,0 +1,291 @@
+[
+  {
+    "id": "B01",
+    "question": "In scikit-learn 1.7.2, what test fraction does train_test_split use when I omit both test_size and train_size?",
+    "category": "direct",
+    "family_id": "split-configuration",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "The test fraction defaults to 25% when both size parameters are omitted.",
+    "required_claims": [
+      "The test fraction is 25% when both size parameters are omitted."
+    ],
+    "forbidden_claims": [
+      "The test fraction is always 25%, regardless of train_size."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Parameters > test_size",
+        "anchor": "sklearn.model_selection.train_test_split"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Reviewed the distinction between the default and an explicitly supplied train_size."
+  },
+  {
+    "id": "B02",
+    "question": "Which methods must an intermediate Pipeline step implement, and which method must its final estimator implement?",
+    "category": "direct",
+    "family_id": "pipeline-contract",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Intermediate steps need fit and transform; the final estimator needs fit.",
+    "required_claims": [
+      "Intermediate steps need fit and transform.",
+      "The final estimator needs fit."
+    ],
+    "forbidden_claims": [
+      "Requiring predict on every step."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "class description",
+        "anchor": "sklearn.pipeline.Pipeline"
+      },
+      {
+        "source_id": "S2",
+        "section": "Parameters > steps",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes":" Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B03",
+    "question": "My Pipeline has a step named svc. How do I set its C parameter to 10 using the pipeline's set_params method?",
+    "category": "direct",
+    "family_id": "pipeline-parameters",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Use pipe.set_params(svc__C=10), allowing any equivalent pipeline variable name.",
+    "required_claims": [
+      "Use pipe.set_params(svc__C=10), allowing any equivalent pipeline variable name."
+    ],
+    "forbidden_claims": [
+      "svc_C or svc.C as the parameter key."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "class description",
+        "anchor": "sklearn.pipeline.Pipeline"
+      },
+      {
+        "source_id": "S2",
+        "section": "Examples",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": " Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B04",
+    "question": "I scaled all my data before splitting. Using train_test_split and a scaler/classifier Pipeline, explain the corrected training and evaluation order.",
+    "category": "synthesis",
+    "family_id": "preprocessing-leakage",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Split first; fit the pipeline on training data; use it for test prediction, without fitting preprocessing on test data.",
+    "required_claims": [
+      "Split first.",
+      "Fit the pipeline on training data.",
+      "Use it for test prediction, without fitting preprocessing on test data."
+    ],
+    "forbidden_claims": [
+      "Calling fit_transform on the full dataset before splitting."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Returns",
+        "anchor": "sklearn.model_selection.train_test_split"
+      },
+      {
+        "source_id": "S2",
+        "section": "Examples",
+        "anchor": "sklearn.pipeline.Pipeline"
+      },
+      {
+        "source_id": "S3",
+        "section": "How to avoid data leakage",
+        "anchor": "how-to-avoid-data-leakage"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": " Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B05",
+    "question": "I used SelectKBest on the full dataset before cross-validation. What is wrong, and how should a Pipeline be evaluated instead?",
+    "category": "synthesis",
+    "family_id": "preprocessing-leakage",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Selecting features on the full dataset lets validation-fold target values influence feature selection, potentially producing overly optimistic scores. Instead, place SelectKBest and the estimator inside a Pipeline and cross-validate the entire pipeline so that within each fold, feature selection and the estimator are fitted using only that fold's training data and applied to its validation data.",
+    "required_claims": [
+      "Selecting features on the full dataset lets validation-fold target values influence feature selection, potentially producing overly optimistic scores.",
+      "Put SelectKBest and the estimator inside a Pipeline, then cross-validate the entire pipeline.",
+      "Within each fold, fit feature selection and the estimator using only that fold's training data; apply the fitted pipeline to its validation data."
+    ],
+    "forbidden_claims": [
+      "Performing selection once before cross-validation is safe."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "Data leakage during pre-processing",
+        "anchor": "data-leakage-during-pre-processing"
+      },
+      {
+        "source_id": "S2",
+        "section": "class description",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B06",
+    "question": "My classifier was trained on scaled features but receives raw test features. Explain the mismatch and how a fitted Pipeline addresses it.",
+    "category": "synthesis",
+    "family_id": "preprocessing-leakage",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Training and test representations differ; a fitted pipeline applies learned preprocessing before prediction.",
+    "required_claims": [
+      "Training and test representations differ.",
+      "A fitted pipeline applies learned preprocessing before prediction."
+    ],
+    "forbidden_claims": [
+      "Refitting the scaler on the test set."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "Inconsistent preprocessing",
+        "anchor": "inconsistent-preprocessing"
+      },
+      {
+        "source_id": "S2",
+        "section": "Examples",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B07",
+    "question": "With train_tset_split, how do I get the same randomized split each time for identical inputs?",
+    "category": "noisy",
+    "family_id": "split-configuration",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Recognize train_test_split; set random_state to a fixed integer.",
+    "required_claims": [
+      "Recognize train_test_split.",
+      "Set random_state to a fixed integer."
+    ],
+    "forbidden_claims": [
+      "An integer seed guarantees every model training result."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Parameters > random_state",
+        "anchor": "sklearn.model_selection.train_test_split"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B08",
+    "question": "Can I use shufle=False and stratfy=y together in train_test_split?",
+    "category": "noisy",
+    "family_id": "split-configuration",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Interpret shuffle and stratify; no, disabling shuffling requires stratify=None.",
+    "required_claims": [
+      "Interpret shuffle and stratify.",
+      "No, disabling shuffling requires stratify=None."
+    ],
+    "forbidden_claims": [
+      "Claiming that combination performs stratified splitting."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Parameters > shuffle",
+        "anchor": "sklearn.model_selection.train_test_split"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B09",
+    "question": "What exact test accuracy will my unpublished dataset achieve with a scaler and classifier Pipeline?",
+    "category": "unanswerable",
+    "family_id": "unavailable-results",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": false,
+    "reference_answer": "Abstain from a numerical prediction; explain that actual data, configuration, and evaluation results are needed.",
+    "required_claims": [
+      "Abstain from a numerical prediction.",
+      "Explain that actual data, configuration, and evaluation results are needed."
+    ],
+    "forbidden_claims": [
+      "Inventing an accuracy or presenting a documentation example score as the user's result."
+    ],
+    "evidence": [],
+    "absence_reason": "No user experiment is supplied; the three pages cannot establish its result. This is a deliberately easy abstention control.",
+    "review_status": "approved",
+    "reviewer_notes": "Verified the required claims against the sourced text."
+  },
+  {
+    "id": "B10",
+    "question": "In scikit-learn 1.7.2, what value should I give train_test_split's leakage_guard parameter to automatically prevent preprocessing leakage?",
+    "category": "unanswerable",
+    "family_id": "unsupported-api-premise",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": false,
+    "reference_answer": "Reject the unsupported parameter premise; do not invent a value. An optional explanation may cite S3's leakage guidance.",
+    "required_claims": [
+      "Reject the unsupported parameter premise.",
+      "Do not invent a value."
+    ],
+    "forbidden_claims": [
+      "Recommending leakage_guard=True or fabricating its behavior."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "signature and Parameters",
+        "anchor": "sklearn.model_selection.train_test_split"
+      },
+      {
+        "source_id": "S3",
+        "section": "How to avoid data leakage",
+        "anchor": "how-to-avoid-data-leakage"
+      }
+    ],
+    "absence_reason": "The requested parameter is absent from the documented signature; there is no supported value to provide.",
+    "review_status": "approved",
+    "reviewer_notes": "Label nuance: The requested setting is unanswerable, but the false premise can be corrected with evidence. This differs from B09's missing experiment."
+  }
+]

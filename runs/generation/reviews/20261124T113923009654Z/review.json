@@ -1,0 +1,404 @@
+{
+  "batch_id": "evidence-first-v1-extension-v2-k3",
+  "expected_passages": 3,
+  "summary": {
+    "total_cases": 10,
+    "answers": 2,
+    "abstentions": 8,
+    "invalid_outputs": 1,
+    "quotes_checked": 8,
+    "quotes_exact_matches": 7,
+    "quotes_normalized_matches": 7,
+    "quotes_violating_under_30_words": 2,
+    "stale_annotations": 0,
+    "batch_trace_hash_mismatches": 0,
+    "verdicts": {
+      "unnecessary_abstention": 5,
+      "incomplete": 1,
+      "appropriate_abstention": 2,
+      "invalid_output": 1,
+      "partially_complete_abstention": 1
+    }
+  },
+  "cases": [
+    {
+      "case_id": "B21",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B21.json",
+      "trace_sha256": "fb98f406ee8b8981c5d5f3a70b591df3d4f8d6111de6ef4b87692cfb3c5417e7",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not specify what the Pipeline.set_output() method configures in scikit-learn 1.7.2.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "NO_QUOTES",
+        "quotes": []
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "set_output configures the output container returned by transform and fit_transform."
+        ]
+      },
+      "abstention_supported": false,
+      "manual_verdict": "unnecessary_abstention",
+      "verdict": "unnecessary_abstention",
+      "notes": "False abstention. Rank-1 chunk sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9 contains the exact required fact ('Set the output container when \"transform\" and \"fit_transform\" are called.'), yet the model nevertheless claimed the passages do not contain information about what Pipeline.set_output() configures."
+    },
+    {
+      "case_id": "B22",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B22.json",
+      "trace_sha256": "7199f0f66ee3fd82da9f14f8d714a86aa8fe8bd039cd90b22705d05b8c10b4b2",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "NO_QUOTES",
+        "quotes": []
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "An int represents the absolute number of test samples.",
+          "A float represents the proportion of the dataset to include in the test split."
+        ]
+      },
+      "abstention_supported": false,
+      "manual_verdict": "unnecessary_abstention",
+      "verdict": "unnecessary_abstention",
+      "notes": "False abstention. Chunk sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465 explicitly contains both required facts: 'If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples.' The model's abstention reason is contradictory, acknowledging that the passages mention it represents the absolute number of test samples while asserting they do not explicitly state it."
+    },
+    {
+      "case_id": "B23",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B23.json",
+      "trace_sha256": "8e090e4f082454c7b0f7c30cd34733d1b024ed8d228a8c399dba4f24e678d8a5",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages describe the purpose and parameters of inverse_transform but do not explicitly state what operation it performs.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "NO_QUOTES",
+        "quotes": []
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Applies inverse_transform in reverse order through the transformers in the pipeline."
+        ]
+      },
+      "abstention_supported": false,
+      "manual_verdict": "unnecessary_abstention",
+      "verdict": "unnecessary_abstention",
+      "notes": "False abstention. Chunk sha256:6a872287d8930df8a672ef8bd64b0343c22d99d4f365d9d9600991f3c4d4e6b9 (Pipeline > inverse_transform > Overview) directly states the operation: 'Apply inverse_transform for each step in a reverse order.' The model falsely claimed the passages describe parameters and returns but do not explicitly state what operation it performs."
+    },
+    {
+      "case_id": "B24",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B24.json",
+      "trace_sha256": "2cfb3a60e6733331d8068d4bcc3b8b6c5f493cff36bf9882a13518ed8f6fea4e",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "Calling split() multiple times on a randomized CV splitter with a RandomState instance yields different splits because each call to split explores additional sources of entropy, resulting in new data splits each time.",
+      "abstention_reason": "",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:4415bb982d787951f5a2788a393eaf123b6f0c32a630a80283d6dfb93e80f50f",
+            "quote": "We can see that the splits are different from the second time split is called.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 15,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+            "quote": "If None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 30,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": true
+          },
+          {
+            "chunk_id": "sha256:73a1258838aa490e66d9ed18c72997831e9a36c0fb412ba8c0988f22f1af4bfd",
+            "quote": "When passed a RandomState instance, CV splitters yield different splits each time split is called.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 15,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Calling split multiple times consumes and mutates the RandomState instance.",
+          "Subsequent calls use the mutated state and thus produce different data splits."
+        ]
+      },
+      "abstention_supported": null,
+      "manual_verdict": "incomplete",
+      "verdict": "incomplete",
+      "notes": "Incomplete answer and quote length violation. While answerable from documentation synthesis, in k=3 the specific passage explaining RNG mutation was not retrieved. The model attempted an answer using chunk sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015, repeating that calls explore 'sources of entropy' without explaining the mutation/consumption mechanism. The answer misses both required claims under the rubric. Protocol validity: protocol_valid is marked false because prompt-instruction compliance strictly requires quotes 'under 30 words each', and Quote 2 contains exactly 30 words (quote_length_instruction_valid: false). Separately, the response format and verbatim passage occurrence checks succeed (response_schema_and_quote_occurrence_valid: true)."
+    },
+    {
+      "case_id": "B25",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B25.json",
+      "trace_sha256": "4fc9c841a4c8c2d0fb28d2d7766d505ef760162417cf038aefb4268b8c998888",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages describe parameter routing behavior but do not specify the key prefix required when enable_metadata_routing=False for passing a parameter p to step s.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "NO_QUOTES",
+        "quotes": []
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "The parameter key must be prefixed as s__p."
+        ]
+      },
+      "abstention_supported": false,
+      "manual_verdict": "unnecessary_abstention",
+      "verdict": "unnecessary_abstention",
+      "notes": "False abstention. Both chunk sha256:d4399c38e30b1b52542af95d02ad5ca2cd5c00132ca77d6987e5fb87416d7fbb (Rank 1) and chunk sha256:9182d71f85334e9218dda6f364c9e69998f3edf2b2095c793855ba2b72e55b76 (Rank 2) explicitly state: 'If enable_metadata_routing=False (default): Parameters passed to the fit method of each step, where each parameter name is prefixed such that parameter p for step s has key s__p .' The model hallucinated that this information was missing."
+    },
+    {
+      "case_id": "B26",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B26.json",
+      "trace_sha256": "fd569a7a244e6b2dc9f1452c81197e2443c387ca52c0c1e58241ef0337d81318",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The passages do not contain specific information about practical advantages of using Pipeline or make_pipeline over manual sequential transformations. The passages discuss common pitfalls, CV splitters, and Pipeline overview but do not explicitly list practical advantages compared to manual transformations.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "NO_QUOTES",
+        "quotes": []
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Makes it easier to chain transformations with estimators.",
+          "Reduces the possibility of forgetting a transformation or prevents data leakage."
+        ]
+      },
+      "abstention_supported": true,
+      "manual_verdict": "appropriate_abstention",
+      "verdict": "appropriate_abstention",
+      "notes": "Appropriate abstention at k=3. The retrieved top-3 passages contain only the Chapter 11 introduction (sha256:ed746195...), CV splitters (sha256:cd962ee2...), and Pipeline > Overview (sha256:c245a5f8...). Section 11.1 (Inconsistent preprocessing), which states the common-pitfalls practical advantages of Pipeline/make_pipeline, was not retrieved in the k=3 context."
+    },
+    {
+      "case_id": "B27",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B27.json",
+      "trace_sha256": "637c688e80c466eeea7a9af4ff5bbb329ced887d6ecbae084a93b9e83626f47a",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not explicitly state which global numpy object is equivalent to random_state=None.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "NO_QUOTES",
+        "quotes": []
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "It is equivalent to numpy's global RandomState instance np.random.mtrand._rand."
+        ]
+      },
+      "abstention_supported": false,
+      "manual_verdict": "unnecessary_abstention",
+      "verdict": "unnecessary_abstention",
+      "notes": "False abstention. Rank-1 chunk sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015 explicitly states: 'Since passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here.' The model falsely claimed the passages do not explicitly state the global numpy object."
+    },
+    {
+      "case_id": "B28",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B28.json",
+      "trace_sha256": "a85bee0d9c06a8847138df55bbb359518d55fb3a9558d75d8b3c1f35616d0191",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": true,
+      "decision": "answer",
+      "answer": "The classification model achieved high accuracy on random noise features because the feature selection step used the test data, giving the model an unfair advantage by 'seeing' the test data during feature selection.",
+      "abstention_reason": "",
+      "automatic_errors": [
+        "Evidence is empty, unretrieved, or absent from its passage."
+      ],
+      "quotation_fidelity": {
+        "status": "MISMATCH",
+        "quotes": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step 'sees' the test data, the model has an unfair advantage.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 36,
+            "exact_match": false,
+            "normalized_match": false,
+            "violates_under_30_words": true
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": true,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Feature selection was performed on the entire dataset before splitting."
+        ]
+      },
+      "abstention_supported": null,
+      "manual_verdict": "invalid_output",
+      "verdict": "invalid_output",
+      "notes": "Incomplete answer with both quote-occurrence and quote-length protocol failures. Semantically, the answer captures that feature selection saw the test data (grounded in Rank-1 chunk sha256:99b4bb5a...), but omits explicitly stating that feature selection was performed on the entire dataset before splitting. Mechanically, Quote 2 fails normalized substring matching (replaces Unicode curly quotes '\\u2018sees\\u2019' in the passage with ASCII ''sees'') and contains 36 words, violating the under-30-words instruction."
+    },
+    {
+      "case_id": "B29",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B29.json",
+      "trace_sha256": "29bd35f94acb029e88ccd5f3ec7916f2d2f30e91198e6db757e7e4736505ca14",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": false,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "Passages do not contain information about the stratify_ratio parameter in scikit-learn 1.7.2 train_test_split documentation.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "NO_QUOTES",
+        "quotes": []
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": true,
+        "missing_claims": []
+      },
+      "abstention_supported": true,
+      "manual_verdict": "appropriate_abstention",
+      "verdict": "appropriate_abstention",
+      "notes": "Appropriate and complete abstention on fictitious parameter premise. Model abstains and explicitly notes that the train_test_split documentation passages do not contain information about stratify_ratio."
+    },
+    {
+      "case_id": "B30",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B30.json",
+      "trace_sha256": "dfc4b37d125b22edfeb5d23d71d0fafa31bcd46bbcd9d142771355e0c266e769",
+      "batch_trace_hash_matches": true,
+      "prompt_version": "evidence-first-v1",
+      "answerable": false,
+      "decision": "abstain",
+      "answer": "",
+      "abstention_reason": "The passages do not contain information about the time taken to fit a 5-step Pipeline on 100,000 samples for scikit-learn 1.7.2. The question asks for a specific time calculation, but the provided passages discuss data leakage, pipeline structure, and best practices without numerical timing information.",
+      "automatic_errors": [],
+      "quotation_fidelity": {
+        "status": "VERBATIM",
+        "quotes": [
+          {
+            "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+            "quote": "Using all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 24,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+            "quote": "steps: list of tuples\nList of (name of step, estimator) tuples that are to be chained in sequential order.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 19,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          },
+          {
+            "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+            "quote": "The scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset.",
+            "in_supplied_passages": true,
+            "nonempty": true,
+            "word_count": 25,
+            "exact_match": true,
+            "normalized_match": true,
+            "violates_under_30_words": false
+          }
+        ]
+      },
+      "annotation_status": "matched",
+      "annotation_provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "claim_grounding": null,
+      "completeness": {
+        "is_complete": false,
+        "missing_claims": [
+          "Explain that runtime depends on specific estimators and hardware and is not stated in the documentation."
+        ]
+      },
+      "abstention_supported": true,
+      "manual_verdict": "partially_complete_abstention",
+      "verdict": "partially_complete_abstention",
+      "notes": "Partially complete appropriate abstention. Model properly refuses to predict an execution time in seconds and notes the passages contain no numerical timing information, but omits the rubric requirement to note that runtime depends on specific estimators and hardware. The 3 attached quotes are verbatim and under 30 words, though unrelated to runtime."
+    }
+  ],
+  "batch_sha256": "5fa6a4d058aad0759b8c900e5383cb1edefd908e72055a923561486d33ec22a2",
+  "annotations_sha256": "114548953fc82dead84d2d7bfa0a78eb6b92203c815980ee963a7d3d497be0c9",
+  "reviewer_version": "2"
+}

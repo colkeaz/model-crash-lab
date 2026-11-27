@@ -1,0 +1,266 @@
+[
+  {
+    "id": "B11",
+    "question": "How can I disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline?",
+    "category": "direct",
+    "family_id": "pipeline-parameters",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Use set_params with the step name as the key and set that step to passthrough or None.",
+    "required_claims": [
+      "Set the named intermediate step to passthrough or None to skip that transformer."
+    ],
+    "forbidden_claims": [
+      "A transformer can only be removed by constructing a new Pipeline."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "Class description: replacing and removing steps",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Related to existing B03. Removing a step does not guarantee a previously fitted downstream estimator remains suitable; do not claim refitting is never needed."
+  },
+  {
+    "id": "B12",
+    "question": "In scikit-learn 1.7.2, if I pass a scipy sparse matrix to train_test_split, what specific matrix format is returned for the splits of that matrix?",
+    "category": "direct",
+    "family_id": "split-configuration",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "The training and test splits of the sparse input are scipy.sparse.csr_matrix objects.",
+    "required_claims": [
+      "Splits of the supplied sparse matrix are scipy.sparse.csr_matrix objects."
+    ],
+    "forbidden_claims": [
+      "Every output, including labels supplied as a Python list, must become a sparse matrix."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Returns: sparse input output type",
+        "anchor": "sklearn.model_selection.train_test_split"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Narrowed the question to splits of the sparse input; separately supplied labels need not become sparse."
+  },
+  {
+    "id": "B13",
+    "question": "Which parameter in Pipeline allows caching the fitted transformers to avoid repeated computation?",
+    "category": "direct",
+    "family_id": "pipeline-caching",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Use memory, which accepts a caching directory path or an object implementing the joblib.Memory interface.",
+    "required_claims": [
+      "The caching parameter is memory.",
+      "It accepts a directory path or an object implementing the joblib.Memory interface."
+    ],
+    "forbidden_claims": [
+      "memory caches the fitted final estimator as well as all transformers."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "Parameters > memory",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Do not require a joblib.Memory instance specifically; the documented interface is sufficient."
+  },
+  {
+    "id": "B14",
+    "question": "In scikit-learn 1.7.2, which Pipeline attribute allows accessing a fitted intermediate step by its assigned string name?",
+    "category": "direct",
+    "family_id": "pipeline-inspection",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Use the read-only named_steps attribute, for example pipe.named_steps['scaler'] after fitting the pipeline.",
+    "required_claims": [
+      "Use the named_steps attribute to access a step by its assigned string name.",
+      "The named_steps attribute is documented as read-only."
+    ],
+    "forbidden_claims": [
+      "named_steps only accepts integer positions."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "Attributes > named_steps",
+        "anchor": "sklearn.pipeline.Pipeline"
+      },
+      {
+        "source_id": "S2",
+        "section": "named_steps property description",
+        "anchor": "sklearn.pipeline.Pipeline.named_steps"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Direct lookup. The property description supports read-only; this does not mean the returned estimator objects are immutable. Fitted steps require fitting the pipeline first."
+  },
+  {
+    "id": "B15",
+    "question": "For an estimator whose random_state controls stochastic training, with identical data and otherwise deterministic execution, why can repeated fit calls differ when reusing a RandomState instance, unlike reusing the same integer seed?",
+    "category": "synthesis",
+    "family_id": "estimator-randomness",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Fitting consumes and mutates the shared RandomState instance. With an integer random_state, the estimator resets its RNG to that seed at the beginning of each fit.",
+    "required_claims": [
+      "A reused RandomState instance advances its internal state when randomness is consumed.",
+      "An integer random_state resets the estimator RNG at the start of each fit."
+    ],
+    "forbidden_claims": [
+      "Reusing a RandomState instance resets it to the original state on every fit.",
+      "Every repeated stochastic fit is guaranteed to produce a different result."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.3.1.1 Estimators",
+        "anchor": "estimators"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "Scoped the question to RNG-driven variability. Differing random draws do not guarantee differing final model outputs in every experiment."
+  },
+  {
+    "id": "B16",
+    "question": "If I pass the same RandomState instance to two different SGDClassifier estimators, why can calling fit on one influence the subsequent results of the other?",
+    "category": "synthesis",
+    "family_id": "estimator-randomness",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "Both estimators share the same mutable RandomState object. Fitting one consumes randomness and advances its state, so the other subsequently uses that advanced state.",
+    "required_claims": [
+      "The two estimators explicitly share one mutable RNG object.",
+      "Fitting one can advance the state subsequently used by the other."
+    ],
+    "forbidden_claims": [
+      "Default sklearn.base.clone necessarily leaves the clone sharing the original RandomState object."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.3.1.1 Estimators: explicitly shared RandomState instances",
+        "anchor": "estimators"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "User-refined explicit sharing example supported by S3 Estimators. Uses can rather than will: changing random draws does not guarantee different final outputs. No clone behavior is required; keep in the same family as B15."
+  },
+  {
+    "id": "B17",
+    "question": "Can train_test_split take two arrays with differing row counts, like X with 100 rows and y with 80 rows?",
+    "category": "noisy",
+    "family_id": "split-configuration",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "No. The inputs must have the same length along their first dimension.",
+    "required_claims": [
+      "No; all supplied arrays must have the same length or shape[0]."
+    ],
+    "forbidden_claims": [
+      "train_test_split silently truncates the longer input to match the shorter one."
+    ],
+    "evidence": [
+      {
+        "source_id": "S1",
+        "section": "Parameters > *arrays",
+        "anchor": "sklearn.model_selection.train_test_split"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "A natural-language paraphrase probe, not a misspelling probe. Related to other split-configuration cases."
+  },
+  {
+    "id": "B18",
+    "question": "When standardizing my data with z-score normalization, is it acceptable to divide by the standard deviation computed across all available samples before splitting?",
+    "category": "noisy",
+    "family_id": "preprocessing-leakage",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": true,
+    "reference_answer": "No. Split first and learn normalization statistics only from training data; reuse the fitted transformation for test data.",
+    "required_claims": [
+      "Normalization statistics must be learned from the training subset, not the full dataset.",
+      "Including test data when learning preprocessing statistics leaks information."
+    ],
+    "forbidden_claims": [
+      "Unsupervised preprocessing may always be fitted on the full dataset without leakage."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.2 Data leakage",
+        "anchor": "data-leakage"
+      }
+    ],
+    "absence_reason": null,
+    "review_status": "approved",
+    "reviewer_notes": "An intentional paraphrase in an existing development family; it must not be presented as an independent family holdout."
+  },
+  {
+    "id": "B19",
+    "question": "According to the scikit-learn 1.7.2 Pipeline documentation, what parameters does the Pipeline.auto_scale() method accept?",
+    "category": "unanswerable",
+    "family_id": "unsupported-api-premise",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": false,
+    "reference_answer": "Abstain from listing parameters: the supplied Pipeline documentation does not describe an auto_scale method or establish its accepted parameters.",
+    "required_claims": [
+      "Abstain from inventing parameters for Pipeline.auto_scale.",
+      "Explain that the supplied Pipeline API documentation does not document the requested method or its parameters."
+    ],
+    "forbidden_claims": [
+      "Inventing accepted parameters or a signature for Pipeline.auto_scale."
+    ],
+    "evidence": [
+      {
+        "source_id": "S2",
+        "section": "Pipeline API reference: documented members",
+        "anchor": "sklearn.pipeline.Pipeline"
+      }
+    ],
+    "absence_reason": "The frozen Pipeline API reference does not document auto_scale or its accepted parameters.",
+    "review_status": "approved",
+    "reviewer_notes": "Documentation-scoped unsupported premise. Do not infer global API absence merely from omission in top-k passages; the full frozen reference was inspected during benchmark review."
+  },
+  {
+    "id": "B20",
+    "question": "According to the scikit-learn documentation on controlling randomness, which random_state integer is documented to guarantee the highest cross-validation score?",
+    "category": "unanswerable",
+    "family_id": "estimator-randomness",
+    "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+    "answerable": false,
+    "reference_answer": "Abstain from naming an optimal seed: the documentation specifies no integer guaranteed to maximize the cross-validation score and cautions against treating the estimator RNG as a tunable hyperparameter.",
+    "required_claims": [
+      "Do not provide a random_state integer as a documented guarantee of the highest cross-validation score.",
+      "Explain that the documentation does not specify such a guaranteed optimal seed.",
+      "The controlling-randomness guidance cautions against treating the estimator RNG as a tunable hyperparameter."
+    ],
+    "forbidden_claims": [
+      "A particular random_state integer is documented to guarantee the highest cross-validation score."
+    ],
+    "evidence": [
+      {
+        "source_id": "S3",
+        "section": "11.3.3.2 Robustness of cross-validation results",
+        "anchor": "robustness-of-cross-validation-results"
+      }
+    ],
+    "absence_reason": "The documentation does not identify a guaranteed score-maximizing seed; its estimator RNG guidance cautions against treating that RNG as a tunable hyperparameter.",
+    "review_status": "approved",
+    "reviewer_notes": "Revised from the private-dataset question to a documentation-scoped unsupported guarantee. The warning concerns estimator RNGs, not a blanket claim about train_test_split seeds. Shares the estimator-randomness family with B15 and B16."
+  }
+]

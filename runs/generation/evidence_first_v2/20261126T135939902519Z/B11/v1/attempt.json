@@ -1,0 +1,47 @@
+{
+  "case_id": "B11",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "68c6edca2d5e277eab720fecd85a93a315cee369b6b691fe47633b6f6447cc2e",
+  "sent_at": "2026-11-26T14:04:10.316356+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [],
+  "decision": "abstain",
+  "answer": "",
+  "abstention_reason": "Passages do not contain specific information about disabling or removing intermediate transformer steps in an existing Pipeline without rebuilding the pipeline.",
+  "input_tokens": 983,
+  "output_tokens": 49,
+  "elapsed_seconds": 25.524,
+  "received_at": "2026-11-26T14:04:35.839938+00:00",
+  "response_sha256": "7fa7f6c0c284da2e1dc093f7b421ff004f8ff970d6d6ae6ca934c7c9427b81fe",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:04:35.8379331Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 25521288900,
+    "load_duration": 13101100,
+    "prompt_eval_count": 983,
+    "prompt_eval_duration": 19244134000,
+    "eval_count": 49,
+    "eval_duration": 6102572000
+  },
+  "reply": {
+    "evidence": [],
+    "decision": "abstain",
+    "answer": "",
+    "abstention_reason": "Passages do not contain specific information about disabling or removing intermediate transformer steps in an existing Pipeline without rebuilding the pipeline."
+  }
+}

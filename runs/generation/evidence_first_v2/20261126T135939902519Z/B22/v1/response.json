@@ -1,0 +1,17 @@
+{
+  "model": "qwen3:4b",
+  "created_at": "2026-11-26T14:09:14.316649Z",
+  "message": {
+    "role": "assistant",
+    "content": "{\"evidence\": [], \"decision\": \"abstain\", \"answer\": \"\", \"abstention_reason\": \"Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples.\"}"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 18289994500,
+  "load_duration": 11743200,
+  "prompt_eval_count": 733,
+  "prompt_eval_cached_count": 212,
+  "prompt_eval_duration": 10356945000,
+  "eval_count": 57,
+  "eval_duration": 7818092000
+}

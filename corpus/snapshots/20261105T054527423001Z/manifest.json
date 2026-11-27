@@ -1,0 +1,31 @@
+{
+  "snapshot_id": "20261105T054527423001Z",
+  "documentation_branch": "1.7",
+  "observed_version": "1.7.2",
+  "sources": [
+    {
+      "source_id": "S1",
+      "requested_url": "https://scikit-learn.org/1.7/modules/generated/sklearn.model_selection.train_test_split.html",
+      "resolved_url": "https://scikit-learn.org/1.7/modules/generated/sklearn.model_selection.train_test_split.html",
+      "retrieved_at": "2026-11-05T05:45:28.041569+00:00",
+      "file": "S1.html",
+      "sha256": "addde7579cee7a19edfdd8f7f3de2c3ba884c141beff6c0a051b81643942b0e6"
+    },
+    {
+      "source_id": "S2",
+      "requested_url": "https://scikit-learn.org/1.7/modules/generated/sklearn.pipeline.Pipeline.html",
+      "resolved_url": "https://scikit-learn.org/1.7/modules/generated/sklearn.pipeline.Pipeline.html",
+      "retrieved_at": "2026-11-05T05:45:28.578463+00:00",
+      "file": "S2.html",
+      "sha256": "58a9aa8c082ad71a67af41baba70de87117a6cd72d750506b4a30d421f2fc2ac"
+    },
+    {
+      "source_id": "S3",
+      "requested_url": "https://scikit-learn.org/1.7/common_pitfalls.html",
+      "resolved_url": "https://scikit-learn.org/1.7/common_pitfalls.html",
+      "retrieved_at": "2026-11-05T05:45:29.034346+00:00",
+      "file": "S3.html",
+      "sha256": "d565b1ef30e88ce406c27d28a02bc5a61af28cd65f2c6959676dbfb3509f807b"
+    }
+  ]
+}

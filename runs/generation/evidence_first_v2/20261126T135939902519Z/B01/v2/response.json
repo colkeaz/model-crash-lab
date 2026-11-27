@@ -1,0 +1,17 @@
+{
+  "model": "qwen3:4b",
+  "created_at": "2026-11-26T14:00:51.7559772Z",
+  "message": {
+    "role": "assistant",
+    "content": "{\n  \"evidence\": [\n    {\n      \"chunk_id\": \"sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465\",\n      \"quote\": \"If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.\"\n    },\n    {\n      \"chunk_id\": \"sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667\",\n      \"quote\": \"If None, the value is automatically set to the complement of the test size.\"\n    }\n  ],\n  \"decision\": \"answer\",\n  \"answer\": \"0.25\",\n  \"abstention_reason\": \"\"\n}"
+  },
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 35700404700,
+  "load_duration": 12804400,
+  "prompt_eval_count": 1632,
+  "prompt_eval_cached_count": 1631,
+  "prompt_eval_duration": 163068000,
+  "eval_count": 242,
+  "eval_duration": 35337091000
+}

@@ -1,0 +1,906 @@
+{
+  "run_id": "20261107T040600688801Z",
+  "retriever": "tfidf-char-wb-v1",
+  "settings": {
+    "analyzer": "char_wb",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "norm": "l2"
+  },
+  "top_k": 3,
+  "python_version": "3.14.4",
+  "sklearn_version": "1.9.0",
+  "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+  "chunks_sha256": "0478ef089892f7d04a2bea10c6d127928e612cb68d322dc6a40131bb8def4057",
+  "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+  "results": [
+    {
+      "case_id": "B01",
+      "question": "In scikit-learn 1.7.2, what test fraction does train_test_split use when I omit both test_size and train_size?",
+      "answerable": true,
+      "required_claims": [
+        "The test fraction is 25% when both size parameters are omitted."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S1",
+          "section": "Parameters > test_size",
+          "anchor": "sklearn.model_selection.train_test_split"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.2577157108447532,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S1",
+          "anchor": "sklearn.model_selection.train_test_split",
+          "heading_path": [
+            "train_test_split",
+            "Parameters"
+          ],
+          "block_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "text": "train_test_split > Parameters\n\n*arrays: sequence of indexables with same length / shape[0]\nAllowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.\n\ntest_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.\n\ntrain_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.\n\nrandom_state: int, RandomState instance or None, default=None\nControls the shuffling applied to the data before applying the split. Pass an int for reproducible output across multiple function calls. See Glossary .\n\nshuffle: bool, default=True\nWhether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.\n\nstratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide .",
+          "chunk_id": "sha256:1d1b9eccae39406b61efe9cd2a1da95bce5dcdd8a133535eb51fe2554634e7e0",
+          "word_count": 207
+        },
+        {
+          "rank": 2,
+          "score": 0.23952621815591413,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "inconsistent-preprocessing",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.1. Inconsistent preprocessing"
+          ],
+          "block_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.1. Inconsistent preprocessing\n\nscikit-learn provides a library of Dataset transformations , which may clean (see Preprocessing data ), reduce (see Unsupervised dimensionality reduction ), expand (see Kernel Approximation ) or generate (see Feature extraction ) feature representations. If these data transforms are used when training a model, they also must be used on subsequent datasets, whether it’s test data or data in a production system. Otherwise, the feature space will change, and the model will not be able to perform effectively.\n\nFor the following example, let’s create a synthetic dataset with a single feature:\n\n>>> from sklearn.datasets import make_regression\n>>> from sklearn.model_selection import train_test_split\n\n>>> random_state = 42\n>>> X, y = make_regression(random_state=random_state, n_features=1, noise=1)\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.4, random_state=random_state)\n\nWrong\n\nThe train dataset is scaled, but not the test dataset, so model performance on the test dataset is worse than expected:\n\n>>> from sklearn.metrics import mean_squared_error\n>>> from sklearn.linear_model import LinearRegression\n>>> from sklearn.preprocessing import StandardScaler\n\n>>> scaler = StandardScaler()\n>>> X_train_transformed = scaler.fit_transform(X_train)\n>>> model = LinearRegression().fit(X_train_transformed, y_train)\n>>> mean_squared_error(y_test, model.predict(X_test))\n62.80...\n\nRight\n\nInstead of passing the non-transformed X_test to predict , we should transform the test data, the same way we transformed the training data:\n\n>>> X_test_transformed = scaler.transform(X_test)\n>>> mean_squared_error(y_test, model.predict(X_test_transformed))\n0.90...\n\nAlternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation:\n\n>>> from sklearn.pipeline import make_pipeline\n\n>>> model = make_pipeline(StandardScaler(), LinearRegression())\n>>> model.fit(X_train, y_train)\nPipeline(steps=[('standardscaler', StandardScaler()),\n                ('linearregression', LinearRegression())])\n>>> mean_squared_error(y_test, model.predict(X_test))\n0.90...\n\nPipelines also help avoiding another common pitfall: leaking the test data into the training data.",
+          "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+          "word_count": 280
+        },
+        {
+          "rank": 3,
+          "score": 0.23527369630881922,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S1",
+          "anchor": "sklearn.model_selection.train_test_split",
+          "heading_path": [
+            "train_test_split",
+            "Examples"
+          ],
+          "block_indices": [
+            8
+          ],
+          "text": "train_test_split > Examples\n\n>>> import numpy as np\n>>> from sklearn.model_selection import train_test_split\n>>> X, y = np.arange(10).reshape((5, 2)), range(5)\n>>> X\narray([[0, 1],\n       [2, 3],\n       [4, 5],\n       [6, 7],\n       [8, 9]])\n>>> list(y)\n[0, 1, 2, 3, 4]\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.33, random_state=42)\n...\n>>> X_train\narray([[4, 5],\n       [0, 1],\n       [6, 7]])\n>>> y_train\n[2, 0, 3]\n>>> X_test\narray([[2, 3],\n       [8, 9]])\n>>> y_test\n[1, 4]\n\n>>> train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]\n\n>>> from sklearn import datasets\n>>> iris = datasets.load_iris(as_frame=True)\n>>> X, y = iris['data'], iris['target']\n>>> X.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n0                5.1               3.5                1.4               0.2\n1                4.9               3.0                1.4               0.2\n2                4.7               3.2                1.3               0.2\n3                4.6               3.1                1.5               0.2\n4                5.0               3.6                1.4               0.2\n>>> y.head()\n0    0\n1    0\n2    0\n3    0\n4    0\n...\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n... X, y, test_size=0.33, random_state=42)\n...\n>>> X_train.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n96                 5.7               2.9                4.2               1.3\n105                7.6               3.0                6.6               2.1\n66                 5.6               3.0                4.5               1.5\n0                  5.1               3.5                1.4               0.2\n122                7.7               2.8                6.7               2.0\n>>> y_train.head()\n96     1\n105    2\n66     1\n0      0\n122    2\n...\n>>> X_test.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n73                 6.1               2.8                4.7               1.2\n18                 5.7               3.8                1.7               0.3\n118                7.7               2.6                6.9               2.3\n78                 6.0               2.9                4.5               1.5\n76                 6.8               2.8                4.8               1.4\n>>> y_test.head()\n73     1\n18     0\n118    2\n78     1\n76     1\n...",
+          "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+          "word_count": 267
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": true,
+        "supporting_chunk_ids": [
+          "sha256:1d1b9eccae39406b61efe9cd2a1da95bce5dcdd8a133535eb51fe2554634e7e0"
+        ],
+        "notes": "Rank 1 (train_test_split > Parameters) explicitly states that if train_size is also None, test_size defaults to 0.25."
+      }
+    },
+    {
+      "case_id": "B02",
+      "question": "Which methods must an intermediate Pipeline step implement, and which method must its final estimator implement?",
+      "answerable": true,
+      "required_claims": [
+        "Intermediate steps need fit and transform.",
+        "The final estimator needs fit."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S2",
+          "section": "class description",
+          "anchor": "sklearn.pipeline.Pipeline"
+        },
+        {
+          "source_id": "S2",
+          "section": "Parameters > steps",
+          "anchor": "sklearn.pipeline.Pipeline"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.2533222984256993,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline.score",
+          "heading_path": [
+            "Pipeline",
+            "score",
+            "Overview"
+          ],
+          "block_indices": [
+            53
+          ],
+          "text": "Pipeline > score > Overview\n\nTransform the data, and apply score with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls score method. Only valid if the final estimator implements score .",
+          "chunk_id": "sha256:07ed0e51ee1f80a11c3a487912b8fbdb841ac6da929921122ced405f669c60de",
+          "word_count": 46
+        },
+        {
+          "rank": 2,
+          "score": 0.2518122738434901,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline.transform",
+          "heading_path": [
+            "Pipeline",
+            "transform",
+            "Overview"
+          ],
+          "block_indices": [
+            71
+          ],
+          "text": "Pipeline > transform > Overview\n\nTransform the data, and apply transform with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls transform method. Only valid if the final estimator implements transform .\n\nThis also works where final estimator is None in which case all prior transformations are applied.",
+          "chunk_id": "sha256:bc67f602b029b12e81ab7731e957eca4470f9352c4bc1e57d760098aa53fde4d",
+          "word_count": 62
+        },
+        {
+          "rank": 3,
+          "score": 0.2498746406865312,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline.predict",
+          "heading_path": [
+            "Pipeline",
+            "predict",
+            "Overview"
+          ],
+          "block_indices": [
+            41
+          ],
+          "text": "Pipeline > predict > Overview\n\nTransform the data, and apply predict with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls predict method. Only valid if the final estimator implements predict .",
+          "chunk_id": "sha256:ca89f7553cdbad758f216713fbc9de5accec9f1781f65ea93fe4cbd6f7fba00f",
+          "word_count": 46
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": false,
+        "supporting_chunk_ids": [],
+        "notes": "Retrieved method overviews (score, transform, predict) omit the required fit contract: intermediate steps must implement fit and the final estimator only needs fit."
+      }
+    },
+    {
+      "case_id": "B03",
+      "question": "My Pipeline has a step named svc. How do I set its C parameter to 10 using the pipeline's set_params method?",
+      "answerable": true,
+      "required_claims": [
+        "Use pipe.set_params(svc__C=10), allowing any equivalent pipeline variable name."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S2",
+          "section": "class description",
+          "anchor": "sklearn.pipeline.Pipeline"
+        },
+        {
+          "source_id": "S2",
+          "section": "Examples",
+          "anchor": "sklearn.pipeline.Pipeline"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.47469921614131383,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline.set_params",
+          "heading_path": [
+            "Pipeline",
+            "set_params",
+            "Parameters"
+          ],
+          "block_indices": [
+            66
+          ],
+          "text": "Pipeline > set_params > Parameters\n\n**kwargs: dict\nParameters of this estimator or parameters of estimators contained in steps . Parameters of the steps may be set using its name and the parameter name separated by a ‘__’.",
+          "chunk_id": "sha256:c901c6784d3838d54bd2e3a5daab28f50eccaf5433f1d07669cfb2a7b12b3ec5",
+          "word_count": 37
+        },
+        {
+          "rank": 2,
+          "score": 0.42965078556230357,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline.set_params",
+          "heading_path": [
+            "Pipeline",
+            "set_params",
+            "Overview"
+          ],
+          "block_indices": [
+            65
+          ],
+          "text": "Pipeline > set_params > Overview\n\nSet the parameters of this estimator.\n\nValid parameter keys can be listed with get_params() . Note that you can directly set the parameters of the estimators contained in steps .",
+          "chunk_id": "sha256:662d417279acbdb5f3ff927bd2599bdb2510d03751cd61ec7286c6a88102bb4f",
+          "word_count": 35
+        },
+        {
+          "rank": 3,
+          "score": 0.3537407105381696,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline.set_params",
+          "heading_path": [
+            "Pipeline",
+            "set_params",
+            "Returns"
+          ],
+          "block_indices": [
+            67
+          ],
+          "text": "Pipeline > set_params > Returns\n\nself: object\nPipeline class instance.",
+          "chunk_id": "sha256:d748da23bfcb7670ac4d68080f60a8f7191caafc27cd44d431f93937225f9a1a",
+          "word_count": 10
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": true,
+        "supporting_chunk_ids": [
+          "sha256:c901c6784d3838d54bd2e3a5daab28f50eccaf5433f1d07669cfb2a7b12b3ec5"
+        ],
+        "notes": "Rank 1 (Pipeline > set_params > Parameters) explicitly documents that step parameters are set using the step name and parameter name separated by '__' (svc__C=10)."
+      }
+    },
+    {
+      "case_id": "B04",
+      "question": "I scaled all my data before splitting. Using train_test_split and a scaler/classifier Pipeline, explain the corrected training and evaluation order.",
+      "answerable": true,
+      "required_claims": [
+        "Split first.",
+        "Fit the pipeline on training data.",
+        "Use it for test prediction, without fitting preprocessing on test data."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S1",
+          "section": "Returns",
+          "anchor": "sklearn.model_selection.train_test_split"
+        },
+        {
+          "source_id": "S2",
+          "section": "Examples",
+          "anchor": "sklearn.pipeline.Pipeline"
+        },
+        {
+          "source_id": "S3",
+          "section": "How to avoid data leakage",
+          "anchor": "how-to-avoid-data-leakage"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.27918151837274546,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "inconsistent-preprocessing",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.1. Inconsistent preprocessing"
+          ],
+          "block_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.1. Inconsistent preprocessing\n\nscikit-learn provides a library of Dataset transformations , which may clean (see Preprocessing data ), reduce (see Unsupervised dimensionality reduction ), expand (see Kernel Approximation ) or generate (see Feature extraction ) feature representations. If these data transforms are used when training a model, they also must be used on subsequent datasets, whether it’s test data or data in a production system. Otherwise, the feature space will change, and the model will not be able to perform effectively.\n\nFor the following example, let’s create a synthetic dataset with a single feature:\n\n>>> from sklearn.datasets import make_regression\n>>> from sklearn.model_selection import train_test_split\n\n>>> random_state = 42\n>>> X, y = make_regression(random_state=random_state, n_features=1, noise=1)\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.4, random_state=random_state)\n\nWrong\n\nThe train dataset is scaled, but not the test dataset, so model performance on the test dataset is worse than expected:\n\n>>> from sklearn.metrics import mean_squared_error\n>>> from sklearn.linear_model import LinearRegression\n>>> from sklearn.preprocessing import StandardScaler\n\n>>> scaler = StandardScaler()\n>>> X_train_transformed = scaler.fit_transform(X_train)\n>>> model = LinearRegression().fit(X_train_transformed, y_train)\n>>> mean_squared_error(y_test, model.predict(X_test))\n62.80...\n\nRight\n\nInstead of passing the non-transformed X_test to predict , we should transform the test data, the same way we transformed the training data:\n\n>>> X_test_transformed = scaler.transform(X_test)\n>>> mean_squared_error(y_test, model.predict(X_test_transformed))\n0.90...\n\nAlternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation:\n\n>>> from sklearn.pipeline import make_pipeline\n\n>>> model = make_pipeline(StandardScaler(), LinearRegression())\n>>> model.fit(X_train, y_train)\nPipeline(steps=[('standardscaler', StandardScaler()),\n                ('linearregression', LinearRegression())])\n>>> mean_squared_error(y_test, model.predict(X_test))\n0.90...\n\nPipelines also help avoiding another common pitfall: leaking the test data into the training data.",
+          "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+          "word_count": 280
+        },
+        {
+          "rank": 2,
+          "score": 0.26554938854940713,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S1",
+          "anchor": "sklearn.model_selection.train_test_split",
+          "heading_path": [
+            "train_test_split",
+            "Overview"
+          ],
+          "block_indices": [
+            0
+          ],
+          "text": "train_test_split > Overview\n\nSplit arrays or matrices into random train and test subsets.\n\nQuick utility that wraps input validation, next(ShuffleSplit().split(X, y)) , and application to input data into a single call for splitting (and optionally subsampling) data into a one-liner.\n\nRead more in the User Guide .",
+          "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+          "word_count": 47
+        },
+        {
+          "rank": 3,
+          "score": 0.25266176141140284,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline",
+          "heading_path": [
+            "Pipeline",
+            "Examples"
+          ],
+          "block_indices": [
+            9
+          ],
+          "text": "Pipeline > Examples\n\n>>> from sklearn.svm import SVC\n>>> from sklearn.preprocessing import StandardScaler\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import train_test_split\n>>> from sklearn.pipeline import Pipeline\n>>> X, y = make_classification(random_state=0)\n>>> X_train, X_test, y_train, y_test = train_test_split(X, y,\n...                                                     random_state=0)\n>>> pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC())])\n>>> # The pipeline can be used as any other estimator\n>>> # and avoids leaking the test set into the train set\n>>> pipe.fit(X_train, y_train).score(X_test, y_test)\n0.88\n>>> # An estimator's parameter can be set using '__' syntax\n>>> pipe.set_params(svc__C=10).fit(X_train, y_train).score(X_test, y_test)\n0.76",
+          "chunk_id": "sha256:c375d3c23321d9e036d184e03ae2781fffac711a27e3ea825c3f9ef51658b7c5",
+          "word_count": 94
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": true,
+        "supporting_chunk_ids": [
+          "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500"
+        ],
+        "notes": "Rank 1 (Inconsistent preprocessing) shows splitting before scaling with train_test_split, fitting the make_pipeline only on training data, and evaluating via model.predict(X_test) to avoid leakage."
+      }
+    },
+    {
+      "case_id": "B05",
+      "question": "I used SelectKBest on the full dataset before cross-validation. What is wrong, and how should a Pipeline be evaluated instead?",
+      "answerable": true,
+      "required_claims": [
+        "Selecting features on the full dataset lets validation-fold target values influence feature selection, potentially producing overly optimistic scores.",
+        "Put SelectKBest and the estimator inside a Pipeline, then cross-validate the entire pipeline.",
+        "Within each fold, fit feature selection and the estimator using only that fold's training data; apply the fitted pipeline to its validation data."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S3",
+          "section": "Data leakage during pre-processing",
+          "anchor": "data-leakage-during-pre-processing"
+        },
+        {
+          "source_id": "S2",
+          "section": "class description",
+          "anchor": "sklearn.pipeline.Pipeline"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.2261339278133818,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "robustness-of-cross-validation-results",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.3. Controlling randomness",
+            "11.3.3. General recommendations",
+            "11.3.3.2. Robustness of cross-validation results"
+          ],
+          "block_indices": [
+            85,
+            86,
+            87,
+            88
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.3. General recommendations > 11.3.3.2. Robustness of cross-validation results\n\nWhen we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization. For example, we would like the random weights initialization of an SGDClassifier to be consistently good across all folds: otherwise, when we train that estimator on new data, we might get unlucky and the random initialization may lead to bad performance. Similarly, we want a random forest to be robust w.r.t. the set of randomly selected features that each tree will be using.\n\nFor these reasons, it is preferable to evaluate the cross-validation performance by letting the estimator use a different RNG on each fold. This is done by passing a RandomState instance (or None ) to the estimator initialization.\n\nWhen we pass an integer, the estimator will use the same RNG on each fold: if the estimator performs well (or bad), as evaluated by CV, it might just be because we got lucky (or unlucky) with that specific seed. Passing instances leads to more robust CV results, and makes the comparison between various algorithms fairer. It also helps limiting the temptation to treat the estimator’s RNG as a hyper-parameter that can be tuned.\n\nWhether we pass RandomState instances or integers to CV splitters has no impact on robustness, as long as split is only called once. When split is called multiple times, fold-to-fold comparison isn’t possible anymore. As a result, passing integer to CV splitters is usually safer and covers most use-cases.",
+          "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+          "word_count": 283
+        },
+        {
+          "rank": 2,
+          "score": 0.19188990913146659,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "data-leakage-during-pre-processing",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.2. Data leakage",
+            "11.2.2. Data leakage during pre-processing"
+          ],
+          "block_indices": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\n\n>>> from sklearn.model_selection import train_test_split\n>>> from sklearn.feature_selection import SelectKBest\n>>> from sklearn.ensemble import HistGradientBoostingClassifier\n>>> from sklearn.metrics import accuracy_score\n\n>>> # Incorrect preprocessing: the entire data is transformed\n>>> X_selected = SelectKBest(k=25).fit_transform(X, y)\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X_selected, y, random_state=42)\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\n>>> gbc.fit(X_train, y_train)\nHistGradientBoostingClassifier(random_state=1)\n\n>>> y_pred = gbc.predict(X_test)\n>>> accuracy_score(y_test, y_pred)\n0.76\n\nRight\n\nTo prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset. The score is now what we would expect for the data, close to chance:\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, random_state=42)\n>>> select = SelectKBest(k=25)\n>>> X_train_selected = select.fit_transform(X_train, y_train)\n\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\n>>> gbc.fit(X_train_selected, y_train)\nHistGradientBoostingClassifier(random_state=1)\n\n>>> X_test_selected = select.transform(X_test)\n>>> y_pred = gbc.predict(X_test_selected)\n>>> accuracy_score(y_test, y_pred)\n0.5\n\nHere again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:\n\n>>> from sklearn.pipeline import make_pipeline\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, random_state=42)\n>>> pipeline = make_pipeline(SelectKBest(k=25),\n...                          HistGradientBoostingClassifier(random_state=1))\n>>> pipeline.fit(X_train, y_train)\nPipeline(steps=[('selectkbest', SelectKBest(k=25)),\n                ('histgradientboostingclassifier',\n                 HistGradientBoostingClassifier(random_state=1))])\n\n>>> y_pred = pipeline.predict(X_test)\n>>> accuracy_score(y_test, y_pred)\n0.5\n\nThe pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting:",
+          "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+          "word_count": 287
+        },
+        {
+          "rank": 3,
+          "score": 0.19030227116828877,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "id2",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.3. Controlling randomness",
+            "11.3.2. Common pitfalls and subtleties",
+            "11.3.2.1. Estimators"
+          ],
+          "block_indices": [
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.1. Estimators\n\nDifferent random_state types lead to different cross-validation procedures\n\nDepending on the type of the random_state parameter, estimators will behave differently, especially in cross-validation procedures. Consider the following snippet:\n\n>>> from sklearn.ensemble import RandomForestClassifier\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import cross_val_score\n>>> import numpy as np\n\n>>> X, y = make_classification(random_state=0)\n\n>>> rf_123 = RandomForestClassifier(random_state=123)\n>>> cross_val_score(rf_123, X, y)\narray([0.85, 0.95, 0.95, 0.9 , 0.9 ])\n\n>>> rf_inst = RandomForestClassifier(random_state=np.random.RandomState(0))\n>>> cross_val_score(rf_inst, X, y)\narray([0.9 , 0.95, 0.95, 0.9 , 0.9 ])\n\nWe see that the cross-validated scores of rf_123 and rf_inst are different, as should be expected since we didn’t pass the same random_state parameter. However, the difference between these scores is more subtle than it looks, and the cross-validation procedures that were performed by cross_val_score significantly differ in each case :\n\nSince rf_123 was passed an integer, every call to fit uses the same RNG: this means that all random characteristics of the random forest estimator will be the same for each of the 5 folds of the CV procedure. In particular, the (randomly chosen) subset of features of the estimator will be the same across all folds.\n\nSince rf_inst was passed a RandomState instance, each call to fit starts from a different RNG. As a result, the random subset of features will be different for each fold.\n\nWhile having a constant estimator RNG across folds isn’t inherently wrong, we usually want CV results that are robust w.r.t. the estimator’s randomness. As a result, passing an instance instead of an integer may be preferable, since it will allow the estimator RNG to vary for each fold.\n\nNote",
+          "chunk_id": "sha256:cdd4ace6e16855beb03c57475c9f79a5a4fd3d06fb7061559bcddc853b87fbe2",
+          "word_count": 290
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": true,
+        "supporting_chunk_ids": [
+          "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e"
+        ],
+        "notes": "Rank 2 (Data leakage during pre-processing) demonstrates that fitting SelectKBest on all data produces overly optimistic scores, and shows chaining it in a Pipeline evaluated with cross_val_score so preprocessing fits only on training subsets."
+      }
+    },
+    {
+      "case_id": "B06",
+      "question": "My classifier was trained on scaled features but receives raw test features. Explain the mismatch and how a fitted Pipeline addresses it.",
+      "answerable": true,
+      "required_claims": [
+        "Training and test representations differ.",
+        "A fitted pipeline applies learned preprocessing before prediction."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S3",
+          "section": "Inconsistent preprocessing",
+          "anchor": "inconsistent-preprocessing"
+        },
+        {
+          "source_id": "S2",
+          "section": "Examples",
+          "anchor": "sklearn.pipeline.Pipeline"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.3013416279960722,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline.get_feature_names_out",
+          "heading_path": [
+            "Pipeline",
+            "get_feature_names_out",
+            "Overview"
+          ],
+          "block_indices": [
+            29
+          ],
+          "text": "Pipeline > get_feature_names_out > Overview\n\nGet output feature names for transformation.\n\nTransform input features using the pipeline.",
+          "chunk_id": "sha256:4dd91a0b9a0a6cddba80226ff5057e0bd6f106130a98a113296b149be009afcb",
+          "word_count": 17
+        },
+        {
+          "rank": 2,
+          "score": 0.29364717155502307,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline",
+          "heading_path": [
+            "Pipeline",
+            "Attributes"
+          ],
+          "block_indices": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "text": "Pipeline > Attributes\n\nnamed_steps: Bunch\nAccess the steps by name.\n\nclasses_: ndarray of shape (n_classes,)\nThe classes labels.\n\nn_features_in_: int\nNumber of features seen during first step fit method.\n\nfeature_names_in_: ndarray of shape ( n_features_in_ ,)\nNames of features seen during first step fit method.",
+          "chunk_id": "sha256:000ab67c81e879fa4c16d6060f13c7f9f28bd65ca239a017456a4ebf65085b4c",
+          "word_count": 45
+        },
+        {
+          "rank": 3,
+          "score": 0.2877474958758033,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "data-leakage-during-pre-processing",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.2. Data leakage",
+            "11.2.2. Data leakage during pre-processing"
+          ],
+          "block_indices": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\n\nNote\n\nWe here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .\n\nA number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model.\n\nTo demonstrate we will create this binary classification problem with 10,000 randomly generated features:\n\n>>> import numpy as np\n>>> n_samples, n_features, n_classes = 200, 10000, 2\n>>> rng = np.random.RandomState(42)\n>>> X = rng.standard_normal((n_samples, n_features))\n>>> y = rng.choice(n_classes, n_samples)\n\nWrong\n\nUsing all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:",
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "word_count": 249
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": false,
+        "supporting_chunk_ids": [],
+        "notes": "Retrieved passages cover get_feature_names_out, Pipeline attributes, and feature selection leakage. Specific scaling mismatch evidence (Section 11.1 Inconsistent preprocessing) is missing."
+      }
+    },
+    {
+      "case_id": "B07",
+      "question": "With train_tset_split, how do I get the same randomized split each time for identical inputs?",
+      "answerable": true,
+      "required_claims": [
+        "Recognize train_test_split.",
+        "Set random_state to a fixed integer."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S1",
+          "section": "Parameters > random_state",
+          "anchor": "sklearn.model_selection.train_test_split"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.27478004446148224,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "cv-splitters",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.3. Controlling randomness",
+            "11.3.1. Using None or RandomState instances, and repeated calls to fit and split",
+            "11.3.1.2. CV splitters"
+          ],
+          "block_indices": [
+            52,
+            53,
+            54
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.1. Using None or RandomState instances, and repeated calls to fit and split > 11.3.1.2. CV splitters\n\nRandomized CV splitters have a similar behavior when a RandomState instance is passed; calling split multiple times yields different data splits:\n\n>>> from sklearn.model_selection import KFold\n>>> import numpy as np\n\n>>> X = y = np.arange(10)\n>>> rng = np.random.RandomState(0)\n>>> cv = KFold(n_splits=2, shuffle=True, random_state=rng)\n\n>>> for train, test in cv.split(X, y):\n...     print(train, test)\n[0 3 5 6 7] [1 2 4 8 9]\n[1 2 4 8 9] [0 3 5 6 7]\n\n>>> for train, test in cv.split(X, y):\n...     print(train, test)\n[0 4 6 7 8] [1 2 3 5 9]\n[1 2 3 5 9] [0 4 6 7 8]\n\nWe can see that the splits are different from the second time split is called. This may lead to unexpected results if you compare the performance of multiple estimators by calling split many times, as we will see in the next section.",
+          "chunk_id": "sha256:4415bb982d787951f5a2788a393eaf123b6f0c32a630a80283d6dfb93e80f50f",
+          "word_count": 177
+        },
+        {
+          "rank": 2,
+          "score": 0.2585350956625118,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S1",
+          "anchor": "sklearn.model_selection.train_test_split",
+          "heading_path": [
+            "train_test_split",
+            "Overview"
+          ],
+          "block_indices": [
+            0
+          ],
+          "text": "train_test_split > Overview\n\nSplit arrays or matrices into random train and test subsets.\n\nQuick utility that wraps input validation, next(ShuffleSplit().split(X, y)) , and application to input data into a single call for splitting (and optionally subsampling) data into a one-liner.\n\nRead more in the User Guide .",
+          "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+          "word_count": 47
+        },
+        {
+          "rank": 3,
+          "score": 0.24698615475746044,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S1",
+          "anchor": "sklearn.model_selection.train_test_split",
+          "heading_path": [
+            "train_test_split",
+            "Returns"
+          ],
+          "block_indices": [
+            7
+          ],
+          "text": "train_test_split > Returns\n\nsplitting: list, length=2 * len(arrays)\nList containing train-test split of inputs. Added in version 0.16: If the input is sparse, the output will be a scipy.sparse.csr_matrix . Else, output type is the same as the input type.",
+          "chunk_id": "sha256:4ca759a99501a7a094d587b89eb077384108ac363efec024b2d1fa57925ee883",
+          "word_count": 40
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": false,
+        "supporting_chunk_ids": [],
+        "notes": "Retrieved passages include KFold CV splitter behavior and train_test_split overview and returns. Function-specific reproducibility evidence (the random_state parameter specification for train_test_split) is missing."
+      }
+    },
+    {
+      "case_id": "B08",
+      "question": "Can I use shufle=False and stratfy=y together in train_test_split?",
+      "answerable": true,
+      "required_claims": [
+        "Interpret shuffle and stratify.",
+        "No, disabling shuffling requires stratify=None."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S1",
+          "section": "Parameters > shuffle",
+          "anchor": "sklearn.model_selection.train_test_split"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.23954765031359262,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S1",
+          "anchor": "sklearn.model_selection.train_test_split",
+          "heading_path": [
+            "train_test_split",
+            "Parameters"
+          ],
+          "block_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "text": "train_test_split > Parameters\n\n*arrays: sequence of indexables with same length / shape[0]\nAllowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.\n\ntest_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.\n\ntrain_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.\n\nrandom_state: int, RandomState instance or None, default=None\nControls the shuffling applied to the data before applying the split. Pass an int for reproducible output across multiple function calls. See Glossary .\n\nshuffle: bool, default=True\nWhether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.\n\nstratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide .",
+          "chunk_id": "sha256:1d1b9eccae39406b61efe9cd2a1da95bce5dcdd8a133535eb51fe2554634e7e0",
+          "word_count": 207
+        },
+        {
+          "rank": 2,
+          "score": 0.2241705593178891,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S1",
+          "anchor": "sklearn.model_selection.train_test_split",
+          "heading_path": [
+            "train_test_split",
+            "Overview"
+          ],
+          "block_indices": [
+            0
+          ],
+          "text": "train_test_split > Overview\n\nSplit arrays or matrices into random train and test subsets.\n\nQuick utility that wraps input validation, next(ShuffleSplit().split(X, y)) , and application to input data into a single call for splitting (and optionally subsampling) data into a one-liner.\n\nRead more in the User Guide .",
+          "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+          "word_count": 47
+        },
+        {
+          "rank": 3,
+          "score": 0.19608577585654077,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S2",
+          "anchor": "sklearn.pipeline.Pipeline",
+          "heading_path": [
+            "Pipeline",
+            "Examples"
+          ],
+          "block_indices": [
+            9
+          ],
+          "text": "Pipeline > Examples\n\n>>> from sklearn.svm import SVC\n>>> from sklearn.preprocessing import StandardScaler\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import train_test_split\n>>> from sklearn.pipeline import Pipeline\n>>> X, y = make_classification(random_state=0)\n>>> X_train, X_test, y_train, y_test = train_test_split(X, y,\n...                                                     random_state=0)\n>>> pipe = Pipeline([('scaler', StandardScaler()), ('svc', SVC())])\n>>> # The pipeline can be used as any other estimator\n>>> # and avoids leaking the test set into the train set\n>>> pipe.fit(X_train, y_train).score(X_test, y_test)\n0.88\n>>> # An estimator's parameter can be set using '__' syntax\n>>> pipe.set_params(svc__C=10).fit(X_train, y_train).score(X_test, y_test)\n0.76",
+          "chunk_id": "sha256:c375d3c23321d9e036d184e03ae2781fffac711a27e3ea825c3f9ef51658b7c5",
+          "word_count": 94
+        }
+      ],
+      "review": {
+        "sufficient_in_top3": true,
+        "supporting_chunk_ids": [
+          "sha256:1d1b9eccae39406b61efe9cd2a1da95bce5dcdd8a133535eb51fe2554634e7e0"
+        ],
+        "notes": "Rank 1 (train_test_split > Parameters) successfully matches the query via character n-grams and explicitly states that if shuffle=False then stratify must be None."
+      }
+    },
+    {
+      "case_id": "B09",
+      "question": "What exact test accuracy will my unpublished dataset achieve with a scaler and classifier Pipeline?",
+      "answerable": false,
+      "required_claims": [
+        "Abstain from a numerical prediction.",
+        "Explain that actual data, configuration, and evaluation results are needed."
+      ],
+      "expected_evidence": [],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.18795534631592417,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "data-leakage-during-pre-processing",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.2. Data leakage",
+            "11.2.2. Data leakage during pre-processing"
+          ],
+          "block_indices": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\n\nNote\n\nWe here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .\n\nA number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model.\n\nTo demonstrate we will create this binary classification problem with 10,000 randomly generated features:\n\n>>> import numpy as np\n>>> n_samples, n_features, n_classes = 200, 10000, 2\n>>> rng = np.random.RandomState(42)\n>>> X = rng.standard_normal((n_samples, n_features))\n>>> y = rng.choice(n_classes, n_samples)\n\nWrong\n\nUsing all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:",
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "word_count": 249
+        },
+        {
+          "rank": 2,
+          "score": 0.18687417510111948,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "id2",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.3. Controlling randomness",
+            "11.3.2. Common pitfalls and subtleties",
+            "11.3.2.1. Estimators"
+          ],
+          "block_indices": [
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.1. Estimators\n\nHere, cross_val_score will use a non-randomized CV splitter (as is the default), so both estimators will be evaluated on the same splits. This section is not about variability in the splits. Also, whether we pass an integer or an instance to make_classification isn’t relevant for our illustration purpose: what matters is what we pass to the RandomForestClassifier estimator.\n\nAnother subtle side effect of passing RandomState instances is how clone will work:\n\n>>> from sklearn import clone\n>>> from sklearn.ensemble import RandomForestClassifier\n>>> import numpy as np\n\n>>> rng = np.random.RandomState(0)\n>>> a = RandomForestClassifier(random_state=rng)\n>>> b = clone(a)\n\nSince a RandomState instance was passed to a , a and b are not clones in the strict sense, but rather clones in the statistical sense: a and b will still be different models, even when calling fit(X, y) on the same data. Moreover, a and b will influence each other since they share the same internal RNG: calling a.fit will consume b ’s RNG, and calling b.fit will consume a ’s RNG, since they are the same. This bit is true for any estimators that share a random_state parameter; it is not specific to clones.\n\nIf an integer were passed, a and b would be exact clones and they would not influence each other.\n\nWarning\n\nEven though clone is rarely used in user code, it is called pervasively throughout scikit-learn codebase: in particular, most meta-estimators that accept non-fitted estimators call clone internally ( GridSearchCV , StackingClassifier , CalibratedClassifierCV , etc.).",
+          "chunk_id": "sha256:73aaf267250e56e26d414ab174b8049389d500406b432120d22948485903982e",
+          "word_count": 268
+        },
+        {
+          "rank": 3,
+          "score": 0.18573403898579055,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "inconsistent-preprocessing",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.1. Inconsistent preprocessing"
+          ],
+          "block_indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.1. Inconsistent preprocessing\n\nscikit-learn provides a library of Dataset transformations , which may clean (see Preprocessing data ), reduce (see Unsupervised dimensionality reduction ), expand (see Kernel Approximation ) or generate (see Feature extraction ) feature representations. If these data transforms are used when training a model, they also must be used on subsequent datasets, whether it’s test data or data in a production system. Otherwise, the feature space will change, and the model will not be able to perform effectively.\n\nFor the following example, let’s create a synthetic dataset with a single feature:\n\n>>> from sklearn.datasets import make_regression\n>>> from sklearn.model_selection import train_test_split\n\n>>> random_state = 42\n>>> X, y = make_regression(random_state=random_state, n_features=1, noise=1)\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.4, random_state=random_state)\n\nWrong\n\nThe train dataset is scaled, but not the test dataset, so model performance on the test dataset is worse than expected:\n\n>>> from sklearn.metrics import mean_squared_error\n>>> from sklearn.linear_model import LinearRegression\n>>> from sklearn.preprocessing import StandardScaler\n\n>>> scaler = StandardScaler()\n>>> X_train_transformed = scaler.fit_transform(X_train)\n>>> model = LinearRegression().fit(X_train_transformed, y_train)\n>>> mean_squared_error(y_test, model.predict(X_test))\n62.80...\n\nRight\n\nInstead of passing the non-transformed X_test to predict , we should transform the test data, the same way we transformed the training data:\n\n>>> X_test_transformed = scaler.transform(X_test)\n>>> mean_squared_error(y_test, model.predict(X_test_transformed))\n0.90...\n\nAlternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation:\n\n>>> from sklearn.pipeline import make_pipeline\n\n>>> model = make_pipeline(StandardScaler(), LinearRegression())\n>>> model.fit(X_train, y_train)\nPipeline(steps=[('standardscaler', StandardScaler()),\n                ('linearregression', LinearRegression())])\n>>> mean_squared_error(y_test, model.predict(X_test))\n0.90...\n\nPipelines also help avoiding another common pitfall: leaking the test data into the training data.",
+          "chunk_id": "sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500",
+          "word_count": 280
+        }
+      ],
+      "review": null
+    },
+    {
+      "case_id": "B10",
+      "question": "In scikit-learn 1.7.2, what value should I give train_test_split's leakage_guard parameter to automatically prevent preprocessing leakage?",
+      "answerable": false,
+      "required_claims": [
+        "Reject the unsupported parameter premise.",
+        "Do not invent a value."
+      ],
+      "expected_evidence": [
+        {
+          "source_id": "S1",
+          "section": "signature and Parameters",
+          "anchor": "sklearn.model_selection.train_test_split"
+        },
+        {
+          "source_id": "S3",
+          "section": "How to avoid data leakage",
+          "anchor": "how-to-avoid-data-leakage"
+        }
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "score": 0.38124897919714645,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "how-to-avoid-data-leakage",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.2. Data leakage",
+            "11.2.1. How to avoid data leakage"
+          ],
+          "block_indices": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.1. How to avoid data leakage\n\nBelow are some tips on avoiding data leakage:\n\nAlways split the data into train and test subsets first, particularly before any preprocessing steps.\n\nNever include test data when using the fit and fit_transform methods. Using all the data, e.g., fit(X) , can result in overly optimistic scores.\n\nConversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data. This can be achieved by using fit_transform on the train subset and transform on the test subset.\n\nThe scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.\n\nAn example of data leakage during preprocessing is detailed below.",
+          "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+          "word_count": 152
+        },
+        {
+          "rank": 2,
+          "score": 0.20898169345195514,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "data-leakage-during-pre-processing",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.2. Data leakage",
+            "11.2.2. Data leakage during pre-processing"
+          ],
+          "block_indices": [
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\n\nNote\n\nWe here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .\n\nA number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model.\n\nTo demonstrate we will create this binary classification problem with 10,000 randomly generated features:\n\n>>> import numpy as np\n>>> n_samples, n_features, n_classes = 200, 10000, 2\n>>> rng = np.random.RandomState(42)\n>>> X = rng.standard_normal((n_samples, n_features))\n>>> y = rng.choice(n_classes, n_samples)\n\nWrong\n\nUsing all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:",
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "word_count": 249
+        },
+        {
+          "rank": 3,
+          "score": 0.205818227529582,
+          "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+          "source_id": "S3",
+          "anchor": "data-leakage",
+          "heading_path": [
+            "11. Common pitfalls and recommended practices",
+            "11.2. Data leakage"
+          ],
+          "block_indices": [
+            13,
+            14,
+            15
+          ],
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage\n\nData leakage occurs when information that would not be available at prediction time is used when building the model. This results in overly optimistic performance estimates, for example from cross-validation , and thus poorer performance when the model is used on actually novel data, for example during production.\n\nA common cause is not keeping the test and train data subsets separate. Test data should never be used to make choices about the model. The general rule is to never call fit on the test data . While this may sound obvious, this is easy to miss in some cases, for example when applying certain pre-processing steps.\n\nAlthough both train and test data subsets should receive the same preprocessing transformation (as described in the previous section), it is important that these transformations are only learnt from the training data. For example, if you have a normalization step where you divide by the average value, the average should be the average of the train subset, not the average of all the data. If the test subset is included in the average calculation, information from the test subset is influencing the model.",
+          "chunk_id": "sha256:d1d232b00d9206b29a20bdb7870f73262f029a02f8164eda033327331bdeca59",
+          "word_count": 199
+        }
+      ],
+      "review": null
+    }
+  ]
+}

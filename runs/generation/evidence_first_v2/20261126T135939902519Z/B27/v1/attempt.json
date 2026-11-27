@@ -1,0 +1,77 @@
+{
+  "case_id": "B27",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "f75e45f31fa84624fa009269092fcd2a88970a199f7211caa54b86fd48e1a787",
+  "sent_at": "2026-11-26T14:11:25.905569+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+      "quote": "Since passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 23,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    },
+    {
+      "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+      "quote": "None is the default value for all random_state parameters.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 9,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    }
+  ],
+  "decision": "answer",
+  "answer": "np.random.mtrand._rand",
+  "abstention_reason": "",
+  "input_tokens": 1244,
+  "output_tokens": 233,
+  "elapsed_seconds": 56.931,
+  "received_at": "2026-11-26T14:12:22.836109+00:00",
+  "response_sha256": "fd7c892f72e4568e483089d900b2c76e258616f097ab5ff79b956e8f51a51303",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:12:22.8353884Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 56929018200,
+    "load_duration": 6265400,
+    "prompt_eval_count": 1244,
+    "prompt_eval_duration": 24478490000,
+    "eval_count": 233,
+    "eval_duration": 32295637000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+        "quote": "Since passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here."
+      },
+      {
+        "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+        "quote": "None is the default value for all random_state parameters."
+      }
+    ],
+    "decision": "answer",
+    "answer": "np.random.mtrand._rand",
+    "abstention_reason": ""
+  }
+}

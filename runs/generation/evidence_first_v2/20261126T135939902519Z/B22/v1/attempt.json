@@ -1,0 +1,47 @@
+{
+  "case_id": "B22",
+  "arm": "v1",
+  "prompt_version": "evidence-first-v1",
+  "system_prompt_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+  "request_sha256": "c6436c5de2cda92ba83e5b3ee96653a8ab03ac99c83afbe56f990a13db5bd896",
+  "sent_at": "2026-11-26T14:08:56.026019+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [],
+  "decision": "abstain",
+  "answer": "",
+  "abstention_reason": "Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples.",
+  "input_tokens": 733,
+  "output_tokens": 57,
+  "elapsed_seconds": 18.292,
+  "received_at": "2026-11-26T14:09:14.318008+00:00",
+  "response_sha256": "d715429b640b2e95940e54b34ab41182e5ececaa5524ab74c442fa330b301844",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:09:14.316649Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 18289994500,
+    "load_duration": 11743200,
+    "prompt_eval_count": 733,
+    "prompt_eval_duration": 10356945000,
+    "eval_count": 57,
+    "eval_duration": 7818092000
+  },
+  "reply": {
+    "evidence": [],
+    "decision": "abstain",
+    "answer": "",
+    "abstention_reason": "Passages do not explicitly state what an integer passed to test_size represents in train_test_split, though they mention it represents the absolute number of test samples."
+  }
+}

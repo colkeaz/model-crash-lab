@@ -1,0 +1,218 @@
+import argparse
+import json
+from pathlib import Path
+
+project_root = Path(__file__).resolve().parents[1]
+
+parser = argparse.ArgumentParser(description="Audit and review generation traces.")
+parser.add_argument("run_id", nargs="?", default=None, help="Specific run directory under runs/generation/ (optional)")
+args = parser.parse_args()
+
+# Load benchmark ground truth
+benchmark_path = project_root / "benchmarks" / "pilot.json"
+cases = {c["id"]: c for c in json.loads(benchmark_path.read_text(encoding="utf-8"))}
+
+# Load chunks across v1 and v2 so any trace's quotes can be validated
+corpus_chunks = {}
+for c_dir in ["chunks", "chunks_v2"]:
+    c_path = project_root / "corpus" / c_dir / "20261105T054527423001Z" / "chunks.json"
+    if c_path.exists():
+        for chunk in json.loads(c_path.read_text(encoding="utf-8"))["chunks"]:
+            corpus_chunks[chunk["chunk_id"]] = chunk
+
+
+def verify_quote(chunk_id, quote, max_words=30):
+    word_count = len(quote.split())
+    if chunk_id not in corpus_chunks:
+        return {
+            "found": False,
+            "word_count": word_count,
+            "exceeds_limit": word_count > max_words,
+            "error": f"Chunk ID {chunk_id} not found in corpus.",
+        }
+
+    chunk_text = corpus_chunks[chunk_id]["text"]
+    quote_norm = " ".join(quote.split())
+    chunk_norm = " ".join(chunk_text.split())
+
+    return {
+        "found": quote_norm in chunk_norm,
+        "word_count": word_count,
+        "exceeds_limit": word_count > max_words,
+    }
+
+
+HUMAN_EVALUATIONS = {
+    "B01": {
+        "claims_grounded": True,
+        "completeness": {"is_complete": True, "missing_claims": []},
+        "verdict": "pass",
+        "notes": "Direct, supported answer with valid default-fraction quotes.",
+    },
+    "B02": {
+        "claims_grounded": True,
+        "completeness": {"is_complete": True, "missing_claims": []},
+        "verdict": "pass",
+        "notes": "Directly supported by Pipeline > Overview quote.",
+    },
+    "B03": {
+        "claims_grounded": True,
+        "completeness": {"is_complete": True, "missing_claims": []},
+        "verdict": "pass",
+        "notes": "Grounded in general step__parameter syntax rule.",
+    },
+    "B04": {
+        "claims_grounded": True,
+        "completeness": {
+            "is_complete": False,
+            "missing_claims": ["Split first before fitting preprocessing."],
+        },
+        "verdict": "incomplete",
+        "notes": "Quotes support the pipeline workflow, but misses the required claim to split first.",
+    },
+    "B05": {
+        "claims_grounded": False,
+        "completeness": {
+            "is_complete": False,
+            "missing_claims": [
+                "Cross-validate the entire pipeline and fit selection within each fold."
+            ],
+        },
+        "verdict": "incomplete_partly_incorrect",
+        "notes": "Describes train/test workflow instead of fold-level CV; incorrectly restricts transform to train data.",
+    },
+    "B06": {
+        "claims_grounded": False,
+        "completeness": {
+            "is_complete": False,
+            "missing_claims": ["All required claims"],
+        },
+        "verdict": "appropriate_abstention",
+        "notes": "Model correctly abstained due to missing scaling-mismatch documentation.",
+    },
+    "B07": {
+        "claims_grounded": False,
+        "completeness": {
+            "is_complete": False,
+            "missing_claims": ["train_test_split random_state parameter support"],
+        },
+        "verdict": "unsupported_extrapolation",
+        "notes": "Gives correct integer rule, but quotes general CV splitters; does not prove train_test_split has this parameter.",
+    },
+    "B08": {
+        "claims_grounded": True,
+        "completeness": {"is_complete": True, "missing_claims": []},
+        "verdict": "pass",
+        "notes": "Directly grounded in the shuffle/stratify mutual-exclusion rule.",
+    },
+    "B09": {
+        "claims_grounded": False,
+        "completeness": {"is_complete": False, "missing_claims": []},
+        "verdict": "appropriate_abstention",
+        "notes": "Correctly refused unanswerable request for unpublished dataset accuracy.",
+    },
+    "B10": {
+        "claims_grounded": False,
+        "completeness": {"is_complete": False, "missing_claims": []},
+        "verdict": "appropriate_abstention",
+        "notes": "Correctly refused fictitious 'leakage_guard' parameter.",
+    },
+}
+
+# Collect trace files to audit
+gen_root = project_root / "runs" / "generation"
+trace_files = []
+
+if args.run_id:
+    target_dir = gen_root / args.run_id
+    trace_files = sorted(target_dir.glob("*.json"))
+else:
+    # Gather the latest trace for each case ID across all generation runs
+    latest_traces = {}
+    for p in sorted(gen_root.rglob("*.json")):
+        if p.name in {"review.json", "summary.json"}:
+            continue
+        try:
+            t = json.loads(p.read_text(encoding="utf-8"))
+            if "case_id" in t:
+                latest_traces[t["case_id"]] = p
+        except Exception:
+            continue
+    trace_files = [latest_traces[cid] for cid in sorted(latest_traces.keys())]
+
+audit_results = []
+summary = {
+    "total_cases": 0,
+    "answers": 0,
+    "abstentions": 0,
+    "quotes_checked": 0,
+    "quotes_verbatim": 0,
+    "quotes_exceeding_30_words": 0,
+    "verdicts": {},
+}
+
+print(f"\n--- Auditing Generation Traces ({len(trace_files)} cases) ---")
+
+for trace_file in trace_files:
+    trace = json.loads(trace_file.read_text(encoding="utf-8"))
+    cid = trace["case_id"]
+    case_truth = cases[cid]
+    response_msg = json.loads(trace["response"]["message"]["content"])
+
+    decision = response_msg.get("decision")
+    answer_text = response_msg.get("answer", "")
+    abstention_reason = response_msg.get("abstention_reason", "")
+    evidence = response_msg.get("evidence", [])
+
+    summary["total_cases"] += 1
+    if decision == "answer":
+        summary["answers"] += 1
+    else:
+        summary["abstentions"] += 1
+
+    quote_evals = []
+    for ev in evidence:
+        q_check = verify_quote(ev["chunk_id"], ev["quote"])
+        quote_evals.append({
+            "chunk_id": ev["chunk_id"],
+            "quote": ev["quote"],
+            **q_check,
+        })
+        summary["quotes_checked"] += 1
+        if q_check["found"]:
+            summary["quotes_verbatim"] += 1
+        if q_check["exceeds_limit"]:
+            summary["quotes_exceeding_30_words"] += 1
+
+    eval_meta = HUMAN_EVALUATIONS.get(cid, {})
+    verdict = eval_meta.get("verdict", "unreviewed")
+    summary["verdicts"][verdict] = summary["verdicts"].get(verdict, 0) + 1
+
+    case_audit = {
+        "case_id": cid,
+        "answerable": case_truth["answerable"],
+        "decision": decision,
+        "answer": answer_text,
+        "abstention_reason": abstention_reason,
+        "quotation_fidelity": {
+            "all_quotes_found": all(q["found"] for q in quote_evals) if quote_evals else True,
+            "quotes": quote_evals,
+        },
+        "claim_grounding": eval_meta.get("claims_grounded"),
+        "completeness": eval_meta.get("completeness"),
+        "verdict": verdict,
+        "notes": eval_meta.get("notes", ""),
+    }
+    audit_results.append(case_audit)
+
+    status_flag = "VERBATIM" if case_audit["quotation_fidelity"]["all_quotes_found"] else "MISMATCH"
+    print(f"[{cid}] Decision: {decision:<7} | Quotes: {status_flag} | Verdict: {verdict}")
+
+output_report_path = gen_root / "latest_evidence_first_review.json"
+output_report_path.write_text(
+    json.dumps({"summary": summary, "cases": audit_results}, indent=2, ensure_ascii=False) + "\n",
+    encoding="utf-8",
+)
+
+print(f"\nAudit complete. Saved review record to: {output_report_path}")
+print(f"Summary metrics: {json.dumps(summary, indent=2)}")

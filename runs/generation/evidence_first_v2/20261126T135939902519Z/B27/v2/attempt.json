@@ -1,0 +1,77 @@
+{
+  "case_id": "B27",
+  "arm": "v2",
+  "prompt_version": "evidence-first-v2",
+  "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+  "request_sha256": "ef011a48256702c5eca9565f6a8dedaf1777dae0cb6b341022eaf4aa11d27bdf",
+  "sent_at": "2026-11-26T14:12:22.926932+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+      "quote": "random_state=np.random.mtrand._rand",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 1,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    },
+    {
+      "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+      "quote": "passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand )",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 15,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    }
+  ],
+  "decision": "answer",
+  "answer": "np.random.mtrand._rand",
+  "abstention_reason": "",
+  "input_tokens": 1337,
+  "output_tokens": 224,
+  "elapsed_seconds": 59.065,
+  "received_at": "2026-11-26T14:13:21.991488+00:00",
+  "response_sha256": "150b44bf09262eea1eca9f30d047187de654c188bbe351e8fa6b5d093eea462d",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:13:21.9900767Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 59049034100,
+    "load_duration": 11020100,
+    "prompt_eval_count": 1337,
+    "prompt_eval_duration": 25985719000,
+    "eval_count": 224,
+    "eval_duration": 32939884000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+        "quote": "random_state=np.random.mtrand._rand"
+      },
+      {
+        "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+        "quote": "passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand )"
+      }
+    ],
+    "decision": "answer",
+    "answer": "np.random.mtrand._rand",
+    "abstention_reason": ""
+  }
+}

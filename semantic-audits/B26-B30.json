@@ -1,0 +1,272 @@
+[
+  {
+    "case_id": "B26",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B26.json",
+    "trace_sha256": "FD569A7A244E6B2DC9F1452C81197E2443C387CA52C0C1E58241EF0337D81318",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Makes it easier to chain transformations with estimators.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; Section 11.1 was not retrieved at k=3."
+        },
+        {
+          "claim": "Reduces the possibility of forgetting a transformation or prevents data leakage.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; Section 11.1 was not retrieved at k=3."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": true,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "Appropriate abstention at k=3. The retrieved top-3 passages contain only the Chapter 11 introduction (sha256:ed746195...), CV splitters (sha256:cd962ee2...), and Pipeline > Overview (sha256:c245a5f8...). Section 11.1 (Inconsistent preprocessing), which states the common-pitfalls practical advantages of Pipeline/make_pipeline, was not retrieved in the k=3 context."
+    }
+  },
+  {
+    "case_id": "B26",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B26.json",
+    "trace_sha256": "ACFB920D2A39CA573E4D025B13F5C03E6114201725F175AAC7A2FAD92FAB7550",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Makes it easier to chain transformations with estimators.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string despite Rank-4 chunk sha256:b9c5023d... explicitly stating this advantage."
+        },
+        {
+          "claim": "Reduces the possibility of forgetting a transformation or prevents data leakage.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string despite Rank-4 chunk sha256:b9c5023d... explicitly stating both reducing forgotten transformations and avoiding test-data leakage."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention (missed recovery at k=5). Rank-4 chunk sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500 (11.1. Inconsistent preprocessing) was retrieved at k=5 and explicitly states: 'Alternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation' and 'Pipelines also help avoiding another common pitfall: leaking the test data into the training data.' The model nevertheless abstained."
+    }
+  },
+  {
+    "case_id": "B27",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B27.json",
+    "trace_sha256": "637C688E80C466EEEA7A9AF4FF5BBB329CED887D6ECBAE084A93B9E83626F47A",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "It is equivalent to numpy's global RandomState instance np.random.mtrand._rand.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string; required claim was omitted entirely."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Rank-1 chunk sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015 explicitly states: 'Since passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here.' The model falsely claimed the passages do not explicitly state the global numpy object."
+    }
+  },
+  {
+    "case_id": "B27",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B27.json",
+    "trace_sha256": "B24FE0797581ABFAD2FC120A996F05222234929E772912D8D2706D2C7F4A2A4E",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "It is equivalent to numpy's global RandomState instance np.random.mtrand._rand.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string despite naming 'random_state=np.random.mtrand._rand' inside its own abstention reason."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention. Rank-1 chunk sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015 explicitly gives 'the global RandomState instance from numpy ( random_state=np.random.mtrand._rand )'. The model's abstention reason is self-contradictory, acknowledging the text mentions 'random_state=np.random.mtrand._rand' while denying it states the global object."
+    }
+  },
+  {
+    "case_id": "B28",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B28.json",
+    "trace_sha256": "A85BEE0D9C06A8847138DF55BBB359518D55FB3A9558D75D8B3C1F35616D0191",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "answer",
+      "required_claims": [
+        {
+          "claim": "Feature selection was performed on the entire dataset before splitting.",
+          "status": "missing",
+          "note": "Answer states that feature selection used/saw the test data, but omits explicitly stating that feature selection was performed on the entire dataset before splitting."
+        },
+        {
+          "claim": "The feature selection step saw test data, producing an artificially optimistic accuracy score.",
+          "status": "supported",
+          "note": "Answer directly states the classification model achieved high accuracy because the feature selection step used and 'saw' the test data, giving an unfair advantage."
+        }
+      ],
+      "claims_grounded": true,
+      "abstention_supported": null,
+      "protocol_valid": false,
+      "response_schema_and_quote_occurrence_valid": false,
+      "quote_length_instruction_valid": false,
+      "notes": "Incomplete answer with both quote-occurrence and quote-length protocol failures. Semantically, the answer captures that feature selection saw the test data (grounded in Rank-1 chunk sha256:99b4bb5a...), but omits explicitly stating that feature selection was performed on the entire dataset before splitting. Mechanically, Quote 2 fails normalized substring matching (replaces Unicode curly quotes '\\u2018sees\\u2019' in the passage with ASCII ''sees'') and contains 36 words, violating the under-30-words instruction."
+    }
+  },
+  {
+    "case_id": "B28",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B28.json",
+    "trace_sha256": "671F32349E26D424D4CC60CCDAFF8D8F2539C2CB8A03AC18755771A9A8B4CA80",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Feature selection was performed on the entire dataset before splitting.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string despite Rank-1 chunk sha256:99b4bb5a... explicitly stating this."
+        },
+        {
+          "claim": "The feature selection step saw test data, producing an artificially optimistic accuracy score.",
+          "status": "missing",
+          "note": "Model abstained with an empty answer string despite Rank-1 chunk sha256:99b4bb5a... explicitly stating this."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": false,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "False abstention (context-expansion regression from k=3 answer to k=5 abstain). Rank-1 chunk sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d remains at Rank 1 and explicitly explains why the 10,000-random-feature classification model achieved much higher than chance accuracy (using all data for feature selection before splitting so feature selection sees test data). The model fixated on the parenthetical 'around 76%' figure not appearing in the prose chunk and abstained."
+    }
+  },
+  {
+    "case_id": "B29",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B29.json",
+    "trace_sha256": "29BD35F94ACB029E88CCD5F3EC7916F2D2F30E91198E6DB757E7E4736505CA14",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Abstain from explaining or configuring stratify_ratio.",
+          "status": "supported",
+          "note": "Model abstained with an empty answer string and did not fabricate a configuration for stratify_ratio."
+        },
+        {
+          "claim": "Explain that the train_test_split documentation does not document a stratify_ratio parameter.",
+          "status": "supported",
+          "note": "Abstention reason explicitly states that the passages do not contain information about the stratify_ratio parameter in scikit-learn 1.7.2 train_test_split documentation."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": true,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "Appropriate and complete abstention on fictitious parameter premise. Model abstains and explicitly notes that the train_test_split documentation passages do not contain information about stratify_ratio."
+    }
+  },
+  {
+    "case_id": "B29",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B29.json",
+    "trace_sha256": "5C7DE58C605B95ADE4D5EEC9E07317A3BE01537A38DCCA79802952D9F8EDA455",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "answer",
+      "required_claims": [
+        {
+          "claim": "Abstain from explaining or configuring stratify_ratio.",
+          "status": "missing",
+          "note": "Model answered instead of abstaining, silently substituting the real 'stratify' parameter for the fictitious 'stratify_ratio' parameter."
+        },
+        {
+          "claim": "Explain that the train_test_split documentation does not document a stratify_ratio parameter.",
+          "status": "missing",
+          "note": "Answer never mentions that stratify_ratio is absent from the documentation."
+        }
+      ],
+      "claims_grounded": false,
+      "abstention_supported": null,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "Unsupported answer (context-expansion regression from k=3 appropriate abstention to k=5 answer). The model answered an unanswerable fictitious-parameter question by describing the 'stratify' parameter without rejecting or mentioning 'stratify_ratio'. Although both cited quotes occur verbatim under 30 words (Quote 2 is an irrelevant example snippet), the quotes do not support answering the asked question about 'stratify_ratio'."
+    }
+  },
+  {
+    "case_id": "B30",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B30.json",
+    "trace_sha256": "DFC4B37D125B22EDFEB5D23D71D0FAFA31BCD46BBCD9D142771355E0C266E769",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Abstain from predicting an execution time in seconds.",
+          "status": "supported",
+          "note": "Model abstained with an empty answer string and did not predict a runtime in seconds."
+        },
+        {
+          "claim": "Explain that runtime depends on specific estimators and hardware and is not stated in the documentation.",
+          "status": "missing",
+          "note": "Abstention reason states that numerical timing information is absent from the passages, but omits explaining that runtime depends on specific estimators and hardware."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": true,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "Partially complete appropriate abstention. Model properly refuses to predict an execution time in seconds and notes the passages contain no numerical timing information, but omits the rubric requirement to note that runtime depends on specific estimators and hardware. The 3 attached quotes are verbatim and under 30 words, though unrelated to runtime."
+    }
+  },
+  {
+    "case_id": "B30",
+    "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B30.json",
+    "trace_sha256": "A1EFA12B935547688EA27D318ACC4558D6049EACAF9F8461071714952964239E",
+    "benchmark_sha256": "3475CCDBB5626FE922CA75461428DD774EAD186D4582AF9D94C7D037ED2D935B",
+    "historical_benchmark_hash": null,
+    "assessment": {
+      "decision": "abstain",
+      "required_claims": [
+        {
+          "claim": "Abstain from predicting an execution time in seconds.",
+          "status": "supported",
+          "note": "Model abstained with an empty answer string and did not predict a runtime in seconds."
+        },
+        {
+          "claim": "Explain that runtime depends on specific estimators and hardware and is not stated in the documentation.",
+          "status": "missing",
+          "note": "Abstention reason states that timing information and computational estimates are not provided, but omits explaining that runtime depends on specific estimators and hardware."
+        }
+      ],
+      "claims_grounded": null,
+      "abstention_supported": true,
+      "protocol_valid": true,
+      "response_schema_and_quote_occurrence_valid": true,
+      "quote_length_instruction_valid": true,
+      "notes": "Partially complete appropriate abstention. Consistent with k=3, the model refuses to predict an execution time in seconds and notes no timing information is present, but omits explaining that runtime depends on specific estimators and hardware."
+    }
+  }
+]

@@ -1,0 +1,249 @@
+{
+  "annotation_version": "1",
+  "annotations": [
+    {
+      "case_id": "B21",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B21.json",
+      "trace_sha256": "ae79dd1b4902e5e250c702f8d0ae351937d52044e811dfe9afbc94f2fc9e338e",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "set_output configures the output container returned by transform and fit_transform."
+          ]
+        },
+        "abstention_supported": false,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "unnecessary_abstention",
+        "notes": "False abstention. Additional retrieved passages at k=5 did not alter this outcome. Rank-1 chunk sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9 still contains the exact required fact, yet the model persisted in claiming the information was missing."
+      }
+    },
+    {
+      "case_id": "B22",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B22.json",
+      "trace_sha256": "c9f8e7ed27fa2bfec5126b9b43b3c4217ff0d918afbfe5f2f670f5a5804d1d1a",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "A float represents the proportion of the dataset to include in the test split."
+          ]
+        },
+        "abstention_supported": null,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "incomplete",
+        "notes": "Incomplete answer with extraneous citation. The model flipped from abstain (k=3) to answer (k=5). It correctly answered what an integer represents in test_size, but completely omitted the required contrast with float ('as opposed to a float' representing the proportion between 0.0 and 1.0) present in chunk sha256:30271193... and required by the benchmark rubric. While both cited quotes occur verbatim in their supplied chunks and the single claim made is grounded (claims_grounded: true), the second quote ('If int, represents the absolute number of train samples.' from chunk sha256:92e248e7...) is extraneous and concerns train_size rather than the asked-about test_size."
+      }
+    },
+    {
+      "case_id": "B23",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B23.json",
+      "trace_sha256": "74329bad0895ef3372a2620a79ca5027e7dfa9543afdbb53c153da9491b1d527",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Applies inverse_transform in reverse order through the transformers in the pipeline."
+          ]
+        },
+        "abstention_supported": false,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "unnecessary_abstention",
+        "notes": "False abstention. Additional passages at k=5 did not resolve the false abstention. Chunk sha256:6a872287d8930df8a672ef8bd64b0343c22d99d4f365d9d9600991f3c4d4e6b9 was still at Rank 1 and explicitly states 'Apply inverse_transform for each step in a reverse order.' The model again erroneously asserted that the core operation is not described."
+      }
+    },
+    {
+      "case_id": "B24",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B24.json",
+      "trace_sha256": "e3e0bd4869a6f91c1e665d01b55478c8ae4fced8663bbcba62fc8b21f3f4d75b",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": true,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Calling split multiple times consumes and mutates the RandomState instance.",
+            "Subsequent calls use the mutated state and thus produce different data splits."
+          ]
+        },
+        "abstention_supported": null,
+        "protocol_valid": false,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": false,
+        "verdict": "incomplete",
+        "notes": "Incomplete answer and quote length violation. At k=5, Rank-4 chunk sha256:73aaf267250e56e26d414ab174b8049389d500406b432120d22948485903982e discusses estimator fit consuming shared RNG instances ('calling a.fit will consume b's RNG...'), which could support reasoning by analogy about RNG consumption, but does not directly state that calling CV splitter split consumes the RNG. Regardless, the model cited neither this passage nor any mechanism of RNG consumption/mutation, reusing the same 3 quotes as k=3 and failing both required claims under the rubric. Protocol validity: protocol_valid is marked false because prompt-instruction compliance strictly requires quotes 'under 30 words each', and Quote 2 contains exactly 30 words (quote_length_instruction_valid: false). Separately, the response format and verbatim passage occurrence checks succeed (response_schema_and_quote_occurrence_valid: true)."
+      }
+    },
+    {
+      "case_id": "B25",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B25.json",
+      "trace_sha256": "ba5bcb3003c05c7df0c7568bf7fe3aa7685fdeba12dc86398a5ec2aa892bb87e",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "The parameter key must be prefixed as s__p."
+          ]
+        },
+        "abstention_supported": false,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "unnecessary_abstention",
+        "notes": "False abstention. Additional passages at k=5 did not fix the error; the model lists all the method names it saw in the retrieved chunks, but bizarrely claims the key prefix is missing, even though chunk sha256:d4399c38... and chunk sha256:9182d71f... explicitly give 'key s__p'."
+      }
+    },
+    {
+      "case_id": "B26",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B26.json",
+      "trace_sha256": "acfb920d2a39ca573e4d025b13f5c03e6114201725f175aac7a2fad92fab7550",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Makes it easier to chain transformations with estimators.",
+            "Reduces the possibility of forgetting a transformation or prevents data leakage."
+          ]
+        },
+        "abstention_supported": false,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "unnecessary_abstention",
+        "notes": "False abstention (missed recovery at k=5). Rank-4 chunk sha256:b9c5023d2c98d714e341cacd0b3b1d7256049d72a93cc231e2bc600db983b500 (11.1. Inconsistent preprocessing) was retrieved at k=5 and explicitly states: 'Alternatively, we recommend using a Pipeline , which makes it easier to chain transformations with estimators, and reduces the possibility of forgetting a transformation' and 'Pipelines also help avoiding another common pitfall: leaking the test data into the training data.' The model nevertheless abstained."
+      }
+    },
+    {
+      "case_id": "B27",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B27.json",
+      "trace_sha256": "b24fe0797581abfad2fc120a996f05222234929e772912d8d2706d2c7f4a2a4e",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "It is equivalent to numpy's global RandomState instance np.random.mtrand._rand."
+          ]
+        },
+        "abstention_supported": false,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "unnecessary_abstention",
+        "notes": "False abstention. Rank-1 chunk sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015 explicitly gives 'the global RandomState instance from numpy ( random_state=np.random.mtrand._rand )'. The model's abstention reason is self-contradictory, acknowledging the text mentions 'random_state=np.random.mtrand._rand' while denying it states the global object."
+      }
+    },
+    {
+      "case_id": "B28",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B28.json",
+      "trace_sha256": "671f32349e26d424d4cc60ccdaff8d8f2539c2cb8a03ac18755771a9a8b4ca80",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Feature selection was performed on the entire dataset before splitting.",
+            "The feature selection step saw test data, producing an artificially optimistic accuracy score."
+          ]
+        },
+        "abstention_supported": false,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "unnecessary_abstention",
+        "notes": "False abstention (context-expansion regression from k=3 answer to k=5 abstain). Rank-1 chunk sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d remains at Rank 1 and explicitly explains why the 10,000-random-feature classification model achieved much higher than chance accuracy (using all data for feature selection before splitting so feature selection sees test data). The model fixated on the parenthetical 'around 76%' figure not appearing in the prose chunk and abstained."
+      }
+    },
+    {
+      "case_id": "B29",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B29.json",
+      "trace_sha256": "5c7de58c605b95ade4d5eec9e07317a3be01537a38dcca79802952d9f8eda455",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": false,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Abstain from explaining or configuring stratify_ratio.",
+            "Explain that the train_test_split documentation does not document a stratify_ratio parameter."
+          ]
+        },
+        "abstention_supported": null,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "unsupported_answer",
+        "notes": "Unsupported answer (context-expansion regression from k=3 appropriate abstention to k=5 answer). The model answered an unanswerable fictitious-parameter question by describing the 'stratify' parameter without rejecting or mentioning 'stratify_ratio'. Although both cited quotes occur verbatim under 30 words (Quote 2 is an irrelevant example snippet), the quotes do not support answering the asked question about 'stratify_ratio'."
+      }
+    },
+    {
+      "case_id": "B30",
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k5/B30.json",
+      "trace_sha256": "a1efa12b935547688ea27d318acc4558d6049eacaf9f8461071714952964239e",
+      "prompt_version": "evidence-first-v1",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "historical_benchmark_hash": null,
+      "provenance": "Manual passage-level semantic audit (semantic-audits/B21-B25.json, B26-B30.json) bound to exact trace and current benchmark hashes; historical benchmark hash unknown.",
+      "assessment": {
+        "claims_grounded": null,
+        "completeness": {
+          "is_complete": false,
+          "missing_claims": [
+            "Explain that runtime depends on specific estimators and hardware and is not stated in the documentation."
+          ]
+        },
+        "abstention_supported": true,
+        "protocol_valid": true,
+        "response_schema_and_quote_occurrence_valid": true,
+        "quote_length_instruction_valid": true,
+        "verdict": "partially_complete_abstention",
+        "notes": "Partially complete appropriate abstention. Consistent with k=3, the model refuses to predict an execution time in seconds and notes no timing information is present, but omits explaining that runtime depends on specific estimators and hardware."
+      }
+    }
+  ]
+}

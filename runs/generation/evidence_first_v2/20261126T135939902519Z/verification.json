@@ -1,0 +1,3324 @@
+{
+  "status": "passed",
+  "dataset_path": "runs/policy_data/paired_questions_v1.json",
+  "dataset_sha256": "93c7d781ea9679dc0136e05203ad7292156b3d99dd6334b73feb6a6ad129d0bb",
+  "chunks_path": "corpus/chunks_v2/20261105T054527423001Z/chunks.json",
+  "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+  "errors": [],
+  "checks": [
+    {
+      "check": "dataset_sha256",
+      "ok": true,
+      "detail": "93c7d781ea9679dc0136e05203ad7292156b3d99dd6334b73feb6a6ad129d0bb"
+    },
+    {
+      "check": "chunks_sha256",
+      "ok": true,
+      "detail": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea"
+    },
+    {
+      "check": "slice_rows_present",
+      "ok": true,
+      "detail": 12
+    },
+    {
+      "check": "slice_rows_unique",
+      "ok": true,
+      "detail": 12
+    },
+    {
+      "check": "B01.benchmark_sha256",
+      "ok": true,
+      "detail": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c"
+    },
+    {
+      "check": "B01.k3_trace_sha256",
+      "ok": true,
+      "detail": "06bc45495aef44430407dc10c26a351946ffb8965e6bb24011ddb5e5cd9ade6b"
+    },
+    {
+      "check": "B01.trace_case_id",
+      "ok": true,
+      "detail": "B01"
+    },
+    {
+      "check": "B01.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B01.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B01.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B01.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B01.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B01.benchmark_case_present",
+      "ok": true,
+      "detail": "B01"
+    },
+    {
+      "check": "B01.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B01.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B01.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B01.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B01.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B01.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B01.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B01.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B01.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B01.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B01.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B01.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B01.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B01.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B01.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B01.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B01.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B01.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B05.benchmark_sha256",
+      "ok": true,
+      "detail": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c"
+    },
+    {
+      "check": "B05.k3_trace_sha256",
+      "ok": true,
+      "detail": "b1149c2aab979990321e60c4aa0be4f550ae11e3ddc863bbfcdcb0f1daf31f70"
+    },
+    {
+      "check": "B05.trace_case_id",
+      "ok": true,
+      "detail": "B05"
+    },
+    {
+      "check": "B05.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B05.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B05.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B05.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B05.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B05.benchmark_case_present",
+      "ok": true,
+      "detail": "B05"
+    },
+    {
+      "check": "B05.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B05.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B05.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B05.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B05.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B05.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B05.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B05.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B05.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B05.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B05.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B05.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B05.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B05.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B05.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B05.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B05.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B05.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B11.benchmark_sha256",
+      "ok": true,
+      "detail": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba"
+    },
+    {
+      "check": "B11.k3_trace_sha256",
+      "ok": true,
+      "detail": "992f6ec6b6b95555d4814f5792afc1b4c9998fba1d06256b750c58d58d55bf8c"
+    },
+    {
+      "check": "B11.trace_case_id",
+      "ok": true,
+      "detail": "B11"
+    },
+    {
+      "check": "B11.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B11.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B11.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B11.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B11.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B11.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B11.benchmark_case_present",
+      "ok": true,
+      "detail": "B11"
+    },
+    {
+      "check": "B11.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B11.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B11.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B11.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B11.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B11.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B11.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B11.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B11.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B11.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B11.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B11.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B11.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B11.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B11.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B11.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B11.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B11.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B13.benchmark_sha256",
+      "ok": true,
+      "detail": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba"
+    },
+    {
+      "check": "B13.k3_trace_sha256",
+      "ok": true,
+      "detail": "25f39eec6c5394eef107698810268d4e9cfdb37e2ce6830472ccfd5197a06304"
+    },
+    {
+      "check": "B13.trace_case_id",
+      "ok": true,
+      "detail": "B13"
+    },
+    {
+      "check": "B13.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B13.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B13.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B13.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B13.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B13.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B13.benchmark_case_present",
+      "ok": true,
+      "detail": "B13"
+    },
+    {
+      "check": "B13.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B13.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B13.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B13.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B13.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B13.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B13.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B13.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B13.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B13.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B13.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B13.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B13.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B13.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B13.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B13.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B13.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B13.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B17.benchmark_sha256",
+      "ok": true,
+      "detail": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba"
+    },
+    {
+      "check": "B17.k3_trace_sha256",
+      "ok": true,
+      "detail": "4502793b1e98484638e396fa7c8e11f3a4f2635600fe34f213926811cbf8bc71"
+    },
+    {
+      "check": "B17.trace_case_id",
+      "ok": true,
+      "detail": "B17"
+    },
+    {
+      "check": "B17.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B17.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B17.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B17.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B17.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B17.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B17.benchmark_case_present",
+      "ok": true,
+      "detail": "B17"
+    },
+    {
+      "check": "B17.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B17.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B17.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B17.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B17.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B17.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B17.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B17.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B17.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B17.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B17.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B17.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B17.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B17.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B17.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B17.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B17.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B17.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B21.benchmark_sha256",
+      "ok": true,
+      "detail": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+    },
+    {
+      "check": "B21.k3_trace_sha256",
+      "ok": true,
+      "detail": "fb98f406ee8b8981c5d5f3a70b591df3d4f8d6111de6ef4b87692cfb3c5417e7"
+    },
+    {
+      "check": "B21.trace_case_id",
+      "ok": true,
+      "detail": "B21"
+    },
+    {
+      "check": "B21.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B21.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B21.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B21.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B21.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B21.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B21.benchmark_case_present",
+      "ok": true,
+      "detail": "B21"
+    },
+    {
+      "check": "B21.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B21.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B21.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B21.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B21.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B21.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B21.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B21.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B21.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B21.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B21.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B21.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B21.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B21.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B21.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B21.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B21.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B21.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B22.benchmark_sha256",
+      "ok": true,
+      "detail": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+    },
+    {
+      "check": "B22.k3_trace_sha256",
+      "ok": true,
+      "detail": "7199f0f66ee3fd82da9f14f8d714a86aa8fe8bd039cd90b22705d05b8c10b4b2"
+    },
+    {
+      "check": "B22.trace_case_id",
+      "ok": true,
+      "detail": "B22"
+    },
+    {
+      "check": "B22.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B22.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B22.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B22.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B22.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B22.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B22.benchmark_case_present",
+      "ok": true,
+      "detail": "B22"
+    },
+    {
+      "check": "B22.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B22.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B22.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B22.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B22.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B22.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B22.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B22.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B22.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B22.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B22.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B22.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B22.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B22.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B22.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B22.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B22.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B22.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B26.benchmark_sha256",
+      "ok": true,
+      "detail": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+    },
+    {
+      "check": "B26.k3_trace_sha256",
+      "ok": true,
+      "detail": "fd569a7a244e6b2dc9f1452c81197e2443c387ca52c0c1e58241ef0337d81318"
+    },
+    {
+      "check": "B26.trace_case_id",
+      "ok": true,
+      "detail": "B26"
+    },
+    {
+      "check": "B26.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B26.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B26.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B26.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B26.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B26.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B26.benchmark_case_present",
+      "ok": true,
+      "detail": "B26"
+    },
+    {
+      "check": "B26.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B26.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B26.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B26.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B26.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B26.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B26.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B26.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B26.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B26.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B26.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B26.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B26.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B26.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B26.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B26.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B26.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B26.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B27.benchmark_sha256",
+      "ok": true,
+      "detail": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+    },
+    {
+      "check": "B27.k3_trace_sha256",
+      "ok": true,
+      "detail": "637c688e80c466eeea7a9af4ff5bbb329ced887d6ecbae084a93b9e83626f47a"
+    },
+    {
+      "check": "B27.trace_case_id",
+      "ok": true,
+      "detail": "B27"
+    },
+    {
+      "check": "B27.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B27.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B27.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B27.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B27.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B27.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B27.benchmark_case_present",
+      "ok": true,
+      "detail": "B27"
+    },
+    {
+      "check": "B27.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B27.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B27.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B27.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B27.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B27.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B27.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B27.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B27.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B27.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B27.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B27.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B27.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B27.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B27.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B27.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B27.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B27.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B28.benchmark_sha256",
+      "ok": true,
+      "detail": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+    },
+    {
+      "check": "B28.k3_trace_sha256",
+      "ok": true,
+      "detail": "a85bee0d9c06a8847138df55bbb359518d55fb3a9558d75d8b3c1f35616d0191"
+    },
+    {
+      "check": "B28.trace_case_id",
+      "ok": true,
+      "detail": "B28"
+    },
+    {
+      "check": "B28.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B28.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B28.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B28.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B28.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B28.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B28.benchmark_case_present",
+      "ok": true,
+      "detail": "B28"
+    },
+    {
+      "check": "B28.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B28.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B28.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B28.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B28.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B28.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B28.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B28.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B28.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B28.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B28.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B28.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B28.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B28.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B28.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B28.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B28.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B28.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B29.benchmark_sha256",
+      "ok": true,
+      "detail": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+    },
+    {
+      "check": "B29.k3_trace_sha256",
+      "ok": true,
+      "detail": "29bd35f94acb029e88ccd5f3ec7916f2d2f30e91198e6db757e7e4736505ca14"
+    },
+    {
+      "check": "B29.trace_case_id",
+      "ok": true,
+      "detail": "B29"
+    },
+    {
+      "check": "B29.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B29.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B29.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B29.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B29.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B29.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B29.benchmark_case_present",
+      "ok": true,
+      "detail": "B29"
+    },
+    {
+      "check": "B29.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B29.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B29.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B29.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B29.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B29.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B29.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B29.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B29.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B29.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B29.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B29.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B29.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B29.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B29.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B29.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B29.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B29.stream",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B30.benchmark_sha256",
+      "ok": true,
+      "detail": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b"
+    },
+    {
+      "check": "B30.k3_trace_sha256",
+      "ok": true,
+      "detail": "dfc4b37d125b22edfeb5d23d71d0fafa31bcd46bbcd9d142771355e0c266e769"
+    },
+    {
+      "check": "B30.trace_case_id",
+      "ok": true,
+      "detail": "B30"
+    },
+    {
+      "check": "B30.trace_k",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B30.trace_corpus",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B30.trace_prompt_version",
+      "ok": true,
+      "detail": "evidence-first-v1"
+    },
+    {
+      "check": "B30.user_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B30.system_message_count",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "check": "B30.user_keys",
+      "ok": true,
+      "detail": [
+        "passages",
+        "question"
+      ]
+    },
+    {
+      "check": "B30.benchmark_case_present",
+      "ok": true,
+      "detail": "B30"
+    },
+    {
+      "check": "B30.question",
+      "ok": true,
+      "detail": "question mismatch"
+    },
+    {
+      "check": "B30.corpus_id",
+      "ok": true,
+      "detail": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc"
+    },
+    {
+      "check": "B30.passage_count",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B30.passage_ids_unique",
+      "ok": true,
+      "detail": 3
+    },
+    {
+      "check": "B30.passage_0.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B30.passage_0.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B30.passage_1.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B30.passage_1.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B30.passage_2.shape",
+      "ok": true,
+      "detail": [
+        "chunk_id",
+        "text"
+      ]
+    },
+    {
+      "check": "B30.passage_2.text",
+      "ok": true,
+      "detail": "text differs from chunks"
+    },
+    {
+      "check": "B30.schema_present",
+      "ok": true,
+      "detail": "dict"
+    },
+    {
+      "check": "B30.schema_allowed_ids",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "B30.schema_required",
+      "ok": true,
+      "detail": [
+        "evidence",
+        "decision",
+        "answer",
+        "abstention_reason"
+      ]
+    },
+    {
+      "check": "B30.schema_closed",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B30.model",
+      "ok": true,
+      "detail": "qwen3:4b"
+    },
+    {
+      "check": "B30.options",
+      "ok": true,
+      "detail": {
+        "num_ctx": 4096,
+        "num_predict": 512,
+        "temperature": 0
+      }
+    },
+    {
+      "check": "B30.think",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "B30.stream",
+      "ok": true,
+      "detail": false
+    }
+  ],
+  "frozen_cases": [
+    {
+      "case_id": "B01",
+      "family_id": "split-configuration",
+      "benchmark_path": "benchmarks/pilot.json",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "benchmark_case": {
+        "id": "B01",
+        "question": "In scikit-learn 1.7.2, what test fraction does train_test_split use when I omit both test_size and train_size?",
+        "category": "direct",
+        "family_id": "split-configuration",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "The test fraction defaults to 25% when both size parameters are omitted.",
+        "required_claims": [
+          "The test fraction is 25% when both size parameters are omitted."
+        ],
+        "forbidden_claims": [
+          "The test fraction is always 25%, regardless of train_size."
+        ],
+        "evidence": [
+          {
+            "source_id": "S1",
+            "section": "Parameters > test_size",
+            "anchor": "sklearn.model_selection.train_test_split"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Reviewed the distinction between the default and an explicitly supplied train_size."
+      },
+      "trace_path": "runs/generation/20261107T064756318160Z/B01.json",
+      "trace_sha256": "06bc45495aef44430407dc10c26a351946ffb8965e6bb24011ddb5e5cd9ade6b",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"In scikit-learn 1.7.2, what test fraction does train_test_split use when I omit both test_size and train_size?\", \"passages\": [{\"chunk_id\": \"sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465\", \"text\": \"train_test_split > Parameters > test_size\\n\\ntest_size: float or int, default=None\\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.\"}, {\"chunk_id\": \"sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667\", \"text\": \"train_test_split > Parameters > train_size\\n\\ntrain_size: float or int, default=None\\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.\"}, {\"chunk_id\": \"sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47\", \"text\": \"train_test_split > Examples\\n\\n>>> import numpy as np\\n>>> from sklearn.model_selection import train_test_split\\n>>> X, y = np.arange(10).reshape((5, 2)), range(5)\\n>>> X\\narray([[0, 1],\\n       [2, 3],\\n       [4, 5],\\n       [6, 7],\\n       [8, 9]])\\n>>> list(y)\\n[0, 1, 2, 3, 4]\\n\\n>>> X_train, X_test, y_train, y_test = train_test_split(\\n...     X, y, test_size=0.33, random_state=42)\\n...\\n>>> X_train\\narray([[4, 5],\\n       [0, 1],\\n       [6, 7]])\\n>>> y_train\\n[2, 0, 3]\\n>>> X_test\\narray([[2, 3],\\n       [8, 9]])\\n>>> y_test\\n[1, 4]\\n\\n>>> train_test_split(y, shuffle=False)\\n[[0, 1, 2], [3, 4]]\\n\\n>>> from sklearn import datasets\\n>>> iris = datasets.load_iris(as_frame=True)\\n>>> X, y = iris['data'], iris['target']\\n>>> X.head()\\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\\n0                5.1               3.5                1.4               0.2\\n1                4.9               3.0                1.4               0.2\\n2                4.7               3.2                1.3               0.2\\n3                4.6               3.1                1.5               0.2\\n4                5.0               3.6                1.4               0.2\\n>>> y.head()\\n0    0\\n1    0\\n2    0\\n3    0\\n4    0\\n...\\n\\n>>> X_train, X_test, y_train, y_test = train_test_split(\\n... X, y, test_size=0.33, random_state=42)\\n...\\n>>> X_train.head()\\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\\n96                 5.7               2.9                4.2               1.3\\n105                7.6               3.0                6.6               2.1\\n66                 5.6               3.0                4.5               1.5\\n0                  5.1               3.5                1.4               0.2\\n122                7.7               2.8                6.7               2.0\\n>>> y_train.head()\\n96     1\\n105    2\\n66     1\\n0      0\\n122    2\\n...\\n>>> X_test.head()\\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\\n73                 6.1               2.8                4.7               1.2\\n18                 5.7               3.8                1.7               0.3\\n118                7.7               2.6                6.9               2.3\\n78                 6.0               2.9                4.5               1.5\\n76                 6.8               2.8                4.8               1.4\\n>>> y_test.head()\\n73     1\\n18     0\\n118    2\\n78     1\\n76     1\\n...\"}]}",
+      "question": "In scikit-learn 1.7.2, what test fraction does train_test_split use when I omit both test_size and train_size?",
+      "passages": [
+        {
+          "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+          "text": "train_test_split > Parameters > test_size\n\ntest_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25."
+        },
+        {
+          "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+          "text": "train_test_split > Parameters > train_size\n\ntrain_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size."
+        },
+        {
+          "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+          "text": "train_test_split > Examples\n\n>>> import numpy as np\n>>> from sklearn.model_selection import train_test_split\n>>> X, y = np.arange(10).reshape((5, 2)), range(5)\n>>> X\narray([[0, 1],\n       [2, 3],\n       [4, 5],\n       [6, 7],\n       [8, 9]])\n>>> list(y)\n[0, 1, 2, 3, 4]\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.33, random_state=42)\n...\n>>> X_train\narray([[4, 5],\n       [0, 1],\n       [6, 7]])\n>>> y_train\n[2, 0, 3]\n>>> X_test\narray([[2, 3],\n       [8, 9]])\n>>> y_test\n[1, 4]\n\n>>> train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]\n\n>>> from sklearn import datasets\n>>> iris = datasets.load_iris(as_frame=True)\n>>> X, y = iris['data'], iris['target']\n>>> X.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n0                5.1               3.5                1.4               0.2\n1                4.9               3.0                1.4               0.2\n2                4.7               3.2                1.3               0.2\n3                4.6               3.1                1.5               0.2\n4                5.0               3.6                1.4               0.2\n>>> y.head()\n0    0\n1    0\n2    0\n3    0\n4    0\n...\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n... X, y, test_size=0.33, random_state=42)\n...\n>>> X_train.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n96                 5.7               2.9                4.2               1.3\n105                7.6               3.0                6.6               2.1\n66                 5.6               3.0                4.5               1.5\n0                  5.1               3.5                1.4               0.2\n122                7.7               2.8                6.7               2.0\n>>> y_train.head()\n96     1\n105    2\n66     1\n0      0\n122    2\n...\n>>> X_test.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n73                 6.1               2.8                4.7               1.2\n18                 5.7               3.8                1.7               0.3\n118                7.7               2.6                6.9               2.3\n78                 6.0               2.9                4.5               1.5\n76                 6.8               2.8                4.8               1.4\n>>> y_test.head()\n73     1\n18     0\n118    2\n78     1\n76     1\n..."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+                    "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+                    "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "8852b012029f29644cecdf765e81de1c05a362af9ff006b322331e886fe51c6b",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "matched",
+        "historical_benchmark_hash": "matched",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B05",
+      "family_id": "preprocessing-leakage",
+      "benchmark_path": "benchmarks/pilot.json",
+      "benchmark_sha256": "a2a3fdbf5e87d3a566b9585053d50ddc82597ee7153159099d661b71c839204c",
+      "benchmark_case": {
+        "id": "B05",
+        "question": "I used SelectKBest on the full dataset before cross-validation. What is wrong, and how should a Pipeline be evaluated instead?",
+        "category": "synthesis",
+        "family_id": "preprocessing-leakage",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "Selecting features on the full dataset lets validation-fold target values influence feature selection, potentially producing overly optimistic scores. Instead, place SelectKBest and the estimator inside a Pipeline and cross-validate the entire pipeline so that within each fold, feature selection and the estimator are fitted using only that fold's training data and applied to its validation data.",
+        "required_claims": [
+          "Selecting features on the full dataset lets validation-fold target values influence feature selection, potentially producing overly optimistic scores.",
+          "Put SelectKBest and the estimator inside a Pipeline, then cross-validate the entire pipeline.",
+          "Within each fold, fit feature selection and the estimator using only that fold's training data; apply the fitted pipeline to its validation data."
+        ],
+        "forbidden_claims": [
+          "Performing selection once before cross-validation is safe."
+        ],
+        "evidence": [
+          {
+            "source_id": "S3",
+            "section": "Data leakage during pre-processing",
+            "anchor": "data-leakage-during-pre-processing"
+          },
+          {
+            "source_id": "S2",
+            "section": "class description",
+            "anchor": "sklearn.pipeline.Pipeline"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Verified the required claims against the sourced text."
+      },
+      "trace_path": "runs/generation/20261107T064854175413Z/B05.json",
+      "trace_sha256": "b1149c2aab979990321e60c4aa0be4f550ae11e3ddc863bbfcdcb0f1daf31f70",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"I used SelectKBest on the full dataset before cross-validation. What is wrong, and how should a Pipeline be evaluated instead?\", \"passages\": [{\"chunk_id\": \"sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854\", \"text\": \"11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.3. General recommendations > 11.3.3.2. Robustness of cross-validation results\\n\\nWhen we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization. For example, we would like the random weights initialization of an SGDClassifier to be consistently good across all folds: otherwise, when we train that estimator on new data, we might get unlucky and the random initialization may lead to bad performance. Similarly, we want a random forest to be robust w.r.t. the set of randomly selected features that each tree will be using.\\n\\nFor these reasons, it is preferable to evaluate the cross-validation performance by letting the estimator use a different RNG on each fold. This is done by passing a RandomState instance (or None ) to the estimator initialization.\\n\\nWhen we pass an integer, the estimator will use the same RNG on each fold: if the estimator performs well (or bad), as evaluated by CV, it might just be because we got lucky (or unlucky) with that specific seed. Passing instances leads to more robust CV results, and makes the comparison between various algorithms fairer. It also helps limiting the temptation to treat the estimator\\u2019s RNG as a hyper-parameter that can be tuned.\\n\\nWhether we pass RandomState instances or integers to CV splitters has no impact on robustness, as long as split is only called once. When split is called multiple times, fold-to-fold comparison isn\\u2019t possible anymore. As a result, passing integer to CV splitters is usually safer and covers most use-cases.\"}, {\"chunk_id\": \"sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1\", \"text\": \"11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.1. How to avoid data leakage\\n\\nBelow are some tips on avoiding data leakage:\\n\\nAlways split the data into train and test subsets first, particularly before any preprocessing steps.\\n\\nNever include test data when using the fit and fit_transform methods. Using all the data, e.g., fit(X) , can result in overly optimistic scores.\\n\\nConversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data. This can be achieved by using fit_transform on the train subset and transform on the test subset.\\n\\nThe scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.\\n\\nAn example of data leakage during preprocessing is detailed below.\"}, {\"chunk_id\": \"sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e\", \"text\": \"11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\\n\\n>>> from sklearn.model_selection import train_test_split\\n>>> from sklearn.feature_selection import SelectKBest\\n>>> from sklearn.ensemble import HistGradientBoostingClassifier\\n>>> from sklearn.metrics import accuracy_score\\n\\n>>> # Incorrect preprocessing: the entire data is transformed\\n>>> X_selected = SelectKBest(k=25).fit_transform(X, y)\\n\\n>>> X_train, X_test, y_train, y_test = train_test_split(\\n...     X_selected, y, random_state=42)\\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\\n>>> gbc.fit(X_train, y_train)\\nHistGradientBoostingClassifier(random_state=1)\\n\\n>>> y_pred = gbc.predict(X_test)\\n>>> accuracy_score(y_test, y_pred)\\n0.76\\n\\nRight\\n\\nTo prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset. The score is now what we would expect for the data, close to chance:\\n\\n>>> X_train, X_test, y_train, y_test = train_test_split(\\n...     X, y, random_state=42)\\n>>> select = SelectKBest(k=25)\\n>>> X_train_selected = select.fit_transform(X_train, y_train)\\n\\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\\n>>> gbc.fit(X_train_selected, y_train)\\nHistGradientBoostingClassifier(random_state=1)\\n\\n>>> X_test_selected = select.transform(X_test)\\n>>> y_pred = gbc.predict(X_test_selected)\\n>>> accuracy_score(y_test, y_pred)\\n0.5\\n\\nHere again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:\\n\\n>>> from sklearn.pipeline import make_pipeline\\n>>> X_train, X_test, y_train, y_test = train_test_split(\\n...     X, y, random_state=42)\\n>>> pipeline = make_pipeline(SelectKBest(k=25),\\n...                          HistGradientBoostingClassifier(random_state=1))\\n>>> pipeline.fit(X_train, y_train)\\nPipeline(steps=[('selectkbest', SelectKBest(k=25)),\\n                ('histgradientboostingclassifier',\\n                 HistGradientBoostingClassifier(random_state=1))])\\n\\n>>> y_pred = pipeline.predict(X_test)\\n>>> accuracy_score(y_test, y_pred)\\n0.5\\n\\nThe pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting:\"}]}",
+      "question": "I used SelectKBest on the full dataset before cross-validation. What is wrong, and how should a Pipeline be evaluated instead?",
+      "passages": [
+        {
+          "chunk_id": "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.3. General recommendations > 11.3.3.2. Robustness of cross-validation results\n\nWhen we evaluate a randomized estimator performance by cross-validation, we want to make sure that the estimator can yield accurate predictions for new data, but we also want to make sure that the estimator is robust w.r.t. its random initialization. For example, we would like the random weights initialization of an SGDClassifier to be consistently good across all folds: otherwise, when we train that estimator on new data, we might get unlucky and the random initialization may lead to bad performance. Similarly, we want a random forest to be robust w.r.t. the set of randomly selected features that each tree will be using.\n\nFor these reasons, it is preferable to evaluate the cross-validation performance by letting the estimator use a different RNG on each fold. This is done by passing a RandomState instance (or None ) to the estimator initialization.\n\nWhen we pass an integer, the estimator will use the same RNG on each fold: if the estimator performs well (or bad), as evaluated by CV, it might just be because we got lucky (or unlucky) with that specific seed. Passing instances leads to more robust CV results, and makes the comparison between various algorithms fairer. It also helps limiting the temptation to treat the estimator’s RNG as a hyper-parameter that can be tuned.\n\nWhether we pass RandomState instances or integers to CV splitters has no impact on robustness, as long as split is only called once. When split is called multiple times, fold-to-fold comparison isn’t possible anymore. As a result, passing integer to CV splitters is usually safer and covers most use-cases."
+        },
+        {
+          "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.1. How to avoid data leakage\n\nBelow are some tips on avoiding data leakage:\n\nAlways split the data into train and test subsets first, particularly before any preprocessing steps.\n\nNever include test data when using the fit and fit_transform methods. Using all the data, e.g., fit(X) , can result in overly optimistic scores.\n\nConversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data. This can be achieved by using fit_transform on the train subset and transform on the test subset.\n\nThe scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.\n\nAn example of data leakage during preprocessing is detailed below."
+        },
+        {
+          "chunk_id": "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e",
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\n\n>>> from sklearn.model_selection import train_test_split\n>>> from sklearn.feature_selection import SelectKBest\n>>> from sklearn.ensemble import HistGradientBoostingClassifier\n>>> from sklearn.metrics import accuracy_score\n\n>>> # Incorrect preprocessing: the entire data is transformed\n>>> X_selected = SelectKBest(k=25).fit_transform(X, y)\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X_selected, y, random_state=42)\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\n>>> gbc.fit(X_train, y_train)\nHistGradientBoostingClassifier(random_state=1)\n\n>>> y_pred = gbc.predict(X_test)\n>>> accuracy_score(y_test, y_pred)\n0.76\n\nRight\n\nTo prevent data leakage, it is good practice to split your data into train and test subsets first . Feature selection can then be formed using just the train dataset. Notice that whenever we use fit or fit_transform , we only use the train dataset. The score is now what we would expect for the data, close to chance:\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, random_state=42)\n>>> select = SelectKBest(k=25)\n>>> X_train_selected = select.fit_transform(X_train, y_train)\n\n>>> gbc = HistGradientBoostingClassifier(random_state=1)\n>>> gbc.fit(X_train_selected, y_train)\nHistGradientBoostingClassifier(random_state=1)\n\n>>> X_test_selected = select.transform(X_test)\n>>> y_pred = gbc.predict(X_test_selected)\n>>> accuracy_score(y_test, y_pred)\n0.5\n\nHere again, we recommend using a Pipeline to chain together the feature selection and model estimators. The pipeline ensures that only the training data is used when performing fit and the test data is used only for calculating the accuracy score:\n\n>>> from sklearn.pipeline import make_pipeline\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, random_state=42)\n>>> pipeline = make_pipeline(SelectKBest(k=25),\n...                          HistGradientBoostingClassifier(random_state=1))\n>>> pipeline.fit(X_train, y_train)\nPipeline(steps=[('selectkbest', SelectKBest(k=25)),\n                ('histgradientboostingclassifier',\n                 HistGradientBoostingClassifier(random_state=1))])\n\n>>> y_pred = pipeline.predict(X_test)\n>>> accuracy_score(y_test, y_pred)\n0.5\n\nThe pipeline can also be fed into a cross-validation function such as cross_val_score . Again, the pipeline ensures that the correct data subset and estimator method is used during fitting and predicting:"
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:4ee57ad4942767e6c86e66ce285103d9fb013552df5caf997ca79d92b93bc854",
+                    "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+                    "sha256:7e18c7e0f64d74a9396febd331e24a9f7b333170af2bb72bd837c16db266cd4e"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "8852b012029f29644cecdf765e81de1c05a362af9ff006b322331e886fe51c6b",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "matched",
+        "historical_benchmark_hash": "matched",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B11",
+      "family_id": "pipeline-parameters",
+      "benchmark_path": "benchmarks/extension-v1.json",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "benchmark_case": {
+        "id": "B11",
+        "question": "How can I disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline?",
+        "category": "direct",
+        "family_id": "pipeline-parameters",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "Use set_params with the step name as the key and set that step to passthrough or None.",
+        "required_claims": [
+          "Set the named intermediate step to passthrough or None to skip that transformer."
+        ],
+        "forbidden_claims": [
+          "A transformer can only be removed by constructing a new Pipeline."
+        ],
+        "evidence": [
+          {
+            "source_id": "S2",
+            "section": "Class description: replacing and removing steps",
+            "anchor": "sklearn.pipeline.Pipeline"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Related to existing B03. Removing a step does not guarantee a previously fitted downstream estimator remains suitable; do not claim refitting is never needed."
+      },
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B11.json",
+      "trace_sha256": "992f6ec6b6b95555d4814f5792afc1b4c9998fba1d06256b750c58d58d55bf8c",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"How can I disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline?\", \"passages\": [{\"chunk_id\": \"sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e\", \"text\": \"Pipeline > Overview\\n\\nA sequence of data transformers with an optional final predictor.\\n\\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\\n\\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\\n\\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step\\u2019s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\\n\\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\\n\\nRead more in the User Guide .\"}, {\"chunk_id\": \"sha256:438fde2d592b0c3584e0d6e8c466faccd425e99c9037d0af1b9ea039ea08bdd7\", \"text\": \"Pipeline > Parameters > transform_input\\n\\ntransform_input: list of str, default=None\\nThe names of the metadata parameters that should be transformed by the pipeline before passing it to the step consuming it. This enables transforming some input arguments to fit (other than X ) to be transformed by the steps of the pipeline up to the step which requires them. Requirement is defined via metadata routing . For instance, this can be used to pass a validation set through the pipeline. You can only set this if metadata routing is enabled, which you can enable using sklearn.set_config(enable_metadata_routing=True) . Added in version 1.6.\"}, {\"chunk_id\": \"sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337\", \"text\": \"Pipeline > Parameters > memory\\n\\nmemory: str or object with the joblib.Memory interface, default=None\\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer. By default, no caching is performed. If a string is given, it is the path to the caching directory. Enabling caching triggers a clone of the transformers before fitting. Therefore, the transformer instance given to the pipeline cannot be inspected directly. Use the attribute named_steps or steps to inspect estimators within the pipeline. Caching the transformers is advantageous when fitting is time consuming. See Caching nearest neighbors for an example on how to enable caching.\"}]}",
+      "question": "How can I disable or remove an intermediate transformer step in an existing Pipeline without rebuilding the pipeline?",
+      "passages": [
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "text": "Pipeline > Overview\n\nA sequence of data transformers with an optional final predictor.\n\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\n\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\n\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\n\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\n\nRead more in the User Guide ."
+        },
+        {
+          "chunk_id": "sha256:438fde2d592b0c3584e0d6e8c466faccd425e99c9037d0af1b9ea039ea08bdd7",
+          "text": "Pipeline > Parameters > transform_input\n\ntransform_input: list of str, default=None\nThe names of the metadata parameters that should be transformed by the pipeline before passing it to the step consuming it. This enables transforming some input arguments to fit (other than X ) to be transformed by the steps of the pipeline up to the step which requires them. Requirement is defined via metadata routing . For instance, this can be used to pass a validation set through the pipeline. You can only set this if metadata routing is enabled, which you can enable using sklearn.set_config(enable_metadata_routing=True) . Added in version 1.6."
+        },
+        {
+          "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+          "text": "Pipeline > Parameters > memory\n\nmemory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer. By default, no caching is performed. If a string is given, it is the path to the caching directory. Enabling caching triggers a clone of the transformers before fitting. Therefore, the transformer instance given to the pipeline cannot be inspected directly. Use the attribute named_steps or steps to inspect estimators within the pipeline. Caching the transformers is advantageous when fitting is time consuming. See Caching nearest neighbors for an example on how to enable caching."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+                    "sha256:438fde2d592b0c3584e0d6e8c466faccd425e99c9037d0af1b9ea039ea08bdd7",
+                    "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B13",
+      "family_id": "pipeline-caching",
+      "benchmark_path": "benchmarks/extension-v1.json",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "benchmark_case": {
+        "id": "B13",
+        "question": "Which parameter in Pipeline allows caching the fitted transformers to avoid repeated computation?",
+        "category": "direct",
+        "family_id": "pipeline-caching",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "Use memory, which accepts a caching directory path or an object implementing the joblib.Memory interface.",
+        "required_claims": [
+          "The caching parameter is memory.",
+          "It accepts a directory path or an object implementing the joblib.Memory interface."
+        ],
+        "forbidden_claims": [
+          "memory caches the fitted final estimator as well as all transformers."
+        ],
+        "evidence": [
+          {
+            "source_id": "S2",
+            "section": "Parameters > memory",
+            "anchor": "sklearn.pipeline.Pipeline"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Do not require a joblib.Memory instance specifically; the documented interface is sufficient."
+      },
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B13.json",
+      "trace_sha256": "25f39eec6c5394eef107698810268d4e9cfdb37e2ce6830472ccfd5197a06304",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"Which parameter in Pipeline allows caching the fitted transformers to avoid repeated computation?\", \"passages\": [{\"chunk_id\": \"sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337\", \"text\": \"Pipeline > Parameters > memory\\n\\nmemory: str or object with the joblib.Memory interface, default=None\\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer. By default, no caching is performed. If a string is given, it is the path to the caching directory. Enabling caching triggers a clone of the transformers before fitting. Therefore, the transformer instance given to the pipeline cannot be inspected directly. Use the attribute named_steps or steps to inspect estimators within the pipeline. Caching the transformers is advantageous when fitting is time consuming. See Caching nearest neighbors for an example on how to enable caching.\"}, {\"chunk_id\": \"sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e\", \"text\": \"Pipeline > Overview\\n\\nA sequence of data transformers with an optional final predictor.\\n\\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\\n\\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\\n\\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step\\u2019s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\\n\\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\\n\\nRead more in the User Guide .\"}, {\"chunk_id\": \"sha256:bc67f602b029b12e81ab7731e957eca4470f9352c4bc1e57d760098aa53fde4d\", \"text\": \"Pipeline > transform > Overview\\n\\nTransform the data, and apply transform with the final estimator.\\n\\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls transform method. Only valid if the final estimator implements transform .\\n\\nThis also works where final estimator is None in which case all prior transformations are applied.\"}]}",
+      "question": "Which parameter in Pipeline allows caching the fitted transformers to avoid repeated computation?",
+      "passages": [
+        {
+          "chunk_id": "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+          "text": "Pipeline > Parameters > memory\n\nmemory: str or object with the joblib.Memory interface, default=None\nUsed to cache the fitted transformers of the pipeline. The last step will never be cached, even if it is a transformer. By default, no caching is performed. If a string is given, it is the path to the caching directory. Enabling caching triggers a clone of the transformers before fitting. Therefore, the transformer instance given to the pipeline cannot be inspected directly. Use the attribute named_steps or steps to inspect estimators within the pipeline. Caching the transformers is advantageous when fitting is time consuming. See Caching nearest neighbors for an example on how to enable caching."
+        },
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "text": "Pipeline > Overview\n\nA sequence of data transformers with an optional final predictor.\n\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\n\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\n\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\n\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\n\nRead more in the User Guide ."
+        },
+        {
+          "chunk_id": "sha256:bc67f602b029b12e81ab7731e957eca4470f9352c4bc1e57d760098aa53fde4d",
+          "text": "Pipeline > transform > Overview\n\nTransform the data, and apply transform with the final estimator.\n\nCall transform of each transformer in the pipeline. The transformed data are finally passed to the final estimator that calls transform method. Only valid if the final estimator implements transform .\n\nThis also works where final estimator is None in which case all prior transformations are applied."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:0a0dac21dc833a0f58e00b09388b16175cb0a3e8702a259e789514d21a4f0337",
+                    "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+                    "sha256:bc67f602b029b12e81ab7731e957eca4470f9352c4bc1e57d760098aa53fde4d"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B17",
+      "family_id": "split-configuration",
+      "benchmark_path": "benchmarks/extension-v1.json",
+      "benchmark_sha256": "e4c23556120ebeab76b5ce87c9dd5e26392cd387767391035472bbe6dcb66fba",
+      "benchmark_case": {
+        "id": "B17",
+        "question": "Can train_test_split take two arrays with differing row counts, like X with 100 rows and y with 80 rows?",
+        "category": "noisy",
+        "family_id": "split-configuration",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "No. The inputs must have the same length along their first dimension.",
+        "required_claims": [
+          "No; all supplied arrays must have the same length or shape[0]."
+        ],
+        "forbidden_claims": [
+          "train_test_split silently truncates the longer input to match the shorter one."
+        ],
+        "evidence": [
+          {
+            "source_id": "S1",
+            "section": "Parameters > *arrays",
+            "anchor": "sklearn.model_selection.train_test_split"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "A natural-language paraphrase probe, not a misspelling probe. Related to other split-configuration cases."
+      },
+      "trace_path": "runs/generation/paired/20261107T152920857491Z/k3/B17.json",
+      "trace_sha256": "4502793b1e98484638e396fa7c8e11f3a4f2635600fe34f213926811cbf8bc71",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"Can train_test_split take two arrays with differing row counts, like X with 100 rows and y with 80 rows?\", \"passages\": [{\"chunk_id\": \"sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561\", \"text\": \"train_test_split > Parameters > *arrays\\n\\n*arrays: sequence of indexables with same length / shape[0]\\nAllowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.\"}, {\"chunk_id\": \"sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc\", \"text\": \"train_test_split > Overview\\n\\nSplit arrays or matrices into random train and test subsets.\\n\\nQuick utility that wraps input validation, next(ShuffleSplit().split(X, y)) , and application to input data into a single call for splitting (and optionally subsampling) data into a one-liner.\\n\\nRead more in the User Guide .\"}, {\"chunk_id\": \"sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e\", \"text\": \"Pipeline > Overview\\n\\nA sequence of data transformers with an optional final predictor.\\n\\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\\n\\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\\n\\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step\\u2019s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\\n\\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\\n\\nRead more in the User Guide .\"}]}",
+      "question": "Can train_test_split take two arrays with differing row counts, like X with 100 rows and y with 80 rows?",
+      "passages": [
+        {
+          "chunk_id": "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+          "text": "train_test_split > Parameters > *arrays\n\n*arrays: sequence of indexables with same length / shape[0]\nAllowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes."
+        },
+        {
+          "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+          "text": "train_test_split > Overview\n\nSplit arrays or matrices into random train and test subsets.\n\nQuick utility that wraps input validation, next(ShuffleSplit().split(X, y)) , and application to input data into a single call for splitting (and optionally subsampling) data into a one-liner.\n\nRead more in the User Guide ."
+        },
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "text": "Pipeline > Overview\n\nA sequence of data transformers with an optional final predictor.\n\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\n\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\n\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\n\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\n\nRead more in the User Guide ."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+                    "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+                    "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B21",
+      "family_id": "pipeline-output-container",
+      "benchmark_path": "benchmarks/extension-v2.json",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "benchmark_case": {
+        "id": "B21",
+        "question": "In scikit-learn 1.7.2, what does the Pipeline.set_output() method configure?",
+        "category": "direct",
+        "family_id": "pipeline-output-container",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "set_output configures the output container format returned by transform and fit_transform.",
+        "required_claims": [
+          "set_output configures the output container returned by transform and fit_transform."
+        ],
+        "forbidden_claims": [
+          "set_output configures the file format for saving pipeline weights to disk."
+        ],
+        "evidence": [
+          {
+            "source_id": "S2",
+            "section": "set_output Overview",
+            "anchor": "sklearn.pipeline.Pipeline.set_output"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Direct lookup of the set_output method in the Pipeline API."
+      },
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B21.json",
+      "trace_sha256": "fb98f406ee8b8981c5d5f3a70b591df3d4f8d6111de6ef4b87692cfb3c5417e7",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"In scikit-learn 1.7.2, what does the Pipeline.set_output() method configure?\", \"passages\": [{\"chunk_id\": \"sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9\", \"text\": \"Pipeline > set_output > Overview\\n\\nSet the output container when \\\"transform\\\" and \\\"fit_transform\\\" are called.\\n\\nCalling set_output will set the output of all estimators in steps .\"}, {\"chunk_id\": \"sha256:9d8cc831bc6c9538311126cf03f3124e87f1e04433943291837d67a87772cfdb\", \"text\": \"Pipeline > set_output > Parameters > transform\\n\\ntransform: {\\u201cdefault\\u201d, \\u201cpandas\\u201d, \\u201cpolars\\u201d}, default=None\\nConfigure output of transform and fit_transform . \\\"default\\\" : Default output format of a transformer \\\"pandas\\\" : DataFrame output \\\"polars\\\" : Polars output None : Transform configuration is unchanged Added in version 1.4: \\\"polars\\\" option was added.\"}, {\"chunk_id\": \"sha256:b32a4544cd984a71b96ca7528580ad1a41bd8257a6ff922cadabf715c18ccf6c\", \"text\": \"Pipeline > set_output > Returns\\n\\nself: estimator instance\\nEstimator instance.\"}]}",
+      "question": "In scikit-learn 1.7.2, what does the Pipeline.set_output() method configure?",
+      "passages": [
+        {
+          "chunk_id": "sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9",
+          "text": "Pipeline > set_output > Overview\n\nSet the output container when \"transform\" and \"fit_transform\" are called.\n\nCalling set_output will set the output of all estimators in steps ."
+        },
+        {
+          "chunk_id": "sha256:9d8cc831bc6c9538311126cf03f3124e87f1e04433943291837d67a87772cfdb",
+          "text": "Pipeline > set_output > Parameters > transform\n\ntransform: {“default”, “pandas”, “polars”}, default=None\nConfigure output of transform and fit_transform . \"default\" : Default output format of a transformer \"pandas\" : DataFrame output \"polars\" : Polars output None : Transform configuration is unchanged Added in version 1.4: \"polars\" option was added."
+        },
+        {
+          "chunk_id": "sha256:b32a4544cd984a71b96ca7528580ad1a41bd8257a6ff922cadabf715c18ccf6c",
+          "text": "Pipeline > set_output > Returns\n\nself: estimator instance\nEstimator instance."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:aa1de0550061335cfa180640b5dd5606950185389be5ed087ebefdb8dd05bcf9",
+                    "sha256:9d8cc831bc6c9538311126cf03f3124e87f1e04433943291837d67a87772cfdb",
+                    "sha256:b32a4544cd984a71b96ca7528580ad1a41bd8257a6ff922cadabf715c18ccf6c"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B22",
+      "family_id": "split-parameters-int",
+      "benchmark_path": "benchmarks/extension-v2.json",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "benchmark_case": {
+        "id": "B22",
+        "question": "In train_test_split, what does an integer passed to the test_size parameter represent, as opposed to a float?",
+        "category": "direct",
+        "family_id": "split-parameters-int",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "An int represents the absolute number of test samples, whereas a float between 0.0 and 1.0 represents the proportion of the dataset to include in the test split.",
+        "required_claims": [
+          "An int represents the absolute number of test samples.",
+          "A float represents the proportion of the dataset to include in the test split."
+        ],
+        "forbidden_claims": [
+          "An integer represents the percentage rather than the sample count."
+        ],
+        "evidence": [
+          {
+            "source_id": "S1",
+            "section": "Parameters > test_size",
+            "anchor": "sklearn.model_selection.train_test_split"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Direct lookup of test_size type distinctions in train_test_split."
+      },
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B22.json",
+      "trace_sha256": "7199f0f66ee3fd82da9f14f8d714a86aa8fe8bd039cd90b22705d05b8c10b4b2",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"In train_test_split, what does an integer passed to the test_size parameter represent, as opposed to a float?\", \"passages\": [{\"chunk_id\": \"sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465\", \"text\": \"train_test_split > Parameters > test_size\\n\\ntest_size: float or int, default=None\\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25.\"}, {\"chunk_id\": \"sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667\", \"text\": \"train_test_split > Parameters > train_size\\n\\ntrain_size: float or int, default=None\\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.\"}, {\"chunk_id\": \"sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea\", \"text\": \"11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.2. CV splitters\\n\\nWhat matters in this example is what was passed to KFold . Whether we pass a RandomState instance or an integer to make_classification is not relevant for our illustration purpose. Also, neither LinearDiscriminantAnalysis nor GaussianNB are randomized estimators.\"}]}",
+      "question": "In train_test_split, what does an integer passed to the test_size parameter represent, as opposed to a float?",
+      "passages": [
+        {
+          "chunk_id": "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+          "text": "train_test_split > Parameters > test_size\n\ntest_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If train_size is also None, it will be set to 0.25."
+        },
+        {
+          "chunk_id": "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+          "text": "train_test_split > Parameters > train_size\n\ntrain_size: float or int, default=None\nIf float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size."
+        },
+        {
+          "chunk_id": "sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea",
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.2. CV splitters\n\nWhat matters in this example is what was passed to KFold . Whether we pass a RandomState instance or an integer to make_classification is not relevant for our illustration purpose. Also, neither LinearDiscriminantAnalysis nor GaussianNB are randomized estimators."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:3027119343f9b4459ca61a607eab174da9bfc69f542156eb29a3582f213c0465",
+                    "sha256:92e248e73a3c55b82a57f7e377dc5ddacb5d2ec0329caa9c404b8dc06e394667",
+                    "sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B26",
+      "family_id": "pipeline-convenience",
+      "benchmark_path": "benchmarks/extension-v2.json",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "benchmark_case": {
+        "id": "B26",
+        "question": "According to the common pitfalls documentation, what practical advantages does using a Pipeline or make_pipeline provide over manual sequential transformations?",
+        "category": "synthesis",
+        "family_id": "pipeline-convenience",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "It makes it easier to chain transformations with estimators, reduces the possibility of forgetting a transformation, and prevents data leakage by ensuring preprocessing is fitted only on training data.",
+        "required_claims": [
+          "Makes it easier to chain transformations with estimators.",
+          "Reduces the possibility of forgetting a transformation or prevents data leakage."
+        ],
+        "forbidden_claims": [
+          "make_pipeline speeds up model training via multi-threading."
+        ],
+        "evidence": [
+          {
+            "source_id": "S3",
+            "section": "11.1 Inconsistent preprocessing",
+            "anchor": "inconsistent-preprocessing"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Synthesis of documented pipeline advantages from Section 11.1."
+      },
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B26.json",
+      "trace_sha256": "fd569a7a244e6b2dc9f1452c81197e2443c387ca52c0c1e58241ef0337d81318",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"According to the common pitfalls documentation, what practical advantages does using a Pipeline or make_pipeline provide over manual sequential transformations?\", \"passages\": [{\"chunk_id\": \"sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29\", \"text\": \"11. Common pitfalls and recommended practices\\n\\nThe purpose of this chapter is to illustrate some common pitfalls and anti-patterns that occur when using scikit-learn. It provides examples of what not to do, along with a corresponding correct example.\"}, {\"chunk_id\": \"sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea\", \"text\": \"11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.2. CV splitters\\n\\nWhat matters in this example is what was passed to KFold . Whether we pass a RandomState instance or an integer to make_classification is not relevant for our illustration purpose. Also, neither LinearDiscriminantAnalysis nor GaussianNB are randomized estimators.\"}, {\"chunk_id\": \"sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e\", \"text\": \"Pipeline > Overview\\n\\nA sequence of data transformers with an optional final predictor.\\n\\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\\n\\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\\n\\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step\\u2019s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\\n\\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\\n\\nRead more in the User Guide .\"}]}",
+      "question": "According to the common pitfalls documentation, what practical advantages does using a Pipeline or make_pipeline provide over manual sequential transformations?",
+      "passages": [
+        {
+          "chunk_id": "sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29",
+          "text": "11. Common pitfalls and recommended practices\n\nThe purpose of this chapter is to illustrate some common pitfalls and anti-patterns that occur when using scikit-learn. It provides examples of what not to do, along with a corresponding correct example."
+        },
+        {
+          "chunk_id": "sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea",
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.2. CV splitters\n\nWhat matters in this example is what was passed to KFold . Whether we pass a RandomState instance or an integer to make_classification is not relevant for our illustration purpose. Also, neither LinearDiscriminantAnalysis nor GaussianNB are randomized estimators."
+        },
+        {
+          "chunk_id": "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e",
+          "text": "Pipeline > Overview\n\nA sequence of data transformers with an optional final predictor.\n\nPipeline allows you to sequentially apply a list of transformers to preprocess the data and, if desired, conclude the sequence with a final predictor for predictive modeling.\n\nIntermediate steps of the pipeline must be transformers, that is, they must implement fit and transform methods. The final estimator only needs to implement fit . The transformers in the pipeline can be cached using memory argument.\n\nThe purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. For this, it enables setting parameters of the various steps using their names and the parameter name separated by a '__' , as in the example below. A step’s estimator may be replaced entirely by setting the parameter with its name to another estimator, or a transformer removed by setting it to 'passthrough' or None .\n\nFor an example use case of Pipeline combined with GridSearchCV , refer to Selecting dimensionality reduction with Pipeline and GridSearchCV . The example Pipelining: chaining a PCA and a logistic regression shows how to grid search on a pipeline using '__' as a separator in the parameter names.\n\nRead more in the User Guide ."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29",
+                    "sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea",
+                    "sha256:c245a5f893c29b17cb67e73206c282d8e0423a69bbf6370e33334472c9bc6f0e"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B27",
+      "family_id": "split-randomness",
+      "benchmark_path": "benchmarks/extension-v2.json",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "benchmark_case": {
+        "id": "B27",
+        "question": "According to the scikit-learn documentation on controlling randomness, passing random_state=None is equivalent to passing which global numpy object?",
+        "category": "noisy",
+        "family_id": "split-randomness",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "Passing random_state=None is equivalent to passing numpy's global RandomState instance: np.random.mtrand._rand.",
+        "required_claims": [
+          "It is equivalent to numpy's global RandomState instance np.random.mtrand._rand."
+        ],
+        "forbidden_claims": [
+          "Passing random_state=None uses a fixed constant seed of 0."
+        ],
+        "evidence": [
+          {
+            "source_id": "S3",
+            "section": "11.3.1 Using None or RandomState instances",
+            "anchor": "using-none-or-randomstate-instances-and-repeated-calls-to-fit-and-split"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Paraphrase / specific technical note in S3."
+      },
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B27.json",
+      "trace_sha256": "637c688e80c466eeea7a9af4ff5bbb329ced887d6ecbae084a93b9e83626f47a",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"According to the scikit-learn documentation on controlling randomness, passing random_state=None is equivalent to passing which global numpy object?\", \"passages\": [{\"chunk_id\": \"sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015\", \"text\": \"11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.1. Using None or RandomState instances, and repeated calls to fit and split\\n\\nThe random_state parameter determines whether multiple calls to fit (for estimators) or to split (for CV splitters) will produce the same results, according to these rules:\\n\\nIf an integer is passed, calling fit or split multiple times always yields the same results.\\n\\nIf None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy. None is the default value for all random_state parameters.\\n\\nWe here illustrate these rules for both estimators and CV splitters.\\n\\nNote\\n\\nSince passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here. Everything that applies to instances also applies to using None .\"}, {\"chunk_id\": \"sha256:b01c15ee31ad0bdf5035be5c38f8905ba1d2080f94b2487aa97052da6eef07d4\", \"text\": \"11. Common pitfalls and recommended practices > 11.3. Controlling randomness\\n\\nSome scikit-learn objects are inherently random. These are usually estimators (e.g. RandomForestClassifier ) and cross-validation splitters (e.g. KFold ). The randomness of these objects is controlled via their random_state parameter, as described in the Glossary . This section expands on the glossary entry, and describes good practices and common pitfalls w.r.t. this subtle parameter.\\n\\nNote\\n\\nRecommendation summary\\n\\nFor an optimal robustness of cross-validation (CV) results, pass RandomState instances when creating estimators, or leave random_state to None . Passing integers to CV splitters is usually the safest option and is preferable; passing RandomState instances to splitters may sometimes be useful to achieve very specific use-cases. For both estimators and splitters, passing an integer vs passing an instance (or None ) leads to subtle but significant differences, especially for CV procedures. These differences are important to understand when reporting results.\\n\\nFor reproducible results across executions, remove any use of random_state=None .\"}, {\"chunk_id\": \"sha256:4e1abd8f77dabc57dd90530d456dba4fa34692ea0a5474f1fb52a52565c290d7\", \"text\": \"11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.3. General recommendations > 11.3.3.1. Getting reproducible results across multiple executions\\n\\nIn order to obtain reproducible (i.e. constant) results across multiple program executions , we need to remove all uses of random_state=None , which is the default. The recommended way is to declare a rng variable at the top of the program, and pass it down to any object that accepts a random_state parameter:\\n\\n>>> from sklearn.ensemble import RandomForestClassifier\\n>>> from sklearn.datasets import make_classification\\n>>> from sklearn.model_selection import train_test_split\\n>>> import numpy as np\\n\\n>>> rng = np.random.RandomState(0)\\n>>> X, y = make_classification(random_state=rng)\\n>>> rf = RandomForestClassifier(random_state=rng)\\n>>> X_train, X_test, y_train, y_test = train_test_split(X, y,\\n...                                                     random_state=rng)\\n>>> rf.fit(X_train, y_train).score(X_test, y_test)\\n0.84\\n\\nWe are now guaranteed that the result of this script will always be 0.84, no matter how many times we run it. Changing the global rng variable to a different value should affect the results, as expected.\\n\\nIt is also possible to declare the rng variable as an integer. This may however lead to less robust cross-validation results, as we will see in the next section.\\n\\nNote\\n\\nWe do not recommend setting the global numpy seed by calling np.random.seed(0) . See here for a discussion.\"}]}",
+      "question": "According to the scikit-learn documentation on controlling randomness, passing random_state=None is equivalent to passing which global numpy object?",
+      "passages": [
+        {
+          "chunk_id": "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.1. Using None or RandomState instances, and repeated calls to fit and split\n\nThe random_state parameter determines whether multiple calls to fit (for estimators) or to split (for CV splitters) will produce the same results, according to these rules:\n\nIf an integer is passed, calling fit or split multiple times always yields the same results.\n\nIf None or a RandomState instance is passed: fit and split will yield different results each time they are called, and the succession of calls explores all sources of entropy. None is the default value for all random_state parameters.\n\nWe here illustrate these rules for both estimators and CV splitters.\n\nNote\n\nSince passing random_state=None is equivalent to passing the global RandomState instance from numpy ( random_state=np.random.mtrand._rand ), we will not explicitly mention None here. Everything that applies to instances also applies to using None ."
+        },
+        {
+          "chunk_id": "sha256:b01c15ee31ad0bdf5035be5c38f8905ba1d2080f94b2487aa97052da6eef07d4",
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness\n\nSome scikit-learn objects are inherently random. These are usually estimators (e.g. RandomForestClassifier ) and cross-validation splitters (e.g. KFold ). The randomness of these objects is controlled via their random_state parameter, as described in the Glossary . This section expands on the glossary entry, and describes good practices and common pitfalls w.r.t. this subtle parameter.\n\nNote\n\nRecommendation summary\n\nFor an optimal robustness of cross-validation (CV) results, pass RandomState instances when creating estimators, or leave random_state to None . Passing integers to CV splitters is usually the safest option and is preferable; passing RandomState instances to splitters may sometimes be useful to achieve very specific use-cases. For both estimators and splitters, passing an integer vs passing an instance (or None ) leads to subtle but significant differences, especially for CV procedures. These differences are important to understand when reporting results.\n\nFor reproducible results across executions, remove any use of random_state=None ."
+        },
+        {
+          "chunk_id": "sha256:4e1abd8f77dabc57dd90530d456dba4fa34692ea0a5474f1fb52a52565c290d7",
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.3. General recommendations > 11.3.3.1. Getting reproducible results across multiple executions\n\nIn order to obtain reproducible (i.e. constant) results across multiple program executions , we need to remove all uses of random_state=None , which is the default. The recommended way is to declare a rng variable at the top of the program, and pass it down to any object that accepts a random_state parameter:\n\n>>> from sklearn.ensemble import RandomForestClassifier\n>>> from sklearn.datasets import make_classification\n>>> from sklearn.model_selection import train_test_split\n>>> import numpy as np\n\n>>> rng = np.random.RandomState(0)\n>>> X, y = make_classification(random_state=rng)\n>>> rf = RandomForestClassifier(random_state=rng)\n>>> X_train, X_test, y_train, y_test = train_test_split(X, y,\n...                                                     random_state=rng)\n>>> rf.fit(X_train, y_train).score(X_test, y_test)\n0.84\n\nWe are now guaranteed that the result of this script will always be 0.84, no matter how many times we run it. Changing the global rng variable to a different value should affect the results, as expected.\n\nIt is also possible to declare the rng variable as an integer. This may however lead to less robust cross-validation results, as we will see in the next section.\n\nNote\n\nWe do not recommend setting the global numpy seed by calling np.random.seed(0) . See here for a discussion."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:cc034eb4677c24cb7575ecedccda457993c6ad41907229626e849b979cd9a015",
+                    "sha256:b01c15ee31ad0bdf5035be5c38f8905ba1d2080f94b2487aa97052da6eef07d4",
+                    "sha256:4e1abd8f77dabc57dd90530d456dba4fa34692ea0a5474f1fb52a52565c290d7"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B28",
+      "family_id": "feature-selection-leakage",
+      "benchmark_path": "benchmarks/extension-v2.json",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "benchmark_case": {
+        "id": "B28",
+        "question": "In the common pitfalls pitfall example, why did a classification model achieve high accuracy (around 76%) on 10,000 completely random noise features?",
+        "category": "noisy",
+        "family_id": "feature-selection-leakage",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": true,
+        "reference_answer": "Because feature selection was performed on the full dataset before splitting, allowing the feature selector to see test data and give the model an unfair advantage despite independent random targets.",
+        "required_claims": [
+          "Feature selection was performed on the entire dataset before splitting.",
+          "The feature selection step saw test data, producing an artificially optimistic accuracy score."
+        ],
+        "forbidden_claims": [
+          "The 76% accuracy was caused by class imbalance in the target labels."
+        ],
+        "evidence": [
+          {
+            "source_id": "S3",
+            "section": "11.2.2 Data leakage during pre-processing",
+            "anchor": "data-leakage-during-pre-processing"
+          }
+        ],
+        "absence_reason": null,
+        "review_status": "approved",
+        "reviewer_notes": "Narrative query about the pitfall example in Section 11.2.2."
+      },
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B28.json",
+      "trace_sha256": "a85bee0d9c06a8847138df55bbb359518d55fb3a9558d75d8b3c1f35616d0191",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"In the common pitfalls pitfall example, why did a classification model achieve high accuracy (around 76%) on 10,000 completely random noise features?\", \"passages\": [{\"chunk_id\": \"sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d\", \"text\": \"11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\\n\\nNote\\n\\nWe here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .\\n\\nA number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model.\\n\\nTo demonstrate we will create this binary classification problem with 10,000 randomly generated features:\\n\\n>>> import numpy as np\\n>>> n_samples, n_features, n_classes = 200, 10000, 2\\n>>> rng = np.random.RandomState(42)\\n>>> X = rng.standard_normal((n_samples, n_features))\\n>>> y = rng.choice(n_classes, n_samples)\\n\\nWrong\\n\\nUsing all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step \\u2018sees\\u2019 the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:\"}, {\"chunk_id\": \"sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea\", \"text\": \"11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.2. CV splitters\\n\\nWhat matters in this example is what was passed to KFold . Whether we pass a RandomState instance or an integer to make_classification is not relevant for our illustration purpose. Also, neither LinearDiscriminantAnalysis nor GaussianNB are randomized estimators.\"}, {\"chunk_id\": \"sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29\", \"text\": \"11. Common pitfalls and recommended practices\\n\\nThe purpose of this chapter is to illustrate some common pitfalls and anti-patterns that occur when using scikit-learn. It provides examples of what not to do, along with a corresponding correct example.\"}]}",
+      "question": "In the common pitfalls pitfall example, why did a classification model achieve high accuracy (around 76%) on 10,000 completely random noise features?",
+      "passages": [
+        {
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\n\nNote\n\nWe here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .\n\nA number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model.\n\nTo demonstrate we will create this binary classification problem with 10,000 randomly generated features:\n\n>>> import numpy as np\n>>> n_samples, n_features, n_classes = 200, 10000, 2\n>>> rng = np.random.RandomState(42)\n>>> X = rng.standard_normal((n_samples, n_features))\n>>> y = rng.choice(n_classes, n_samples)\n\nWrong\n\nUsing all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:"
+        },
+        {
+          "chunk_id": "sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea",
+          "text": "11. Common pitfalls and recommended practices > 11.3. Controlling randomness > 11.3.2. Common pitfalls and subtleties > 11.3.2.2. CV splitters\n\nWhat matters in this example is what was passed to KFold . Whether we pass a RandomState instance or an integer to make_classification is not relevant for our illustration purpose. Also, neither LinearDiscriminantAnalysis nor GaussianNB are randomized estimators."
+        },
+        {
+          "chunk_id": "sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29",
+          "text": "11. Common pitfalls and recommended practices\n\nThe purpose of this chapter is to illustrate some common pitfalls and anti-patterns that occur when using scikit-learn. It provides examples of what not to do, along with a corresponding correct example."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+                    "sha256:cd962ee245104d6c70650339c32b2ea59eeda291eb751984909cb02d4bcb71ea",
+                    "sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B29",
+      "family_id": "unsupported-api-premise",
+      "benchmark_path": "benchmarks/extension-v2.json",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "benchmark_case": {
+        "id": "B29",
+        "question": "According to the scikit-learn 1.7.2 train_test_split documentation, how do I configure its stratify_ratio parameter?",
+        "category": "unanswerable",
+        "family_id": "unsupported-api-premise",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": false,
+        "reference_answer": "Abstain from configuring stratify_ratio: the train_test_split documentation does not document a stratify_ratio parameter.",
+        "required_claims": [
+          "Abstain from explaining or configuring stratify_ratio.",
+          "Explain that the train_test_split documentation does not document a stratify_ratio parameter."
+        ],
+        "forbidden_claims": [
+          "Inventing a default value or configuration for stratify_ratio."
+        ],
+        "evidence": [
+          {
+            "source_id": "S1",
+            "section": "Parameters",
+            "anchor": "sklearn.model_selection.train_test_split"
+          }
+        ],
+        "absence_reason": "The frozen train_test_split documentation exposes a stratify parameter, but no stratify_ratio parameter exists.",
+        "review_status": "approved",
+        "reviewer_notes": "Fictitious parameter premise test on S1."
+      },
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B29.json",
+      "trace_sha256": "29bd35f94acb029e88ccd5f3ec7916f2d2f30e91198e6db757e7e4736505ca14",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"According to the scikit-learn 1.7.2 train_test_split documentation, how do I configure its stratify_ratio parameter?\", \"passages\": [{\"chunk_id\": \"sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d\", \"text\": \"train_test_split > Parameters > stratify\\n\\nstratify: array-like, default=None\\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide .\"}, {\"chunk_id\": \"sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47\", \"text\": \"train_test_split > Examples\\n\\n>>> import numpy as np\\n>>> from sklearn.model_selection import train_test_split\\n>>> X, y = np.arange(10).reshape((5, 2)), range(5)\\n>>> X\\narray([[0, 1],\\n       [2, 3],\\n       [4, 5],\\n       [6, 7],\\n       [8, 9]])\\n>>> list(y)\\n[0, 1, 2, 3, 4]\\n\\n>>> X_train, X_test, y_train, y_test = train_test_split(\\n...     X, y, test_size=0.33, random_state=42)\\n...\\n>>> X_train\\narray([[4, 5],\\n       [0, 1],\\n       [6, 7]])\\n>>> y_train\\n[2, 0, 3]\\n>>> X_test\\narray([[2, 3],\\n       [8, 9]])\\n>>> y_test\\n[1, 4]\\n\\n>>> train_test_split(y, shuffle=False)\\n[[0, 1, 2], [3, 4]]\\n\\n>>> from sklearn import datasets\\n>>> iris = datasets.load_iris(as_frame=True)\\n>>> X, y = iris['data'], iris['target']\\n>>> X.head()\\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\\n0                5.1               3.5                1.4               0.2\\n1                4.9               3.0                1.4               0.2\\n2                4.7               3.2                1.3               0.2\\n3                4.6               3.1                1.5               0.2\\n4                5.0               3.6                1.4               0.2\\n>>> y.head()\\n0    0\\n1    0\\n2    0\\n3    0\\n4    0\\n...\\n\\n>>> X_train, X_test, y_train, y_test = train_test_split(\\n... X, y, test_size=0.33, random_state=42)\\n...\\n>>> X_train.head()\\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\\n96                 5.7               2.9                4.2               1.3\\n105                7.6               3.0                6.6               2.1\\n66                 5.6               3.0                4.5               1.5\\n0                  5.1               3.5                1.4               0.2\\n122                7.7               2.8                6.7               2.0\\n>>> y_train.head()\\n96     1\\n105    2\\n66     1\\n0      0\\n122    2\\n...\\n>>> X_test.head()\\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\\n73                 6.1               2.8                4.7               1.2\\n18                 5.7               3.8                1.7               0.3\\n118                7.7               2.6                6.9               2.3\\n78                 6.0               2.9                4.5               1.5\\n76                 6.8               2.8                4.8               1.4\\n>>> y_test.head()\\n73     1\\n18     0\\n118    2\\n78     1\\n76     1\\n...\"}, {\"chunk_id\": \"sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29\", \"text\": \"11. Common pitfalls and recommended practices\\n\\nThe purpose of this chapter is to illustrate some common pitfalls and anti-patterns that occur when using scikit-learn. It provides examples of what not to do, along with a corresponding correct example.\"}]}",
+      "question": "According to the scikit-learn 1.7.2 train_test_split documentation, how do I configure its stratify_ratio parameter?",
+      "passages": [
+        {
+          "chunk_id": "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+          "text": "train_test_split > Parameters > stratify\n\nstratify: array-like, default=None\nIf not None, data is split in a stratified fashion, using this as the class labels. Read more in the User Guide ."
+        },
+        {
+          "chunk_id": "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+          "text": "train_test_split > Examples\n\n>>> import numpy as np\n>>> from sklearn.model_selection import train_test_split\n>>> X, y = np.arange(10).reshape((5, 2)), range(5)\n>>> X\narray([[0, 1],\n       [2, 3],\n       [4, 5],\n       [6, 7],\n       [8, 9]])\n>>> list(y)\n[0, 1, 2, 3, 4]\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n...     X, y, test_size=0.33, random_state=42)\n...\n>>> X_train\narray([[4, 5],\n       [0, 1],\n       [6, 7]])\n>>> y_train\n[2, 0, 3]\n>>> X_test\narray([[2, 3],\n       [8, 9]])\n>>> y_test\n[1, 4]\n\n>>> train_test_split(y, shuffle=False)\n[[0, 1, 2], [3, 4]]\n\n>>> from sklearn import datasets\n>>> iris = datasets.load_iris(as_frame=True)\n>>> X, y = iris['data'], iris['target']\n>>> X.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n0                5.1               3.5                1.4               0.2\n1                4.9               3.0                1.4               0.2\n2                4.7               3.2                1.3               0.2\n3                4.6               3.1                1.5               0.2\n4                5.0               3.6                1.4               0.2\n>>> y.head()\n0    0\n1    0\n2    0\n3    0\n4    0\n...\n\n>>> X_train, X_test, y_train, y_test = train_test_split(\n... X, y, test_size=0.33, random_state=42)\n...\n>>> X_train.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n96                 5.7               2.9                4.2               1.3\n105                7.6               3.0                6.6               2.1\n66                 5.6               3.0                4.5               1.5\n0                  5.1               3.5                1.4               0.2\n122                7.7               2.8                6.7               2.0\n>>> y_train.head()\n96     1\n105    2\n66     1\n0      0\n122    2\n...\n>>> X_test.head()\n    sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)\n73                 6.1               2.8                4.7               1.2\n18                 5.7               3.8                1.7               0.3\n118                7.7               2.6                6.9               2.3\n78                 6.0               2.9                4.5               1.5\n76                 6.8               2.8                4.8               1.4\n>>> y_test.head()\n73     1\n18     0\n118    2\n78     1\n76     1\n..."
+        },
+        {
+          "chunk_id": "sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29",
+          "text": "11. Common pitfalls and recommended practices\n\nThe purpose of this chapter is to illustrate some common pitfalls and anti-patterns that occur when using scikit-learn. It provides examples of what not to do, along with a corresponding correct example."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:ec50a078afee2942f21f3926db7361f2c99a08efa28b1da84154fb64d64f782d",
+                    "sha256:9d4965d0250566be58d44795692bd6c2775702d43b7e49c60b6445acc8090f47",
+                    "sha256:ed7461951f104544ac7fa5a5efc1fdd70e452c0357311cb9bde95f9e6dc50b29"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    },
+    {
+      "case_id": "B30",
+      "family_id": "unanswerable-metrics",
+      "benchmark_path": "benchmarks/extension-v2.json",
+      "benchmark_sha256": "3475ccdbb5626fe922ca75461428dd774ead186d4582af9d94c7d037ed2d935b",
+      "benchmark_case": {
+        "id": "B30",
+        "question": "According to the scikit-learn 1.7.2 Pipeline documentation, how many seconds will a 5-step Pipeline take to fit on 100,000 samples?",
+        "category": "unanswerable",
+        "family_id": "unanswerable-metrics",
+        "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+        "answerable": false,
+        "reference_answer": "Abstain from providing a numerical runtime: execution time depends on the specific estimators, data dimensions, and hardware, and is not specified in the documentation.",
+        "required_claims": [
+          "Abstain from predicting an execution time in seconds.",
+          "Explain that runtime depends on specific estimators and hardware and is not stated in the documentation."
+        ],
+        "forbidden_claims": [
+          "Stating a specific runtime or benchmark number in seconds."
+        ],
+        "evidence": [
+          {
+            "source_id": "S2",
+            "section": "Pipeline class description",
+            "anchor": "sklearn.pipeline.Pipeline"
+          }
+        ],
+        "absence_reason": "Execution runtime in seconds for an arbitrary 5-step pipeline is private/hardware-dependent and not documented in S2.",
+        "review_status": "approved",
+        "reviewer_notes": "Unanswerable private execution runtime query."
+      },
+      "trace_path": "runs/generation/paired/20261107T164628568864Z/k3/B30.json",
+      "trace_sha256": "dfc4b37d125b22edfeb5d23d71d0fafa31bcd46bbcd9d142771355e0c266e769",
+      "chunks_sha256": "33850c53b27c80d9d4423cef635ddf5370bb731f549944c8c76582d6e1ea64ea",
+      "corpus_id": "sha256:6efad2a76f4111c3ec41db6ece8292fef80c0cef7427f84fcab822506d0913fc",
+      "user_content": "{\"question\": \"According to the scikit-learn 1.7.2 Pipeline documentation, how many seconds will a 5-step Pipeline take to fit on 100,000 samples?\", \"passages\": [{\"chunk_id\": \"sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d\", \"text\": \"11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\\n\\nNote\\n\\nWe here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .\\n\\nA number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model.\\n\\nTo demonstrate we will create this binary classification problem with 10,000 randomly generated features:\\n\\n>>> import numpy as np\\n>>> n_samples, n_features, n_classes = 200, 10000, 2\\n>>> rng = np.random.RandomState(42)\\n>>> X = rng.standard_normal((n_samples, n_features))\\n>>> y = rng.choice(n_classes, n_samples)\\n\\nWrong\\n\\nUsing all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step \\u2018sees\\u2019 the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:\"}, {\"chunk_id\": \"sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6\", \"text\": \"Pipeline > Parameters > steps\\n\\nsteps: list of tuples\\nList of (name of step, estimator) tuples that are to be chained in sequential order. To be compatible with the scikit-learn API, all steps must define fit . All non-last steps must also define transform . See Combining Estimators for more details.\"}, {\"chunk_id\": \"sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1\", \"text\": \"11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.1. How to avoid data leakage\\n\\nBelow are some tips on avoiding data leakage:\\n\\nAlways split the data into train and test subsets first, particularly before any preprocessing steps.\\n\\nNever include test data when using the fit and fit_transform methods. Using all the data, e.g., fit(X) , can result in overly optimistic scores.\\n\\nConversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data. This can be achieved by using fit_transform on the train subset and transform on the test subset.\\n\\nThe scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.\\n\\nAn example of data leakage during preprocessing is detailed below.\"}]}",
+      "question": "According to the scikit-learn 1.7.2 Pipeline documentation, how many seconds will a 5-step Pipeline take to fit on 100,000 samples?",
+      "passages": [
+        {
+          "chunk_id": "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.2. Data leakage during pre-processing\n\nNote\n\nWe here choose to illustrate data leakage with a feature selection step. This risk of leakage is however relevant with almost all transformations in scikit-learn, including (but not limited to) StandardScaler , SimpleImputer , and PCA .\n\nA number of Feature selection functions are available in scikit-learn. They can help remove irrelevant, redundant and noisy features as well as improve your model build time and performance. As with any other type of preprocessing, feature selection should only use the training data. Including the test data in feature selection will optimistically bias your model.\n\nTo demonstrate we will create this binary classification problem with 10,000 randomly generated features:\n\n>>> import numpy as np\n>>> n_samples, n_features, n_classes = 200, 10000, 2\n>>> rng = np.random.RandomState(42)\n>>> X = rng.standard_normal((n_samples, n_features))\n>>> y = rng.choice(n_classes, n_samples)\n\nWrong\n\nUsing all the data to perform feature selection results in an accuracy score much higher than chance, even though our targets are completely random. This randomness means that our X and y are independent and we thus expect the accuracy to be around 0.5. However, since the feature selection step ‘sees’ the test data, the model has an unfair advantage. In the incorrect example below we first use all the data for feature selection and then split the data into training and test subsets for model fitting. The result is a much higher than expected accuracy score:"
+        },
+        {
+          "chunk_id": "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+          "text": "Pipeline > Parameters > steps\n\nsteps: list of tuples\nList of (name of step, estimator) tuples that are to be chained in sequential order. To be compatible with the scikit-learn API, all steps must define fit . All non-last steps must also define transform . See Combining Estimators for more details."
+        },
+        {
+          "chunk_id": "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1",
+          "text": "11. Common pitfalls and recommended practices > 11.2. Data leakage > 11.2.1. How to avoid data leakage\n\nBelow are some tips on avoiding data leakage:\n\nAlways split the data into train and test subsets first, particularly before any preprocessing steps.\n\nNever include test data when using the fit and fit_transform methods. Using all the data, e.g., fit(X) , can result in overly optimistic scores.\n\nConversely, the transform method should be used on both train and test subsets as the same preprocessing should be applied to all the data. This can be achieved by using fit_transform on the train subset and transform on the test subset.\n\nThe scikit-learn pipeline is a great way to prevent data leakage as it ensures that the appropriate method is performed on the correct data subset. The pipeline is ideal for use in cross-validation and hyper-parameter tuning functions.\n\nAn example of data leakage during preprocessing is detailed below."
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "chunk_id": {
+                  "type": "string",
+                  "enum": [
+                    "sha256:99b4bb5a6f66026a6a361195a2276c32128374cd31aa3c505eb79777d854b84d",
+                    "sha256:9bf1aed2d25eefbe6ca112c86700523c820dbba796608dd01af3c7ebd6a10ad6",
+                    "sha256:d50d860b8214ba2f6834452a491bd6e17d41310f783c45228dd22f41656af3d1"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "chunk_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "answer",
+              "abstain"
+            ]
+          },
+          "answer": {
+            "type": "string"
+          },
+          "abstention_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence",
+          "decision",
+          "answer",
+          "abstention_reason"
+        ],
+        "additionalProperties": false
+      },
+      "historical_system_sha256": "f14cd38c0b2babb3e759d039afb401c34b2d2162677d5e4d20e773f48f9dc684",
+      "provenance_status": {
+        "question": "matched",
+        "corpus": "matched",
+        "passages_match_current_chunks": "matched",
+        "top3_prefix": "matched",
+        "prompt": "matched",
+        "schema": "matched",
+        "settings": "matched",
+        "historical_retrieval_metadata": "unknown",
+        "historical_benchmark_hash": "unknown",
+        "historical_model_digest": "unknown"
+      }
+    }
+  ],
+  "run_id": "20261126T135939902519Z"
+}

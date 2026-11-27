@@ -1,0 +1,77 @@
+{
+  "case_id": "B17",
+  "arm": "v2",
+  "prompt_version": "evidence-first-v2",
+  "system_prompt_sha256": "de5b38d7c7144a30e716a09128fe1f24a6c1024d14d6e218c9de924568b8d470",
+  "request_sha256": "3836549c081b5f3f55e6d9da50eb98753490da28197663dc80960cfcd570a3c6",
+  "sent_at": "2026-11-26T14:07:12.507400+00:00",
+  "model": "qwen3:4b",
+  "model_digest_at_start": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "settings": {
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "temperature": 0
+  },
+  "status": "ok",
+  "transport_error": null,
+  "invalid_model_output": null,
+  "audit_errors": [],
+  "quote_checks": [
+    {
+      "chunk_id": "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+      "quote": "sequence of indexables with same length / shape[0]",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 8,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    },
+    {
+      "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+      "quote": "Split arrays or matrices into random train and test subsets.",
+      "in_supplied_passages": true,
+      "nonempty": true,
+      "word_count": 10,
+      "exact_match": true,
+      "normalized_match": true,
+      "violates_under_30_words": false
+    }
+  ],
+  "decision": "answer",
+  "answer": "No",
+  "abstention_reason": "",
+  "input_tokens": 927,
+  "output_tokens": 203,
+  "elapsed_seconds": 37.895,
+  "received_at": "2026-11-26T14:07:50.402348+00:00",
+  "response_sha256": "e62962d96aa383971815501beb6fca6ef7167021419d1a089eed01e2f1b18366",
+  "done_reason": "stop",
+  "ollama_response_fields": {
+    "model": "qwen3:4b",
+    "created_at": "2026-11-26T14:07:50.3989129Z",
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 37879042400,
+    "load_duration": 13723100,
+    "prompt_eval_count": 927,
+    "prompt_eval_duration": 12267534000,
+    "eval_count": 203,
+    "eval_duration": 25497791000
+  },
+  "reply": {
+    "evidence": [
+      {
+        "chunk_id": "sha256:f87adc98b4ce34713483ddb8ed123db9d6dcbd6999a345cfcc3ff500f2e95561",
+        "quote": "sequence of indexables with same length / shape[0]"
+      },
+      {
+        "chunk_id": "sha256:b4f00f7c8be620eb010245d7bd1567563f3f6b86ef6dda1ba94f59a1500ee7dc",
+        "quote": "Split arrays or matrices into random train and test subsets."
+      }
+    ],
+    "decision": "answer",
+    "answer": "No",
+    "abstention_reason": ""
+  }
+}
